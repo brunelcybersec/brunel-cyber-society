@@ -89,10 +89,32 @@ function classify(title) {
 
 /* ---- fetch, parse, build ---- */
 
-console.log(`Fetching ${FEED} ...`);
-const res = await fetch(FEED, { headers: { 'user-agent': 'sync-cybertutor (brunel-cybersec)' } });
-if (!res.ok) { console.error(`Feed request failed: HTTP ${res.status}`); process.exit(1); }
-const xml = await res.text();
+// Substack sits behind Cloudflare, which blocks/challenges requests that look
+// like bots (custom user-agents, missing browser headers) — this is why the
+// GitHub Actions runner was failing on every scheduled run even though the
+// script worked fine locally. Look like a real browser and retry once.
+const FEED_HEADERS = {
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+  'accept': 'application/rss+xml, application/xml;q=0.9, */*;q=0.8',
+  'accept-language': 'en-US,en;q=0.9',
+};
+
+async function fetchFeed(attempt = 1) {
+  console.log(`Fetching ${FEED} ...`);
+  const res = await fetch(FEED, { headers: FEED_HEADERS });
+  if (!res.ok) {
+    if (attempt < 3) {
+      console.warn(`Feed request failed: HTTP ${res.status} (attempt ${attempt}/3) — retrying...`);
+      await new Promise((r) => setTimeout(r, 2000 * attempt));
+      return fetchFeed(attempt + 1);
+    }
+    console.error(`Feed request failed: HTTP ${res.status}`);
+    process.exit(1);
+  }
+  return res.text();
+}
+
+const xml = await fetchFeed();
 
 const items = [...xml.matchAll(/<item>([\s\S]*?)<\/item>/g)].map((m) => m[1]);
 if (!items.length) { console.error('No <item> entries found in the feed.'); process.exit(1); }

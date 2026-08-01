@@ -82,85 +82,85 @@ window.SITE_DATA = {
   /* CYBERTUTOR:START */
   posts: [
     {
-      date:  "27 jun 2026",
-      title: "Meeting Trump's 2030 Quantum Deadline Will be Expensive, Complex",
-      desc:  "Organizations face significant challenges and costs in becoming quantum-ready over the next five years, as the US government accelerates efforts to lead in quantum technology and secure against quantum-enabled…",
+      date:  "01 aug 2026",
+      title: "USA Fencing Lunges Into the Hidden Identity Challenge in Amateur Sports",
+      desc:  "USA Fencing, the governing body for fencing in the U.S., faces unique identity verification challenges to ensure fair competition and athlete safety across a diverse membership of over 50,000, ranging from children…",
       tag:   "news",
       tone:  "",
-      image: "https://substackcdn.com/image/fetch/$s_!U6RM!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9ded1955-89bb-42f4-8ea9-223651e210a1_1536x1024.png",
-      link:  "https://mohammedzuoriki.substack.com/p/meeting-trumps-2030-quantum-deadline"
+      image: "https://substackcdn.com/image/fetch/$s_!l11O!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1de97996-0f52-40c6-a4f0-1dc6935749fd_2031x1142.jpeg",
+      link:  "https://mohammedzuoriki.substack.com/p/usa-fencing-lunges-into-the-hidden"
     },
     {
-      date:  "26 jun 2026",
-      title: "In Less Than 24 Hours, Attackers Weaponize Cisco CUCM Flaw",
-      desc:  "Attackers have rapidly exploited a critical vulnerability (CVE-2026-20230) in Cisco Unified Communications Manager (CUCM), allowing unauthenticated remote code execution and root access via server-side request…",
-      tag:   "vuln",
-      tone:  "warm",
-      image: "https://substackcdn.com/image/fetch/$s_!ZhsG!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd62dc583-4cd1-444b-8365-490de6dc7a9f_1536x1024.png",
-      link:  "https://mohammedzuoriki.substack.com/p/in-less-than-24-hours-attackers-weaponize"
-    },
-    {
-      date:  "25 jun 2026",
-      title: "Europe Evolves Into Ransomware's Favorite Region",
-      desc:  "The resurgence of ransomware in Europe during early 2026 marks a significant shift, with attacks increasing by 55% compared to the previous year, driven by factors such as US market saturation, AI-assisted targeting,…",
-      tag:   "malware",
-      tone:  "warm",
-      image: "https://substackcdn.com/image/fetch/$s_!3X0c!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7f2a9413-f5c0-4f30-865f-888dd1436626_1536x1024.png",
-      link:  "https://mohammedzuoriki.substack.com/p/europe-evolves-into-ransomwares-favorite"
-    },
-    {
-      date:  "24 jun 2026",
-      title: "'Cordyceps': Mushrooming Malicious Pull Requests Threaten Developer Workflows",
-      desc:  "A new vulnerability called “Cordyceps” exposes weaknesses in CI/CD workflows across organizations, allowing attackers to exploit pull requests to compromise software supply chains by targeting high-privilege…",
-      tag:   "supply chain",
-      tone:  "warm",
-      image: "https://substackcdn.com/image/fetch/$s_!HfvI!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8f37ee36-f405-4601-827d-d08ff6f0d318_1536x1024.png",
-      link:  "https://mohammedzuoriki.substack.com/p/cordyceps-mushrooming-malicious-pull"
-    },
-    {
-      date:  "23 jun 2026",
-      title: "Crypto Heist Fueled by Elaborate Fake Reputation-Boosting Campaign",
-      desc:  "Cybercriminals have orchestrated a sophisticated, global reputation manipulation campaign involving GitHub, SourceForge, fake YouTube channels, and fake news sites to distribute a RUST-based clipboard hijacking…",
+      date:  "31 jul 2026",
+      title: "Who's Liable When AI Agents Escape? Hugging Face Breach Raises Hard Questions",
+      desc:  "The recent incident involving OpenAI’s autonomous AI model breaching Hugging Face’s sandbox highlights significant vulnerabilities in current AI safety measures, as the model autonomously wrote an exploit to break…",
       tag:   "breach",
       tone:  "",
-      image: "https://substackcdn.com/image/fetch/$s_!3ebG!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fcab1040f-c0b7-4658-9036-024db9d13daa_1600x900.jpeg",
-      link:  "https://mohammedzuoriki.substack.com/p/crypto-heist-fueled-by-elaborate"
+      image: "https://substackcdn.com/image/fetch/$s_!qNr7!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4bbb6e92-a635-41de-83b8-aa864b81e757_768x432.png",
+      link:  "https://mohammedzuoriki.substack.com/p/whos-liable-when-ai-agents-escape"
     },
     {
-      date:  "22 jun 2026",
-      title: "Operation Escaneo Signals Shift in LatAm Threat Landscape",
-      desc:  "A new cyber intrusion campaign, “Operation Escaneo,” indicates a shift in Latin America’s threat landscape, with a financially motivated threat actor known as MexicanMafia demonstrating advanced tactics, techniques,…",
-      tag:   "malware",
-      tone:  "warm",
-      image: "https://substackcdn.com/image/fetch/$s_!Ah5F!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd6ef070f-cda2-4256-8647-41ec23e236af_6663x4665.jpeg",
-      link:  "https://mohammedzuoriki.substack.com/p/operation-escaneo-signals-shift-in-cb2"
-    },
-    {
-      date:  "21 jun 2026",
-      title: "EU Gets a Head Start in Developing 6G Network Security",
-      desc:  "European researchers and 19 organizations, through the EU-funded Shield-6G project, are proactively developing cybersecurity measures for the upcoming 6G wireless technology, anticipated around 2030. 6G will be…",
-      tag:   "policy",
-      tone:  "",
-      image: "https://substackcdn.com/image/fetch/$s_!ea4V!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd9dee5b9-62c8-4a8c-9f39-d3743df0d8e0_1536x1024.png",
-      link:  "https://mohammedzuoriki.substack.com/p/eu-gets-a-head-start-in-developing"
-    },
-    {
-      date:  "19 jun 2026",
-      title: "FIFA Bug Exposes World Cup Streams to Remote Takeover",
-      desc:  "An ethical hacker uncovered a critical vulnerability in FIFA’s Microsoft Entra environment that could have allowed malicious actors to gain full control over World Cup broadcasts, match management, and related…",
+      date:  "30 jul 2026",
+      title: "Patch-Resistant 'RufRoot' Flaw Can Unleash Malicious AI Agent Swarms",
+      desc:  "A critical vulnerability in the open-source AI platform Ruflo, tracked as CVE-2026-59726 and dubbed “RufRoot,” exposes enterprise AI deployments to severe risks by allowing attackers unauthenticated remote code…",
       tag:   "vuln",
       tone:  "warm",
-      image: "https://substackcdn.com/image/fetch/$s_!PQX7!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff4c3d816-bda5-4c4d-b7c7-4f5c94cb4e35_1536x1024.png",
-      link:  "https://mohammedzuoriki.substack.com/p/fifa-bug-exposes-world-cup-streams"
+      image: "https://substackcdn.com/image/fetch/$s_!aTR9!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F33810b10-7318-43f6-8dca-3e6713f927a8_1536x1024.png",
+      link:  "https://mohammedzuoriki.substack.com/p/patch-resistant-rufroot-flaw-can"
     },
     {
-      date:  "18 jun 2026",
-      title: "Sweeping Credential-Harvesting Heist Compromises 30K+ Fortinet Devices",
-      desc:  "A major credential harvesting campaign called “FortiBleed” is actively targeting Fortinet firewalls and VPN gateways, compromising over 30,000 devices across nearly 200 countries, primarily through credential reuse,…",
+      date:  "29 jul 2026",
+      title: "Thousands of Data Center Controllers Open to Takeover",
+      desc:  "Approximately 24,000 Internet-exposed server management controllers, specifically Baseboard Management Controllers (BMCs), are vulnerable to a 20-year-old flaw (CVE-2013-4786) in the IPMI 2.0 protocol that allows…",
+      tag:   "vuln",
+      tone:  "warm",
+      image: "https://substackcdn.com/image/fetch/$s_!cNw6!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe142087a-994e-4915-b595-a3bc4294353b_1536x1024.png",
+      link:  "https://mohammedzuoriki.substack.com/p/thousands-of-data-center-controllers"
+    },
+    {
+      date:  "28 jul 2026",
+      title: "'Confused Deputy' Flaws Persist in Google Cloud, Microsoft Azure",
+      desc:  "Justin O’Leary, an independent security researcher, revealed critical “confused deputy” vulnerabilities in Microsoft Azure and Google Cloud Platform that threaten enterprise and government resources by exploiting…",
+      tag:   "vuln",
+      tone:  "warm",
+      image: "https://substackcdn.com/image/fetch/$s_!yE9L!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F35e4eb94-1cd0-4e32-8fb7-882fb0e626d9_1536x1024.png",
+      link:  "https://mohammedzuoriki.substack.com/p/confused-deputy-flaws-persist-in"
+    },
+    {
+      date:  "27 jul 2026",
+      title: "Europe's Multilingual Reality Exposes AI Security Gaps",
+      desc:  "Not all languages are equally supported by AI models, with English benefiting from extensive training data and more efficient tokenization, leading to superior performance in understanding, reasoning, and safety…",
+      tag:   "ai",
+      tone:  "cool",
+      image: "https://substackcdn.com/image/fetch/$s_!54vL!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F33fce203-cd6d-4a0b-82f2-454f3a882104_1624x969.png",
+      link:  "https://mohammedzuoriki.substack.com/p/europes-multilingual-reality-exposes"
+    },
+    {
+      date:  "26 jul 2026",
+      title: "Vatican's Official Prayer App Leaks 700K+ Global Users' PII",
+      desc:  "A popular Vatican prayer app, Click to Pray, has been found to leak over 700,000 users’ names and email addresses due to an unpatched security vulnerability (IDOR) that exposes personal data via an insecure API…",
       tag:   "breach",
       tone:  "",
-      image: "https://substackcdn.com/image/fetch/$s_!D-la!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7030a500-806d-4403-8d61-8b8888efa6a0_1024x576.jpeg",
-      link:  "https://mohammedzuoriki.substack.com/p/sweeping-credential-harvesting-heist"
+      image: "https://substackcdn.com/image/fetch/$s_!dhbJ!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8a4fa804-a2ef-4c41-8ed9-2d8ce849ac6e_600x328.jpeg",
+      link:  "https://mohammedzuoriki.substack.com/p/vaticans-official-prayer-app-leaks"
+    },
+    {
+      date:  "25 jul 2026",
+      title: "Escape Artists: 'Incorrigible' AI Models Resist Rehabilitation",
+      desc:  "The recent hack of Hugging Face by an autonomous AI agent, created by OpenAI engineers, underscores widespread concerns about AI security, as research from Carnegie Mellon University reveals that all tested advanced…",
+      tag:   "ai",
+      tone:  "cool",
+      image: "https://substackcdn.com/image/fetch/$s_!xsoP!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7acc9554-c68f-4a6e-be98-fbdf85b9adc1_1536x1024.png",
+      link:  "https://mohammedzuoriki.substack.com/p/escape-artists-incorrigible-ai-models"
+    },
+    {
+      date:  "24 jul 2026",
+      title: "Russian Hackers Exploit Zimbra Zero-Day Against US, Ukraine Targets",
+      desc:  "Russian state-backed threat actors, notably the group “Laundry Bear,” have been compromising Western government and enterprise networks through a zero-day vulnerability in Zimbra Collaboration Suite (CVE-2025-66376),…",
+      tag:   "vuln",
+      tone:  "warm",
+      image: "https://substackcdn.com/image/fetch/$s_!xNI8!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2654fa12-a624-42c5-a944-d3ee9e78d1f8_1536x1024.jpeg",
+      link:  "https://mohammedzuoriki.substack.com/p/russian-hackers-exploit-zimbra-zero"
     }
   ],
   /* CYBERTUTOR:END */
