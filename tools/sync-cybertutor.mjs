@@ -89,32 +89,48 @@ function classify(title) {
 
 /* ---- fetch, parse, build ---- */
 
-// Substack sits behind Cloudflare, which blocks/challenges requests that look
-// like bots (custom user-agents, missing browser headers) — this is why the
-// GitHub Actions runner was failing on every scheduled run even though the
-// script worked fine locally. Look like a real browser and retry once.
+// Substack sits behind Cloudflare, which blanket-blocks/challenges traffic
+// from GitHub Actions' hosted-runner IP ranges regardless of headers sent —
+// this is why the workflow kept failing even after spoofing browser headers,
+// while the script always worked fine locally. Try the feed directly first
+// (fast path, works everywhere Cloudflare hasn't flagged the source IP),
+// then fall back to a public read-through proxy whose IP isn't blocklisted.
 const FEED_HEADERS = {
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
   'accept': 'application/rss+xml, application/xml;q=0.9, */*;q=0.8',
   'accept-language': 'en-US,en;q=0.9',
 };
+const PROXY_FEED = `https://api.allorigins.win/raw?url=${encodeURIComponent(FEED)}`;
 
-async function fetchFeed(attempt = 1) {
-  console.log(`Fetching ${FEED} ...`);
-  const res = await fetch(FEED, { headers: FEED_HEADERS });
+async function fetchFeed(url, attempt = 1, maxAttempts = 3) {
+  console.log(`Fetching ${url} (attempt ${attempt}/${maxAttempts}) ...`);
+  const res = await fetch(url, { headers: FEED_HEADERS });
   if (!res.ok) {
-    if (attempt < 3) {
-      console.warn(`Feed request failed: HTTP ${res.status} (attempt ${attempt}/3) — retrying...`);
+    if (attempt < maxAttempts) {
+      console.warn(`Feed request failed: HTTP ${res.status} — retrying...`);
       await new Promise((r) => setTimeout(r, 2000 * attempt));
-      return fetchFeed(attempt + 1);
+      return fetchFeed(url, attempt + 1, maxAttempts);
     }
-    console.error(`Feed request failed: HTTP ${res.status}`);
-    process.exit(1);
+    throw new Error(`HTTP ${res.status}`);
   }
   return res.text();
 }
 
-const xml = await fetchFeed();
+async function fetchFeedWithFallback() {
+  try {
+    return await fetchFeed(FEED);
+  } catch (err) {
+    console.warn(`Direct feed fetch failed (${err.message}) — falling back to proxy...`);
+    try {
+      return await fetchFeed(PROXY_FEED, 1, 2);
+    } catch (err2) {
+      console.error(`Proxy feed fetch also failed: ${err2.message}`);
+      process.exit(1);
+    }
+  }
+}
+
+const xml = await fetchFeedWithFallback();
 
 const items = [...xml.matchAll(/<item>([\s\S]*?)<\/item>/g)].map((m) => m[1]);
 if (!items.length) { console.error('No <item> entries found in the feed.'); process.exit(1); }
