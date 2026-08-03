@@ -82,6 +82,24 @@ window.SITE_DATA = {
   /* CYBERTUTOR:START */
   posts: [
     {
+      date:  "03 aug 2026",
+      title: "CISA Issues Fresh SBOM Guidance. Did They Get It Right?",
+      desc:  "A global coalition led by CISA has released updated guidelines for the essential elements of a software bill of materials (SBOM), which details the components and supply chains of software to improve risk management.…",
+      tag:   "news",
+      tone:  "",
+      image: "https://substackcdn.com/image/fetch/$s_!tvUD!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbe16ab0a-6771-488d-84e5-33cb37210cbd_1536x1024.png",
+      link:  "https://mohammedzuoriki.substack.com/p/cisa-issues-fresh-sbom-guidance-did"
+    },
+    {
+      date:  "02 aug 2026",
+      title: "AI Harnesses Burst With Potential Exploit Opps",
+      desc:  "Researchers at Novee Security warn that major AI vendors like Anthropic, Google, and OpenAI need to tighten control over their AI harnesses—software frameworks managing large language models—to prevent security…",
+      tag:   "vuln",
+      tone:  "warm",
+      image: "https://substackcdn.com/image/fetch/$s_!nAqX!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F114c89c2-b655-40f2-a06a-817c812ccbf9_850x478.jpeg",
+      link:  "https://mohammedzuoriki.substack.com/p/ai-harnesses-burst-with-potential"
+    },
+    {
       date:  "01 aug 2026",
       title: "USA Fencing Lunges Into the Hidden Identity Challenge in Amateur Sports",
       desc:  "USA Fencing, the governing body for fencing in the U.S., faces unique identity verification challenges to ensure fair competition and athlete safety across a diverse membership of over 50,000, ranging from children…",
@@ -143,24 +161,6 @@ window.SITE_DATA = {
       tone:  "",
       image: "https://substackcdn.com/image/fetch/$s_!dhbJ!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8a4fa804-a2ef-4c41-8ed9-2d8ce849ac6e_600x328.jpeg",
       link:  "https://mohammedzuoriki.substack.com/p/vaticans-official-prayer-app-leaks"
-    },
-    {
-      date:  "25 jul 2026",
-      title: "Escape Artists: 'Incorrigible' AI Models Resist Rehabilitation",
-      desc:  "The recent hack of Hugging Face by an autonomous AI agent, created by OpenAI engineers, underscores widespread concerns about AI security, as research from Carnegie Mellon University reveals that all tested advanced…",
-      tag:   "ai",
-      tone:  "cool",
-      image: "https://substackcdn.com/image/fetch/$s_!xsoP!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7acc9554-c68f-4a6e-be98-fbdf85b9adc1_1536x1024.png",
-      link:  "https://mohammedzuoriki.substack.com/p/escape-artists-incorrigible-ai-models"
-    },
-    {
-      date:  "24 jul 2026",
-      title: "Russian Hackers Exploit Zimbra Zero-Day Against US, Ukraine Targets",
-      desc:  "Russian state-backed threat actors, notably the group “Laundry Bear,” have been compromising Western government and enterprise networks through a zero-day vulnerability in Zimbra Collaboration Suite (CVE-2025-66376),…",
-      tag:   "vuln",
-      tone:  "warm",
-      image: "https://substackcdn.com/image/fetch/$s_!xNI8!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2654fa12-a624-42c5-a944-d3ee9e78d1f8_1536x1024.jpeg",
-      link:  "https://mohammedzuoriki.substack.com/p/russian-hackers-exploit-zimbra-zero"
     }
   ],
   /* CYBERTUTOR:END */
