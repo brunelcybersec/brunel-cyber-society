@@ -82,6 +82,15 @@ window.SITE_DATA = {
   /* CYBERTUTOR:START */
   posts: [
     {
+      date:  "04 aug 2026",
+      title: "AI Notetaker Lets Hackers Spy on Government, Corporate Video Calls",
+      desc:  "A security vulnerability in the AI-powered meeting assistant Tl;dv, used by over two million users worldwide including government agencies and corporations, has exposed sensitive conference call data. A hacker…",
+      tag:   "malware",
+      tone:  "warm",
+      image: "https://substackcdn.com/image/fetch/$s_!eHG7!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fcd0612ad-75a3-408b-b1df-d079650613bb_1536x1024.png",
+      link:  "https://mohammedzuoriki.substack.com/p/ai-notetaker-lets-hackers-spy-on"
+    },
+    {
       date:  "03 aug 2026",
       title: "CISA Issues Fresh SBOM Guidance. Did They Get It Right?",
       desc:  "A global coalition led by CISA has released updated guidelines for the essential elements of a software bill of materials (SBOM), which details the components and supply chains of software to improve risk management.…",
@@ -152,15 +161,6 @@ window.SITE_DATA = {
       tone:  "cool",
       image: "https://substackcdn.com/image/fetch/$s_!54vL!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F33fce203-cd6d-4a0b-82f2-454f3a882104_1624x969.png",
       link:  "https://mohammedzuoriki.substack.com/p/europes-multilingual-reality-exposes"
-    },
-    {
-      date:  "26 jul 2026",
-      title: "Vatican's Official Prayer App Leaks 700K+ Global Users' PII",
-      desc:  "A popular Vatican prayer app, Click to Pray, has been found to leak over 700,000 users’ names and email addresses due to an unpatched security vulnerability (IDOR) that exposes personal data via an insecure API…",
-      tag:   "breach",
-      tone:  "",
-      image: "https://substackcdn.com/image/fetch/$s_!dhbJ!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8a4fa804-a2ef-4c41-8ed9-2d8ce849ac6e_600x328.jpeg",
-      link:  "https://mohammedzuoriki.substack.com/p/vaticans-official-prayer-app-leaks"
     }
   ],
   /* CYBERTUTOR:END */
