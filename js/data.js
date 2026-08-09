@@ -237,17 +237,13 @@ window.SITE_DATA = {
       duties: []
     },
     {
-      name: "",
+      name: "Kartik .",
       role: "web officer",
       initials: "WO",
-      photo: "",
+      photo: "assets/kartik.png",
       accent: "cool",
-      bio: "",
-      duties: [
-        "Coordinate digital promotion with the Societies' Administrator",
-        "Run the society's social media accounts",
-        "Present the society in a respectable manner"
-      ]
+      bio: "Kartik is a second-year BSc Computer Science (Artificial Intelligence) student at Brunel and a Vice Chancellor's Scholar. He contributes to Brunel Talent Marketplace's open-source software engineering programme and is particularly interested in the intersection of AI and cybersecurity, enjoying building and shipping his own projects in his spare time. Outside of code, he's a Student Ambassador and has a background in theatre and congo drumming.",
+      duties: []
     },
     {
       name: "Parmbir Singh Nandha",
