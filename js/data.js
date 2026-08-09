@@ -237,7 +237,7 @@ window.SITE_DATA = {
       duties: []
     },
     {
-      name: "Kartik .",
+      name: "Kartik",
       role: "web officer",
       initials: "WO",
       photo: "assets/kartik.png",
