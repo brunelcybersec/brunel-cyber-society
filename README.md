@@ -18,8 +18,9 @@ This website serves as the digital home for the society, providing information a
 - **Who we are** – Committee members and our mission
 - **What we do** – Workshops, CTF competitions, guest talks
 - **Resources** – Learning platforms and open-source tools
-- **Blog** – CTF writeups and society news (coming soon)
+- **Blog** – CTF writeups and society news, auto-synced from our [CyberTutor Substack](https://mohammedzuoriki.substack.com/)
 - **How to join** – Free membership for 2026/27
+- **Contact & credits** – Ways to reach the committee, and who built the site
 
 We run practical workshops covering everything from web exploitation to digital forensics, compete in national CTF events, and host speakers from industry to talk careers, certifications, and real-world security work.
 
@@ -29,10 +30,12 @@ We run practical workshops covering everything from web exploitation to digital 
 
 | Technology | Purpose |
 | :--- | :--- |
-| **HTML5** | Page structure |
-| **CSS3** | Styling, animations, responsive design |
-| **JavaScript** | Dynamic content, mobile menu, wave animation |
+| **HTML5** | Page structure – no framework, no build step |
+| **CSS3** | Styling, animations, responsive design (single stylesheet) |
+| **Vanilla JavaScript** | Dynamic content, mobile menu, wave animation, typing effect |
+| **Node.js** (GitHub Action only) | Scheduled script that syncs blog posts from Substack |
 | **GitHub Pages** | Free hosting and deployment |
+| **GitHub Actions** | Daily automated blog sync (`.github/workflows/update-blog.yml`) |
 
 **Design tokens:**
 - Black background (`#0B0B0D`)
@@ -42,28 +45,34 @@ We run practical workshops covering everything from web exploitation to digital 
 ---
 
 ## 📁 Project Structure
+
+```
 brunel-cyber-society/
-├── index.html # Homepage
-├── events.html # Events + CTF team
-├── blog.html # Blog (coming soon)
-├── resources.html # Learning resources
-├── committee.html # Committee members
-├── 404.html # Custom error page
-├── assets/
-│ └── favicon.svg
-├── images/
-│ └── logo.png
+├── index.html                    # Homepage
+├── events.html                   # Events + CTF team
+├── blog.html                     # Blog (CyberTutor writeups, auto-synced)
+├── resources.html                # Learning resources
+├── committee.html                # Committee members
+├── contact.html                  # Contact page
+├── credits.html                  # Site credits
+├── 404.html                      # Custom error page
+├── favicon.svg                   # Site favicon
+├── assets/                       # Images: logos, committee photos, OG image
 ├── css/
-│ ├── core.css # Variables, nav, buttons, footer
-│ ├── layout.css # Grids, cards, sections
-│ └── components.css # Hero, waves, CTF band
+│   └── styles.css                # All styling (variables, layout, components)
 ├── js/
-│ ├── data.js # ALL content (events, posts) – edit this!
-│ ├── render.js # Renders content from data.js
-│ ├── site.js # Mobile menu, scroll reveals
-│ ├── waves.js # Animated wave background
-│ └── typing.js # Terminal typing effect
+│   ├── data.js                   # ALL content (events, committee, blog posts) – edit this!
+│   ├── render.js                 # Renders content from data.js into the pages
+│   ├── site.js                   # Mobile menu, scroll reveals
+│   ├── waves.js                  # Animated wave background
+│   └── preloader.js              # Page preloader
+├── tools/
+│   └── sync-cybertutor.mjs       # Pulls latest posts from the CyberTutor Substack RSS feed
+├── .github/workflows/
+│   └── update-blog.yml           # Daily GitHub Action that runs the sync script
+├── HOW-TO-EDIT.md                # Non-technical guide for committee members
 └── README.md
+```
 
 ---
 
@@ -73,16 +82,16 @@ brunel-cyber-society/
 | :--- | :--- |
 | **Terminal-style hero** | Typing effect and command-line aesthetic |
 | **Animated wave background** | Canvas-based wireframe waves |
-| **Modular content management** | Events and blog posts stored in `data.js` – edit one file, updates everywhere |
+| **Modular content management** | Events, committee, and blog posts stored in `data.js` – edit one file, updates everywhere |
+| **Auto-synced blog** | GitHub Action pulls new CyberTutor Substack posts into the site daily, no manual copy-paste |
 | **Responsive design** | Works on mobile, tablet, and desktop |
-| **Committee page** | Real member names and student IDs |
-| **Coming soon placeholders** | Honest messaging for a new society |
+| **Committee page** | Real member names, photos, and roles |
 
 ---
 
 ## 🔄 Updating Content
 
-**To update events or blog posts:** Edit `js/data.js` – the homepage, events page, and blog page update automatically.
+**To update events or committee members:** Edit `js/data.js` – the homepage, events page, and committee page update automatically.
 
 ```javascript
 // Example: Adding a new event
@@ -96,3 +105,8 @@ events: [
     tone:  "cool"
   }
 ]
+```
+
+Not comfortable editing code directly? See [`HOW-TO-EDIT.md`](HOW-TO-EDIT.md) for a plain-English guide aimed at non-technical committee members.
+
+**Blog posts are automatic:** a [GitHub Action](.github/workflows/update-blog.yml) runs `tools/sync-cybertutor.mjs` every day at 07:00 UTC, pulls the latest posts from the [CyberTutor Substack feed](https://mohammedzuoriki.substack.com/feed), and commits any changes to `js/data.js` directly. You can also trigger it manually from the **Actions** tab, or run `node tools/sync-cybertutor.mjs` locally (requires Node 18+, no dependencies).
