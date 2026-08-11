@@ -176,12 +176,18 @@ appear in the footer of **every** page. To change one everywhere, you'll edit ea
 `.html` file (there are 8). Use your editor's "Find in all files" / "Replace in
 Files" feature and search for the old value:
 
-- **Discord invite:** search for `discord.com/invite/` and replace the link.
+- **Discord invite:** search for `discord.gg/anmggPyVcs` and replace the link.
 - **Instagram:** search for `instagram.com/cybersoc.brunel`.
 - **Email:** search for `cybersec@brunel.ac.uk` and replace with the real address.
-- **GitHub:** search for `github.com/brunel-cybersec`.
-- **YouTube:** the footer YouTube icon currently links to `#` (no channel yet) —
-  search for the `youtube` link and add the URL when you have one.
+- **GitHub (footer icon):** search for `github.com/brunelcybersec` (no hyphen).
+- **YouTube:** search for `youtube.com/@CyberTutor24` and replace with the real channel.
+
+> ⚠️ Note: `resources.html` also links to four project repos —
+> `ctf-writeups`, `brunel-ctf-platform`, `workshop-labs`, `brunel-site` —
+> under `github.com/brunel-cybersec/...` (with a hyphen). Those repos don't
+> exist yet under either spelling; the links are placeholders for projects
+> the society hasn't created yet. Once one exists, update its link to the
+> real org, `github.com/brunelcybersec` (no hyphen) — same as the footer.
 
 The main contact page layout (the big cards) is in `contact.html`.
 
