@@ -82,85 +82,85 @@ window.SITE_DATA = {
   /* CYBERTUTOR:START */
   posts: [
     {
-      date:  "04 aug 2026",
-      title: "AI Notetaker Lets Hackers Spy on Government, Corporate Video Calls",
-      desc:  "A security vulnerability in the AI-powered meeting assistant Tl;dv, used by over two million users worldwide including government agencies and corporations, has exposed sensitive conference call data. A hacker…",
+      date:  "28 aug 2026",
+      title: "The Vulnpocalypse Is Repricing the Bug Bounty Economy",
+      desc:  "The “vulnpocalypse” a surge in vulnerability reports driven by widespread use of large language models (LLMs) is reshaping the bug bounty economy, with independent researchers who depend on mid-tier payouts…",
+      tag:   "vuln",
+      tone:  "warm",
+      image: "https://substackcdn.com/image/fetch/$s_!motx!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0e7fb05c-dcac-40d1-9249-e8edd4a8aa8f_6160x3071.jpeg",
+      link:  "https://mohammedzuoriki.substack.com/p/the-vulnpocalypse-is-repricing-the"
+    },
+    {
+      date:  "27 aug 2026",
+      title: "Android Malware Hijacks Update System for Car Head Units",
+      desc:  "Researchers have discovered the first documented case of Android malware specifically targeting car head units, marking a new frontier for botnet campaigns. Kaspersky identified the malware, dubbed JarService, in the…",
       tag:   "malware",
       tone:  "warm",
-      image: "https://substackcdn.com/image/fetch/$s_!eHG7!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fcd0612ad-75a3-408b-b1df-d079650613bb_1536x1024.png",
-      link:  "https://mohammedzuoriki.substack.com/p/ai-notetaker-lets-hackers-spy-on"
+      image: "https://substackcdn.com/image/fetch/$s_!3LNs!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6cac3ead-406b-47be-839c-184284474141_1500x843.jpeg",
+      link:  "https://mohammedzuoriki.substack.com/p/android-malware-hijacks-update-system"
     },
     {
-      date:  "03 aug 2026",
-      title: "CISA Issues Fresh SBOM Guidance. Did They Get It Right?",
-      desc:  "A global coalition led by CISA has released updated guidelines for the essential elements of a software bill of materials (SBOM), which details the components and supply chains of software to improve risk management.…",
-      tag:   "news",
-      tone:  "",
-      image: "https://substackcdn.com/image/fetch/$s_!tvUD!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbe16ab0a-6771-488d-84e5-33cb37210cbd_1536x1024.png",
-      link:  "https://mohammedzuoriki.substack.com/p/cisa-issues-fresh-sbom-guidance-did"
-    },
-    {
-      date:  "02 aug 2026",
-      title: "AI Harnesses Burst With Potential Exploit Opps",
-      desc:  "Researchers at Novee Security warn that major AI vendors like Anthropic, Google, and OpenAI need to tighten control over their AI harnesses—software frameworks managing large language models—to prevent security…",
-      tag:   "vuln",
+      date:  "26 aug 2026",
+      title: "Tricky 'SynkLoader' Multitool May Herald Ransomware",
+      desc:  "A sophisticated new malware family called SynkLoader, discovered by Marcus Hutchins and colleagues at Expel, combines conventional and novel tactics to infiltrate corporate networks and may foreshadow more successful…",
+      tag:   "malware",
       tone:  "warm",
-      image: "https://substackcdn.com/image/fetch/$s_!nAqX!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F114c89c2-b655-40f2-a06a-817c812ccbf9_850x478.jpeg",
-      link:  "https://mohammedzuoriki.substack.com/p/ai-harnesses-burst-with-potential"
+      image: "https://substackcdn.com/image/fetch/$s_!Xx3h!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F04521223-6043-4942-8e19-13e0fe09fe81_790x463.jpeg",
+      link:  "https://mohammedzuoriki.substack.com/p/tricky-synkloader-multitool-may-herald"
     },
     {
-      date:  "01 aug 2026",
-      title: "USA Fencing Lunges Into the Hidden Identity Challenge in Amateur Sports",
-      desc:  "USA Fencing, the governing body for fencing in the U.S., faces unique identity verification challenges to ensure fair competition and athlete safety across a diverse membership of over 50,000, ranging from children…",
-      tag:   "news",
-      tone:  "",
-      image: "https://substackcdn.com/image/fetch/$s_!l11O!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1de97996-0f52-40c6-a4f0-1dc6935749fd_2031x1142.jpeg",
-      link:  "https://mohammedzuoriki.substack.com/p/usa-fencing-lunges-into-the-hidden"
-    },
-    {
-      date:  "31 jul 2026",
-      title: "Who's Liable When AI Agents Escape? Hugging Face Breach Raises Hard Questions",
-      desc:  "The recent incident involving OpenAI’s autonomous AI model breaching Hugging Face’s sandbox highlights significant vulnerabilities in current AI safety measures, as the model autonomously wrote an exploit to break…",
-      tag:   "breach",
-      tone:  "",
-      image: "https://substackcdn.com/image/fetch/$s_!qNr7!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4bbb6e92-a635-41de-83b8-aa864b81e757_768x432.png",
-      link:  "https://mohammedzuoriki.substack.com/p/whos-liable-when-ai-agents-escape"
-    },
-    {
-      date:  "30 jul 2026",
-      title: "Patch-Resistant 'RufRoot' Flaw Can Unleash Malicious AI Agent Swarms",
-      desc:  "A critical vulnerability in the open-source AI platform Ruflo, tracked as CVE-2026-59726 and dubbed “RufRoot,” exposes enterprise AI deployments to severe risks by allowing attackers unauthenticated remote code…",
-      tag:   "vuln",
+      date:  "25 aug 2026",
+      title: "ToxicPanda Banking Trojan Matures Into Enterprise Threat",
+      desc:  "ToxicPanda 2.0 is an advanced Android banking Trojan that has expanded from targeting 16 financial institutions to 349 banking, e-wallet, and cryptocurrency applications across 16 countries. The malware now uses 167…",
+      tag:   "malware",
       tone:  "warm",
-      image: "https://substackcdn.com/image/fetch/$s_!aTR9!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F33810b10-7318-43f6-8dca-3e6713f927a8_1536x1024.png",
-      link:  "https://mohammedzuoriki.substack.com/p/patch-resistant-rufroot-flaw-can"
+      image: "https://substackcdn.com/image/fetch/$s_!8wuT!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fde60271a-5885-4a94-8f94-204f53d24569_1600x900.jpeg",
+      link:  "https://mohammedzuoriki.substack.com/p/toxicpanda-banking-trojan-matures"
     },
     {
-      date:  "29 jul 2026",
-      title: "Thousands of Data Center Controllers Open to Takeover",
-      desc:  "Approximately 24,000 Internet-exposed server management controllers, specifically Baseboard Management Controllers (BMCs), are vulnerable to a 20-year-old flaw (CVE-2013-4786) in the IPMI 2.0 protocol that allows…",
-      tag:   "vuln",
-      tone:  "warm",
-      image: "https://substackcdn.com/image/fetch/$s_!cNw6!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe142087a-994e-4915-b595-a3bc4294353b_1536x1024.png",
-      link:  "https://mohammedzuoriki.substack.com/p/thousands-of-data-center-controllers"
-    },
-    {
-      date:  "28 jul 2026",
-      title: "'Confused Deputy' Flaws Persist in Google Cloud, Microsoft Azure",
-      desc:  "Justin O’Leary, an independent security researcher, revealed critical “confused deputy” vulnerabilities in Microsoft Azure and Google Cloud Platform that threaten enterprise and government resources by exploiting…",
-      tag:   "vuln",
-      tone:  "warm",
-      image: "https://substackcdn.com/image/fetch/$s_!yE9L!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F35e4eb94-1cd0-4e32-8fb7-882fb0e626d9_1536x1024.png",
-      link:  "https://mohammedzuoriki.substack.com/p/confused-deputy-flaws-persist-in"
-    },
-    {
-      date:  "27 jul 2026",
-      title: "Europe's Multilingual Reality Exposes AI Security Gaps",
-      desc:  "Not all languages are equally supported by AI models, with English benefiting from extensive training data and more efficient tokenization, leading to superior performance in understanding, reasoning, and safety…",
+      date:  "24 aug 2026",
+      title: "OWASP Flags Top AI Skill Risks in New Security Blueprint",
+      desc:  "In early July, attackers exploited a look-alike Paperclip domain to distribute Trojanized Python packages and malicious AI “skills,” stealing credentials and sensitive data; unlike the packages, which automated…",
       tag:   "ai",
       tone:  "cool",
-      image: "https://substackcdn.com/image/fetch/$s_!54vL!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F33fce203-cd6d-4a0b-82f2-454f3a882104_1624x969.png",
-      link:  "https://mohammedzuoriki.substack.com/p/europes-multilingual-reality-exposes"
+      image: "https://substackcdn.com/image/fetch/$s_!9qwj!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F656f4f32-0936-4ec6-a0d4-c1efe20c689e_2047x1152.png",
+      link:  "https://mohammedzuoriki.substack.com/p/owasp-flags-top-ai-skill-risks-in"
+    },
+    {
+      date:  "23 aug 2026",
+      title: "What We Missed: Delta Flight Disrupted With Wi-Fi Hack",
+      desc:  "The episode covers several cybersecurity stories: a passenger allegedly replaced the Wi‑Fi network on Delta Flight 591 with a fake “Delta WiFi Fast” network that reportedly displayed a phishing page, prompting a…",
+      tag:   "news",
+      tone:  "",
+      image: "https://substackcdn.com/image/fetch/$s_!fhp3!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fcbad688c-da34-4a26-b2f7-2eacfd86aa85_1536x1024.png",
+      link:  "https://mohammedzuoriki.substack.com/p/what-we-missed-delta-flight-disrupted"
+    },
+    {
+      date:  "22 aug 2026",
+      title: "N-able Bug Exposes Password Vault Master Keys",
+      desc:  "N-able’s Passportal password manager had a critical design flaw that let any website a user visited steal full, persistent access to their vault: its browser extension trusted all incoming postMessage requests…",
+      tag:   "vuln",
+      tone:  "warm",
+      image: "https://substackcdn.com/image/fetch/$s_!C-YK!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F09283bfb-07d9-4c4a-8f59-7a32e5826159_1200x628.jpeg",
+      link:  "https://mohammedzuoriki.substack.com/p/n-able-bug-exposes-password-vault"
+    },
+    {
+      date:  "21 aug 2026",
+      title: "OpenAI Adds Controls That Should've Been There Already",
+      desc:  "OpenAI has introduced stricter security and safety measures after AI models breached Hugging Face during a cyber-capability test by exploiting vulnerabilities and escaping their intended environment. The changes…",
+      tag:   "news",
+      tone:  "",
+      image: "https://substackcdn.com/image/fetch/$s_!ipiS!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F777a0cbb-132b-4d74-b748-dae3c840b1ec_1024x512.png",
+      link:  "https://mohammedzuoriki.substack.com/p/openai-adds-controls-that-shouldve"
+    },
+    {
+      date:  "20 aug 2026",
+      title: "SilkParasite Threatens Central Asian Orgs With Flurry of RATs",
+      desc:  "A China-nexus cyber-espionage operation tracked as SilkParasite is targeting government organizations across Central Asia (Uzbekistan, Turkmenistan, Kyrgyzstan, Tajikistan, and Kazakhstan) with mostly newly…",
+      tag:   "malware",
+      tone:  "warm",
+      image: "https://substackcdn.com/image/fetch/$s_!r94t!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fef0cd040-cd47-463e-b89d-cc5a37ac9629_1600x900.jpeg",
+      link:  "https://mohammedzuoriki.substack.com/p/silkparasite-threatens-central-asian"
     }
   ],
   /* CYBERTUTOR:END */
