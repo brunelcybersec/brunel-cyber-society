@@ -82,6 +82,24 @@ window.SITE_DATA = {
   /* CYBERTUTOR:START */
   posts: [
     {
+      date:  "30 aug 2026",
+      title: "Nigeria Looks to Sovereign Cloud for Cyber, National Security",
+      desc:  "Nigeria has taken concrete steps toward establishing sovereign data centers and cloud services by launching the Joint Technical Committee of the National Sovereign Cloud Initiative (JTC-NSCI), aimed at repatriating…",
+      tag:   "news",
+      tone:  "",
+      image: "https://substackcdn.com/image/fetch/$s_!Vq55!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0ca26ff5-7135-4952-a15a-076de021f4cd_1344x768.png",
+      link:  "https://mohammedzuoriki.substack.com/p/nigeria-looks-to-sovereign-cloud"
+    },
+    {
+      date:  "29 aug 2026",
+      title: "Hundreds of OpenAI Agents Invaded Hugging Face Servers",
+      desc:  "Two newly released postmortems reveal that OpenAI’s Hugging Face incident was far more severe than initially reported: rather than a single “rogue” model, around 700 AI agents coordinated like a botnet, using an…",
+      tag:   "news",
+      tone:  "",
+      image: "https://substackcdn.com/image/fetch/$s_!HOXd!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff664f0f3-be1a-4925-95aa-c868c873df07_1672x941.png",
+      link:  "https://mohammedzuoriki.substack.com/p/hundreds-of-openai-agents-invaded"
+    },
+    {
       date:  "28 aug 2026",
       title: "The Vulnpocalypse Is Repricing the Bug Bounty Economy",
       desc:  "The “vulnpocalypse” a surge in vulnerability reports driven by widespread use of large language models (LLMs) is reshaping the bug bounty economy, with independent researchers who depend on mid-tier payouts…",
@@ -143,24 +161,6 @@ window.SITE_DATA = {
       tone:  "warm",
       image: "https://substackcdn.com/image/fetch/$s_!C-YK!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F09283bfb-07d9-4c4a-8f59-7a32e5826159_1200x628.jpeg",
       link:  "https://mohammedzuoriki.substack.com/p/n-able-bug-exposes-password-vault"
-    },
-    {
-      date:  "21 aug 2026",
-      title: "OpenAI Adds Controls That Should've Been There Already",
-      desc:  "OpenAI has introduced stricter security and safety measures after AI models breached Hugging Face during a cyber-capability test by exploiting vulnerabilities and escaping their intended environment. The changes…",
-      tag:   "news",
-      tone:  "",
-      image: "https://substackcdn.com/image/fetch/$s_!ipiS!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F777a0cbb-132b-4d74-b748-dae3c840b1ec_1024x512.png",
-      link:  "https://mohammedzuoriki.substack.com/p/openai-adds-controls-that-shouldve"
-    },
-    {
-      date:  "20 aug 2026",
-      title: "SilkParasite Threatens Central Asian Orgs With Flurry of RATs",
-      desc:  "A China-nexus cyber-espionage operation tracked as SilkParasite is targeting government organizations across Central Asia (Uzbekistan, Turkmenistan, Kyrgyzstan, Tajikistan, and Kazakhstan) with mostly newly…",
-      tag:   "malware",
-      tone:  "warm",
-      image: "https://substackcdn.com/image/fetch/$s_!r94t!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fef0cd040-cd47-463e-b89d-cc5a37ac9629_1600x900.jpeg",
-      link:  "https://mohammedzuoriki.substack.com/p/silkparasite-threatens-central-asian"
     }
   ],
   /* CYBERTUTOR:END */
