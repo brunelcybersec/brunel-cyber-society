@@ -211,7 +211,7 @@ window.SITE_DATA = {
       initials: "MZ",
       photo: "assets/IMG_4556.jpg",
       accent: "warm",
-      bio: "Hello! I’m your Society President and I help keep everything running smoothly. I provide leadership, keep the committee organised, act as the main contact with the Union, and represent the society at events. I also make sure everyone is properly signed up as a member. I’m the crazy digital security guy, so if anything needs sorting, I’m always on it :) ",
+      bio: "Mohammed your Society President and I help keep everything running smoothly. He provides leadership, keeps the committee organised, acts as the main contact with the Union, and represents the society at events. He makes sure everyone is properly signed up as a member. He is the crazy digital security guy, so if anything needs sorting, he is always on it :) ",
       duties: []
     },
     {
@@ -233,7 +233,7 @@ window.SITE_DATA = {
       initials: "AA",
       photo: "assets/abdirahman.jpg",
       accent: "warm",
-      bio: "Hello! I'm taking on the Secretary role this year.I'm here to keep things running smoothly behind the scenes, taking notes during meetings so nothing gets lost, sharing them with the Union so everyone's in the loop, and stepping in as a friendly point of contact whenever the Founder's not around. If you've ever got a question about what was discussed or decided, don't hesitate to reach out, that's exactly what I'm here for.",
+      bio: "Abdirahman is taking on the Secretary role this year.He is here to keep things running smoothly behind the scenes, taking notes during meetings so nothing gets lost, sharing them with the Union so everyone's in the loop, and stepping in as a friendly point of contact whenever the Founder's not around. If you've ever got a question about what was discussed or decided, don't hesitate to reach out to him, that's exactly what he is here for.",
       duties: []
     },
     {
@@ -251,7 +251,7 @@ window.SITE_DATA = {
       initials: "PN",
       photo: "assets/Parm.JPG",
       accent: "warm",
-      bio: "Hey! I'm your Treasurer and one of the co-founders of the Cyber Security Society. I make sure our money is where it's supposed to be, keep an eye on the finances, chase sponsorships, and ensure our members are well supplied with pizza. If the budget goes missing... I'll investigate (after finishing my slice). :)",
+      bio: "Parmbir is your Treasurer and one of the co-founders of the Cyber Security Society. He makes sure our money is where it's supposed to be, keeps an eye on the finances, chases sponsorships, and ensures our members are well supplied with pizza. If the budget goes missing... he'll investigate (after finishing his slice). :)",
       duties: []
     },
     {
