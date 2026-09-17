@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crack the Vault · Brunel Cyber Security Society</title>
+<meta name="description" content="A small reflex game: catch the target digit inside the rotating window, five digits per level, four levels, three strikes and you're back to the start.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="canonical" href="https://brunelcybersec.github.io/brunel-cyber-society/crack-the-vault.html">
+<meta property="og:title" content="Crack the Vault · Brunel Cyber Security Society">
+<meta property="og:description" content="A small reflex game: catch the target digit inside the rotating window, five digits per level, four levels, three strikes and you're back to the start.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://brunelcybersec.github.io/brunel-cyber-society/crack-the-vault.html">
+<meta property="og:image" content="https://brunelcybersec.github.io/brunel-cyber-society/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Crack the Vault · Brunel Cyber Security Society">
+<meta name="twitter:description" content="A small reflex game: catch the target digit inside the rotating window, five digits per level, four levels, three strikes and you're back to the start.">
+<meta name="twitter:image" content="https://brunelcybersec.github.io/brunel-cyber-society/assets/og-image.png">
+<meta name="theme-color" content="#F5F4F2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script>try{if(sessionStorage.getItem("booted"))document.documentElement.classList.add("booted");}catch(e){}</script>
+<style>
+  /* This page only: flip the whole site's colour system to a light theme.
+     Every other page keeps the dark theme untouched, since this override
+     only exists inside this file. */
+  :root {
+    --bg: #F5F4F2;
+    --line: #DEDBD6;
+    --text: #17161A;
+    --muted: #6B6870;
+  }
+  /* The background wave canvas is tuned for the dark theme and won't read
+     well here, so it's simply switched off on this page. */
+  .bg-waves { display: none; }
+
+  .vault-wrap { max-width: 620px; margin: 0 auto; text-align: center; }
+  .vault-stats { display: flex; justify-content: center; gap: 10px; margin-bottom: 22px; flex-wrap: wrap; }
+  .vault-arena { display: flex; align-items: center; justify-content: center; gap: 28px; flex-wrap: wrap-reverse; margin-bottom: 22px; }
+
+  .vault-track { display: flex; flex-direction: row; gap: 10px; }
+  .vault-track-node {
+    width: 34px; height: 34px; border-radius: 8px;
+    border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.85rem;
+    color: var(--muted);
+    transition: background 0.25s, border-color 0.25s, color 0.25s;
+  }
+  .vault-track-node.current { border-color: #0f8fa8; color: #0f8fa8; }
+  .vault-track-node.cleared { background: #1f8f4f; border-color: #1f8f4f; color: #fff; }
+
+  .vault-dial-shell { position: relative; width: min(300px, 78vw); aspect-ratio: 1 / 1; }
+  .vault-dial { position: absolute; inset: 0; border-radius: 50%; border: 1px solid var(--line); background: #fff; }
+  .vault-wedge { position: absolute; inset: 0; border-radius: 50%; pointer-events: none; }
+  .vault-digit {
+    position: absolute; transform: translate(-50%, -50%);
+    font-family: 'JetBrains Mono', monospace; font-size: 1.1rem;
+    color: var(--muted); z-index: 2; transition: color 0.1s, font-weight 0.1s;
+  }
+  .vault-digit.in-window { color: var(--text); font-weight: 700; }
+  .vault-digit.is-target { text-decoration: underline; text-underline-offset: 4px; text-decoration-color: #0f8fa8; }
+  .vault-hub { position: absolute; left: 50%; top: 50%; width: 8px; height: 8px; border-radius: 50%; background: var(--line); transform: translate(-50%, -50%); z-index: 3; }
+
+  .vault-dial-shell.flash-good .vault-dial { border-color: #1f8f4f; box-shadow: 0 0 0 4px rgba(31,143,79,0.15); }
+  .vault-dial-shell.flash-bad .vault-dial { border-color: #c1402f; box-shadow: 0 0 0 4px rgba(193,64,47,0.15); }
+
+  .vault-prompt { font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; letter-spacing: 0.06em; color: var(--muted); text-transform: uppercase; margin-bottom: 6px; }
+  .vault-target { font-family: 'Space Grotesk', sans-serif; font-size: 3rem; font-weight: 600; margin-bottom: 18px; color: var(--text); }
+  .vault-dots { display: flex; justify-content: center; gap: 10px; margin-bottom: 26px; }
+  .vault-dot { width: 11px; height: 11px; border-radius: 50%; border: 1px solid var(--line); }
+  .vault-dot.filled { background: #0f8fa8; border-color: #0f8fa8; }
+  .vault-msg { min-height: 1.4em; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; margin-bottom: 14px; color: var(--muted); }
+  .vault-msg.good { color: #1f8f4f; }
+  .vault-msg.bad { color: #c1402f; }
+  .vault-end { display: none; }
+  .vault-end.show { display: block; }
+  .vault-live.hide { display: none; }
+</style>
+</head>
+<body class="wave-bg">
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="preloader" role="status" aria-label="Loading">
+  <div class="pl-inner">
+    <div class="pl-dots"><span></span><span></span><span></span></div>
+    <pre class="pl-log"></pre>
+    <div class="pl-bar"><span class="pl-fill"></span></div>
+    <div class="pl-meta"><span class="pl-status">booting</span><span class="pl-pct">0%</span></div>
+    <div class="pl-brand"><span class="pl-brand-text">brunel_cybersec</span><span class="pl-cursor">_</span></div>
+  </div>
+</div>
+<canvas id="waves" class="bg-waves" data-variant="b" aria-hidden="true"></canvas>
+
+<nav>
+  <a class="brand" href="index.html">brunel_cybersec&gt;<span class="cursor"></span></a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-label="Open menu">[menu]</button>
+  <div class="nav-links">
+    <a href="index.html#about">about</a>
+    <a href="events.html">events</a>
+    <a href="blog.html">blog</a>
+    <a href="resources.html">resources</a>
+    <a href="security-basics.html">stay safe</a>
+    <a href="committee.html">committee</a>
+    <a href="contact.html">contact</a>
+    <a class="nav-cta" href="index.html#join">join</a>
+  </div>
+</nav>
+
+<main id="main" tabindex="-1">
+<div class="page-head">
+  <h1><span class="ghost" data-text="Crack the Vault"><span>Crack the Vault</span></span></h1>
+  <p class="lede">A window sweeps around the dial. Stop it while your target digit is anywhere inside that window, five digits per level. Three wrong stops, at any point, and the vault re-locks from level one. The window gets narrower every level, by level four there's no margin left at all.</p>
+</div>
+
+<section class="tight reveal">
+  <div class="vault-wrap">
+
+    <div class="vault-live" id="vaultLive">
+      <div class="vault-stats">
+        <span class="pill">LEVEL <span id="vLevel">1</span> / 4</span>
+        <span class="pill">STRIKES <span id="vStrikes">0</span> / 3</span>
+      </div>
+
+      <div class="vault-prompt">catch this digit</div>
+      <div class="vault-target mono" id="vTarget">-</div>
+
+      <div class="vault-arena">
+        <div class="vault-track" id="vTrack">
+          <div class="vault-track-node" data-level="1">1</div>
+          <div class="vault-track-node" data-level="2">2</div>
+          <div class="vault-track-node" data-level="3">3</div>
+          <div class="vault-track-node" data-level="4">4</div>
+        </div>
+
+        <div class="vault-dial-shell" id="vDialShell">
+          <div class="vault-dial"></div>
+          <div class="vault-wedge" id="vWedge"></div>
+          <div class="vault-hub"></div>
+          <!-- digits placed by JS -->
+        </div>
+      </div>
+
+      <div class="vault-msg" id="vMsg">&nbsp;</div>
+
+      <div class="vault-dots" id="vDots"></div>
+
+      <button class="btn solid" type="button" id="vStopBtn">STOP [space]</button>
+    </div>
+
+    <div class="vault-end" id="vEnd">
+      <h2 id="vEndTitle">Vault cracked</h2>
+      <p id="vEndDesc" class="lede">All four levels down. Nice hands.</p>
+      <button class="btn ghost-btn" type="button" id="vRestartBtn">Play again</button>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <span>© 2026 Brunel Cyber Security Society x CyberTutor</span>
+  <div class="links">
+    <a href=https://discord.gg/anmggPyVcs target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.27 5.33A16.8 16.8 0 0 0 15.1 4l-.2.42a15.6 15.6 0 0 1 3.7 1.2 15.9 15.9 0 0 0-13.2 0 15.6 15.6 0 0 1 3.7-1.2L8.9 4a16.8 16.8 0 0 0-4.17 1.33C2.1 9.24 1.38 13.05 1.74 16.8a16.9 16.9 0 0 0 5.1 2.58l.65-.9a10 10 0 0 1-1.7-.82l.42-.32a11.3 11.3 0 0 0 9.6 0l.42.32c-.54.32-1.1.6-1.7.82l.65.9a16.9 16.9 0 0 0 5.1-2.58c.42-4.35-.72-8.13-2.99-11.47zM8.9 14.66c-.99 0-1.8-.92-1.8-2.04s.79-2.04 1.8-2.04 1.82.93 1.8 2.04c0 1.12-.79 2.04-1.8 2.04zm6.65 0c-.99 0-1.8-.92-1.8-2.04s.79-2.04 1.8-2.04 1.82.93 1.8 2.04c0 1.12-.79 2.04-1.8 2.04z"/></svg>discord</a>
+    <a href="https://www.instagram.com/cybersoc.brunel/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1"/></svg>instagram</a>
+    <a href=https://github.com/brunelcybersec target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.09.68-.22.68-.49 0-.24-.01-.88-.01-1.73-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.27 2.75 1.05a9.4 9.4 0 0 1 5 0c1.91-1.32 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.59.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>github</a>
+    <a href="https://www.youtube.com/@CyberTutor24"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.76-1.77C19.26 5.13 12 5.13 12 5.13s-7.26 0-8.84.4A2.5 2.5 0 0 0 1.4 7.3 26 26 0 0 0 1 12a26 26 0 0 0 .4 4.7 2.5 2.5 0 0 0 1.76 1.77c1.58.4 8.84.4 8.84.4s7.26 0 8.84-.4a2.5 2.5 0 0 0 1.76-1.77A26 26 0 0 0 23 12zM9.75 15.02V8.98L15.5 12z"/></svg>youtube</a>
+    <a href="mailto:cybersec@brunel.ac.uk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7.5l9 6 9-6"/></svg>email</a>
+  </div>
+  <p class="footer-credit">Designed and built by the <a href="credits.html">Brunel Cyber Security committee</a>.</p>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/render.js"></script>
+<script src="js/preloader.js"></script>
+<script src="js/site.js"></script>
+<script>
+(function () {
+  var DIAL_SIZE = 10;              // digits 0-9
+  var STEP_DEG = 360 / DIAL_SIZE;  // 36 degrees per digit
+  var DIGITS_PER_LEVEL = 5;
+  var MAX_STRIKES = 3;
+
+  // Fixed combination per level — same every time anyone plays.
+  var CODES = [
+    [3, 7, 1, 9, 4],
+    [8, 2, 6, 0, 5],
+    [1, 9, 3, 7, 2],
+    [6, 0, 8, 4, 9]
+  ];
+
+  // How many adjacent digit-slots the "hot window" covers — narrows every level,
+  // down to exactly 1 (no margin at all) on the final level.
+  var WINDOW_WIDTH = [3, 2, 2, 1];
+
+  // Base spin speed per level, in degrees/second — faster every level.
+  // Level 4 is deliberately brutal: at this speed with a 1-section-wide
+  // window, the catchable moment lasts well under 200ms.
+  var LEVEL_BASE_SPEED = [90, 160, 260, 420];
+
+  // Each of the 5 digits within a level moves in a genuinely different way,
+  // not just direction/speed — a steady sweep, a pendulum swing, stop-and-go
+  // bursts, a "breathing" pace, and one that periodically doubles back. Each
+  // is defined as a velocity (degrees/second) as a function of time-into-this-
+  // round (t) and the level's base speed. The same 5 behaviours are reused on
+  // every level — only the level's base speed and window width change.
+  var ROUND_PATTERN = [
+    {
+      name: 'steady',
+      velocity: function (t, speed) { return speed; }
+    },
+    {
+      name: 'pendulum',
+      velocity: function (t, speed) {
+        var amplitude = 180;              // full swing each way — guarantees every
+        var omega = speed / amplitude;    // digit gets swept past at least once
+        return speed * Math.cos(t * omega);
+      }
+    },
+    {
+      name: 'stop-and-go',
+      velocity: function (t, speed) {
+        var on = Math.floor(t / 0.5) % 2 === 0;
+        return on ? speed * 1.8 : 0;
+      }
+    },
+    {
+      name: 'breathing',
+      velocity: function (t, speed) {
+        return speed * (0.3 + 0.9 * Math.abs(Math.sin(t * 2.5)));
+      }
+    },
+    {
+      name: 'reverse-surge',
+      velocity: function (t, speed) {
+        var phase = t % 1.6;
+        return phase > 1.2 ? -speed * 1.4 : speed;
+      }
+    }
+  ];
+
+  var shell = document.getElementById('vDialShell');
+  var wedge = document.getElementById('vWedge');
+  var targetEl = document.getElementById('vTarget');
+  var msgEl = document.getElementById('vMsg');
+  var dotsEl = document.getElementById('vDots');
+  var levelEl = document.getElementById('vLevel');
+  var strikesEl = document.getElementById('vStrikes');
+  var stopBtn = document.getElementById('vStopBtn');
+  var liveEl = document.getElementById('vaultLive');
+  var endEl = document.getElementById('vEnd');
+  var endTitle = document.getElementById('vEndTitle');
+  var endDesc = document.getElementById('vEndDesc');
+  var restartBtn = document.getElementById('vRestartBtn');
+  var trackNodes = document.querySelectorAll('#vTrack .vault-track-node');
+
+  var digitEls = [];
+  var level = 0;
+  var digitIndex = 0;
+  var strikes = 0;
+  var angle = 0;
+  var roundElapsed = 0;
+  var lastTs = null;
+  var locked = false;
+
+  function layoutDial() {
+    for (var i = 0; i < DIAL_SIZE; i++) {
+      var rad = (i * STEP_DEG) * Math.PI / 180;
+      var x = 50 + 42 * Math.sin(rad);
+      var y = 50 - 42 * Math.cos(rad);
+      var el = document.createElement('span');
+      el.className = 'vault-digit mono';
+      el.style.left = x + '%';
+      el.style.top = y + '%';
+      el.textContent = String(i);
+      shell.appendChild(el);
+      digitEls.push(el);
+    }
+  }
+
+  // The dial is divided into 10 equal 36-degree areas, one per digit, each
+  // centred on that digit's own position. The window is a continuous arc, not
+  // a rounded-off set of whole sections — so it authenticates the moment ANY
+  // part of it touches ANY part of the target digit's area, even a sliver.
+  function circularDist(a, b) {
+    var d = Math.abs(a - b) % 360;
+    return d > 180 ? 360 - d : d;
+  }
+
+  function isDigitCaught(i) {
+    var windowLen = WINDOW_WIDTH[level] * STEP_DEG;
+    var sectionLen = STEP_DEG;
+    return circularDist(angle, i * STEP_DEG) < (windowLen / 2 + sectionLen / 2);
+  }
+
+  function renderWedge() {
+    var width = WINDOW_WIDTH[level];
+    var sweep = width * STEP_DEG;
+    var start = angle - sweep / 2;
+    wedge.style.background = 'conic-gradient(from ' + start + 'deg, rgba(15,143,168,0.30) 0deg ' + sweep + 'deg, transparent ' + sweep + 'deg 360deg)';
+  }
+
+  function renderActiveDigits() {
+    digitEls.forEach(function (el, i) {
+      el.classList.toggle('in-window', isDigitCaught(i));
+    });
+  }
+
+  function renderDots() {
+    dotsEl.innerHTML = '';
+    for (var i = 0; i < DIGITS_PER_LEVEL; i++) {
+      var d = document.createElement('span');
+      d.className = 'vault-dot' + (i < digitIndex ? ' filled' : '');
+      dotsEl.appendChild(d);
+    }
+  }
+
+  function renderTarget() {
+    var target = CODES[level][digitIndex];
+    targetEl.textContent = String(target);
+    digitEls.forEach(function (el, i) {
+      el.classList.toggle('is-target', i === target);
+    });
+  }
+
+  function renderStats() {
+    levelEl.textContent = String(level + 1);
+    strikesEl.textContent = String(strikes);
+  }
+
+  function renderTrack() {
+    trackNodes.forEach(function (node, i) {
+      node.classList.toggle('cleared', i < level);
+      node.classList.toggle('current', i === level);
+    });
+  }
+
+  function setMsg(text, cls) {
+    msgEl.textContent = text || ' ';
+    msgEl.className = 'vault-msg' + (cls ? ' ' + cls : '');
+  }
+
+  function startLevel(i) {
+    level = i;
+    digitIndex = 0;
+    roundElapsed = 0;
+    angle = 0;
+    renderStats();
+    renderTrack();
+    renderDots();
+    renderTarget();
+    setMsg('');
+  }
+
+  function resetGame(message) {
+    level = 0;
+    strikes = 0;
+    startLevel(0);
+    if (message) setMsg(message, 'bad');
+  }
+
+  function flash(good) {
+    shell.classList.remove('flash-good', 'flash-bad');
+    void shell.offsetWidth;
+    shell.classList.add(good ? 'flash-good' : 'flash-bad');
+    setTimeout(function () { shell.classList.remove('flash-good', 'flash-bad'); }, 260);
+  }
+
+  function showEnd(won) {
+    liveEl.classList.add('hide');
+    endEl.classList.add('show');
+    if (won) {
+      endTitle.textContent = 'Vault cracked';
+      endDesc.textContent = 'All four levels down, twenty digits, no shortcuts. Genuinely rare, nice work.';
+    } else {
+      endTitle.textContent = 'Vault re-locked';
+      endDesc.textContent = 'Three wrong stops. Back to level one, try again.';
+    }
+  }
+
+  function onStop() {
+    if (locked) return;
+    var target = CODES[level][digitIndex];
+
+    if (isDigitCaught(target)) {
+      flash(true);
+      digitIndex++;
+      roundElapsed = 0;
+      angle = 0;
+      if (digitIndex >= DIGITS_PER_LEVEL) {
+        if (level >= CODES.length - 1) {
+          locked = true;
+          renderTrack();
+          trackNodes[level].classList.add('cleared');
+          setMsg('Level ' + (level + 1) + ' cracked.', 'good');
+          setTimeout(function () { showEnd(true); }, 500);
+          return;
+        } else {
+          locked = true;
+          setMsg('Level ' + (level + 1) + ' cracked, moving on.', 'good');
+          setTimeout(function () { locked = false; startLevel(level + 1); }, 700);
+          return;
+        }
+      } else {
+        renderDots();
+        renderTarget();
+        setMsg('Caught it.', 'good');
+      }
+    } else {
+      strikes++;
+      renderStats();
+      flash(false);
+      if (strikes >= MAX_STRIKES) {
+        locked = true;
+        setMsg('Three strikes.', 'bad');
+        setTimeout(function () {
+          locked = false;
+          resetGame('Vault re-locked, back to level one.');
+        }, 700);
+      } else {
+        setMsg('Missed, try that digit again.', 'bad');
+      }
+    }
+  }
+
+  function tick(ts) {
+    if (lastTs === null) lastTs = ts;
+    var dt = (ts - lastTs) / 1000;
+    lastTs = ts;
+    if (!locked) {
+      var pattern = ROUND_PATTERN[digitIndex];
+      var v = pattern.velocity(roundElapsed, LEVEL_BASE_SPEED[level]);
+      angle = ((angle + v * dt) % 360 + 360) % 360;
+      roundElapsed += dt;
+      renderWedge();
+      renderActiveDigits();
+    }
+    requestAnimationFrame(tick);
+  }
+
+  stopBtn.addEventListener('click', onStop);
+  shell.addEventListener('click', onStop);
+  document.addEventListener('keydown', function (e) {
+    if (e.code === 'Space' && !endEl.classList.contains('show')) {
+      e.preventDefault();
+      onStop();
+    }
+  });
+  restartBtn.addEventListener('click', function () {
+    endEl.classList.remove('show');
+    liveEl.classList.remove('hide');
+    resetGame();
+  });
+
+  layoutDial();
+  startLevel(0);
+  requestAnimationFrame(tick);
+})();
+</script>
+</body>
+</html>
