@@ -120,7 +120,6 @@
     <div class="vault-live" id="vaultLive">
       <div class="vault-stats">
         <span class="pill">LEVEL <span id="vLevel">1</span> / 4</span>
-        <span class="pill">STRIKES <span id="vStrikes">0</span> / 3</span>
       </div>
 
       <div class="vault-prompt">catch this digit</div>
@@ -181,7 +180,6 @@
   var DIAL_SIZE = 10;              // digits 0-9
   var STEP_DEG = 360 / DIAL_SIZE;  // 36 degrees per digit
   var DIGITS_PER_LEVEL = 5;
-  var MAX_STRIKES = 3;
 
   // Fixed combination per level — same every time anyone plays.
   var CODES = [
@@ -198,7 +196,7 @@
   // Base spin speed per level, in degrees/second — faster every level.
   // Level 4 is deliberately brutal: at this speed with a 1-section-wide
   // window, the catchable moment lasts well under 200ms.
-  var LEVEL_BASE_SPEED = [90, 160, 260, 420];
+  var LEVEL_BASE_SPEED = [115, 205, 335, 545];
 
   // Each of the 5 digits within a level moves in a genuinely different way,
   // not just direction/speed — a steady sweep, a pendulum swing, stop-and-go
@@ -247,7 +245,6 @@
   var msgEl = document.getElementById('vMsg');
   var dotsEl = document.getElementById('vDots');
   var levelEl = document.getElementById('vLevel');
-  var strikesEl = document.getElementById('vStrikes');
   var stopBtn = document.getElementById('vStopBtn');
   var liveEl = document.getElementById('vaultLive');
   var endEl = document.getElementById('vEnd');
@@ -259,7 +256,6 @@
   var digitEls = [];
   var level = 0;
   var digitIndex = 0;
-  var strikes = 0;
   var angle = 0;
   var roundElapsed = 0;
   var lastTs = null;
@@ -327,7 +323,6 @@
 
   function renderStats() {
     levelEl.textContent = String(level + 1);
-    strikesEl.textContent = String(strikes);
   }
 
   function renderTrack() {
@@ -408,20 +403,14 @@
         renderTarget();
         setMsg('Caught it.', 'good');
       }
-    } else {
-      strikes++;
-      renderStats();
+        } else {
       flash(false);
-      if (strikes >= MAX_STRIKES) {
-        locked = true;
-        setMsg('Three strikes.', 'bad');
-        setTimeout(function () {
-          locked = false;
-          resetGame('Vault re-locked, back to level one.');
-        }, 700);
-      } else {
-        setMsg('Missed, try that digit again.', 'bad');
-      }
+      locked = true;
+      setMsg('Wrong. Vault re-locked.', 'bad');
+      setTimeout(function () {
+        locked = false;
+        resetGame('Back to level one.');
+      }, 700);
     }
   }
 
