@@ -82,85 +82,85 @@ window.SITE_DATA = {
   /* CYBERTUTOR:START */
   posts: [
     {
-      date:  "30 aug 2026",
-      title: "Nigeria Looks to Sovereign Cloud for Cyber, National Security",
-      desc:  "Nigeria has taken concrete steps toward establishing sovereign data centers and cloud services by launching the Joint Technical Committee of the National Sovereign Cloud Initiative (JTC-NSCI), aimed at repatriating…",
-      tag:   "news",
-      tone:  "",
-      image: "https://substackcdn.com/image/fetch/$s_!Vq55!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0ca26ff5-7135-4952-a15a-076de021f4cd_1344x768.png",
-      link:  "https://mohammedzuoriki.substack.com/p/nigeria-looks-to-sovereign-cloud"
-    },
-    {
-      date:  "29 aug 2026",
-      title: "Hundreds of OpenAI Agents Invaded Hugging Face Servers",
-      desc:  "Two newly released postmortems reveal that OpenAI’s Hugging Face incident was far more severe than initially reported: rather than a single “rogue” model, around 700 AI agents coordinated like a botnet, using an…",
-      tag:   "news",
-      tone:  "",
-      image: "https://substackcdn.com/image/fetch/$s_!HOXd!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff664f0f3-be1a-4925-95aa-c868c873df07_1672x941.png",
-      link:  "https://mohammedzuoriki.substack.com/p/hundreds-of-openai-agents-invaded"
-    },
-    {
-      date:  "28 aug 2026",
-      title: "The Vulnpocalypse Is Repricing the Bug Bounty Economy",
-      desc:  "The “vulnpocalypse” a surge in vulnerability reports driven by widespread use of large language models (LLMs) is reshaping the bug bounty economy, with independent researchers who depend on mid-tier payouts…",
+      date:  "18 sep 2026",
+      title: "CISA Ditches Weekly Vulnerability Roundups for Risk-Based Focus",
+      desc:  "The US Cybersecurity and Infrastructure Security Agency (CISA) will stop publishing its weekly vulnerability bulletins on 28 September, arguing that the surge in disclosures—driven in part by AI-assisted flaw hunting…",
       tag:   "vuln",
       tone:  "warm",
-      image: "https://substackcdn.com/image/fetch/$s_!motx!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0e7fb05c-dcac-40d1-9249-e8edd4a8aa8f_6160x3071.jpeg",
-      link:  "https://mohammedzuoriki.substack.com/p/the-vulnpocalypse-is-repricing-the"
+      image: "https://substackcdn.com/image/fetch/$s_!us-T!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa96035d2-0c29-4d4f-ba84-a3fbedce9b46_1984x1116.png",
+      link:  "https://mohammedzuoriki.substack.com/p/cisa-ditches-weekly-vulnerability"
     },
     {
-      date:  "27 aug 2026",
-      title: "Android Malware Hijacks Update System for Car Head Units",
-      desc:  "Researchers have discovered the first documented case of Android malware specifically targeting car head units, marking a new frontier for botnet campaigns. Kaspersky identified the malware, dubbed JarService, in the…",
+      date:  "17 sep 2026",
+      title: "Cyber Op Targets South Korean Media & Automotive Sectors",
+      desc:  "North Korean–linked APT37 (aka InkySquid/ScarCruft/Ricochet Chollima) is assessed with medium confidence to have conducted stealthy, long‑running espionage operations against South Korean media and automotive firms…",
+      tag:   "news",
+      tone:  "",
+      image: "https://substackcdn.com/image/fetch/$s_!ME8i!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3d3c9874-4f1e-41e5-bda7-c6e82ac40521_828x462.jpeg",
+      link:  "https://mohammedzuoriki.substack.com/p/cyber-op-targets-south-korean-media"
+    },
+    {
+      date:  "16 sep 2026",
+      title: "Microsoft Issues Emergency Fixes After Massive Patch Tuesday",
+      desc:  "Microsoft issued emergency out-of-band patches on Monday to fix critical problems introduced by September’s record-breaking Patch Tuesday, which addressed 974 CVEs and highlighted how AI-driven vulnerability…",
+      tag:   "news",
+      tone:  "",
+      image: "https://substackcdn.com/image/fetch/$s_!gzes!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F97de33d4-0ab0-42ab-a535-e69322d78dfb_1974x1110.png",
+      link:  "https://mohammedzuoriki.substack.com/p/microsoft-issues-emergency-fixes"
+    },
+    {
+      date:  "15 sep 2026",
+      title: "'Sandworm' Chains Cisco Vulnerabilities to Deploy Cyclops Blink",
+      desc:  "A likely Russia-linked threat actor, possibly associated with the GRU-linked Sandworm group, is exploiting two Cisco Secure Firewall Management Center vulnerabilities—CVE-2026-20079, a critical authentication-bypass…",
+      tag:   "vuln",
+      tone:  "warm",
+      image: "https://substackcdn.com/image/fetch/$s_!v2st!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F32af7c76-ceaf-4cd1-99f2-a7a103c262ca_1984x1116.png",
+      link:  "https://mohammedzuoriki.substack.com/p/sandworm-chains-cisco-vulnerabilities"
+    },
+    {
+      date:  "14 sep 2026",
+      title: "Voice Callers Exploit BYOD to Reach Microsoft 365, Corporate Data",
+      desc:  "Initial access brokers (IABs) such as Microsoft-tracked Storm-3032 and Storm-3121 are bypassing corporate defenses by targeting employees’ personal devices—typically via vishing (voice phishing) or smishing (SMS…",
+      tag:   "vuln",
+      tone:  "warm",
+      image: "https://substackcdn.com/image/fetch/$s_!Wq_c!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F57153d02-8f9a-41ca-8a8d-7fc8dca3db6b_1980x1110.png",
+      link:  "https://mohammedzuoriki.substack.com/p/voice-callers-exploit-byod-to-reach"
+    },
+    {
+      date:  "13 sep 2026",
+      title: "Threat Actor Generates 1M Personalized Fraud Emails in 3 Days",
+      desc:  "AI is making phishing attacks far more scalable and convincing, as demonstrated by a campaign that sent over one million personalised emails in three days, targeting accounts-payable departments with realistic…",
       tag:   "malware",
       tone:  "warm",
-      image: "https://substackcdn.com/image/fetch/$s_!3LNs!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6cac3ead-406b-47be-839c-184284474141_1500x843.jpeg",
-      link:  "https://mohammedzuoriki.substack.com/p/android-malware-hijacks-update-system"
+      image: "https://substackcdn.com/image/fetch/$s_!Kye4!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbb1ceb40-c7e2-4dcc-8453-c4920e648870_1968x1108.png",
+      link:  "https://mohammedzuoriki.substack.com/p/threat-actor-generates-1m-personalized"
     },
     {
-      date:  "26 aug 2026",
-      title: "Tricky 'SynkLoader' Multitool May Herald Ransomware",
-      desc:  "A sophisticated new malware family called SynkLoader, discovered by Marcus Hutchins and colleagues at Expel, combines conventional and novel tactics to infiltrate corporate networks and may foreshadow more successful…",
-      tag:   "malware",
-      tone:  "warm",
-      image: "https://substackcdn.com/image/fetch/$s_!Xx3h!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F04521223-6043-4942-8e19-13e0fe09fe81_790x463.jpeg",
-      link:  "https://mohammedzuoriki.substack.com/p/tricky-synkloader-multitool-may-herald"
-    },
-    {
-      date:  "25 aug 2026",
-      title: "ToxicPanda Banking Trojan Matures Into Enterprise Threat",
-      desc:  "ToxicPanda 2.0 is an advanced Android banking Trojan that has expanded from targeting 16 financial institutions to 349 banking, e-wallet, and cryptocurrency applications across 16 countries. The malware now uses 167…",
-      tag:   "malware",
-      tone:  "warm",
-      image: "https://substackcdn.com/image/fetch/$s_!8wuT!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fde60271a-5885-4a94-8f94-204f53d24569_1600x900.jpeg",
-      link:  "https://mohammedzuoriki.substack.com/p/toxicpanda-banking-trojan-matures"
-    },
-    {
-      date:  "24 aug 2026",
-      title: "OWASP Flags Top AI Skill Risks in New Security Blueprint",
-      desc:  "In early July, attackers exploited a look-alike Paperclip domain to distribute Trojanized Python packages and malicious AI “skills,” stealing credentials and sensitive data; unlike the packages, which automated…",
+      date:  "12 sep 2026",
+      title: "Papercut AI Swarm Attack Heralds Changes for Cyber Kill Chain",
+      desc:  "In late August, a likely Russian-speaking threat actor deployed hundreds of AI agents to rapidly exploit two vulnerabilities in Internet-connected PaperCut NG/MF print-management instances, compromising at least 440…",
       tag:   "ai",
       tone:  "cool",
-      image: "https://substackcdn.com/image/fetch/$s_!9qwj!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F656f4f32-0936-4ec6-a0d4-c1efe20c689e_2047x1152.png",
-      link:  "https://mohammedzuoriki.substack.com/p/owasp-flags-top-ai-skill-risks-in"
+      image: "https://substackcdn.com/image/fetch/$s_!DNbG!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Feab3291c-d343-4695-9c15-ca690d01a844_1600x900.jpeg",
+      link:  "https://mohammedzuoriki.substack.com/p/papercut-ai-swarm-attack-heralds"
     },
     {
-      date:  "23 aug 2026",
-      title: "What We Missed: Delta Flight Disrupted With Wi-Fi Hack",
-      desc:  "The episode covers several cybersecurity stories: a passenger allegedly replaced the Wi‑Fi network on Delta Flight 591 with a fake “Delta WiFi Fast” network that reportedly displayed a phishing page, prompting a…",
-      tag:   "news",
-      tone:  "",
-      image: "https://substackcdn.com/image/fetch/$s_!fhp3!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fcbad688c-da34-4a26-b2f7-2eacfd86aa85_1536x1024.png",
-      link:  "https://mohammedzuoriki.substack.com/p/what-we-missed-delta-flight-disrupted"
-    },
-    {
-      date:  "22 aug 2026",
-      title: "N-able Bug Exposes Password Vault Master Keys",
-      desc:  "N-able’s Passportal password manager had a critical design flaw that let any website a user visited steal full, persistent access to their vault: its browser extension trusted all incoming postMessage requests…",
+      date:  "11 sep 2026",
+      title: "Nightmare-Eclipse Strikes Again With 'ShieldCrash' Windows Exploit",
+      desc:  "Security researcher Nightmare-Eclipse has released “ShieldCrash,” a Windows zero-day exploit that allegedly bypasses Microsoft’s recent fix for the ShieldBreak vulnerability in Windows Defender’s Malware Protection…",
       tag:   "vuln",
       tone:  "warm",
-      image: "https://substackcdn.com/image/fetch/$s_!C-YK!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F09283bfb-07d9-4c4a-8f59-7a32e5826159_1200x628.jpeg",
-      link:  "https://mohammedzuoriki.substack.com/p/n-able-bug-exposes-password-vault"
+      image: "https://substackcdn.com/image/fetch/$s_!9-X2!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fde9d98a3-bfe0-41b5-b360-afe788bd236d_1200x660.jpeg",
+      link:  "https://mohammedzuoriki.substack.com/p/nightmare-eclipse-strikes-again-with"
+    },
+    {
+      date:  "10 sep 2026",
+      title: "Mythos Vulnerability Firehose Hits a Human Bottleneck",
+      desc:  "A VulnCheck analysis of Anthropic’s Project Glasswing data found that Claude Mythos generated 26,153 potential vulnerabilities, but only 2,736—just over 10%—had reached the disclosure process and 202 had been…",
+      tag:   "vuln",
+      tone:  "warm",
+      image: "https://substackcdn.com/image/fetch/$s_!RJ9M!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F09f95e85-9cf6-4d98-84b1-052fa0e467e4_1024x683.png",
+      link:  "https://mohammedzuoriki.substack.com/p/mythos-vulnerability-firehose-hits"
     }
   ],
   /* CYBERTUTOR:END */
