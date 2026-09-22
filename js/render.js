@@ -37,12 +37,21 @@
   /* optional rich hover card for an event (e.preview) */
   function previewHtml(p) {
     if (!p) return '';
-    const img = p.img
+    const media = (p.gallery || []).map(function (item) {
+      if (item.type === 'video') {
+        return '<video class="ev-video" autoplay muted loop playsinline preload="metadata" poster="' + esc(item.poster || '') + '"><source src="' + esc(item.src) + '" type="video/mp4"></video>';
+      }
+      return '<img class="ev-img" src="' + esc(item.src) + '" alt="" loading="lazy" decoding="async" onerror="this.remove()">';
+    }).join('');
+    const fallbackImg = !media && p.img
       ? '<img class="ev-img" src="' + esc(p.img) + '" alt="" loading="lazy" decoding="async" onerror="this.remove()">'
+      : '';
+    const fallbackVideo = !media && p.video
+      ? '<video class="ev-video" autoplay muted loop playsinline preload="metadata" poster="' + esc(p.img || '') + '"><source src="' + esc(p.video) + '" type="video/mp4"></video>'
       : '';
     return (
       '<div class="preview"><div class="ev-card">' +
-        '<div class="ev-media">' + img +
+        '<div class="ev-media' + (media ? ' ev-gallery' : '') + '">' + (media || fallbackVideo || fallbackImg) +
           '<div class="ev-overlay">' +
             (p.pill ? '<span class="ev-pill mono">[' + esc(p.pill) + ']</span>' : '') +
             (p.cap ? '<div class="ev-cap mono">' + esc(p.cap) + '</div>' : '') +
@@ -51,7 +60,8 @@
         '<div class="ev-body">' +
           '<h4 class="ev-title">' + esc(p.title || '') + '</h4>' +
           '<p class="ev-desc">' + esc(p.desc || '') + '</p>' +
-          (p.link ? '<a class="ev-more mono" href="' + esc(p.link) + '">Read more →</a>' : '') +
+          (p.link ? '<a class="ev-more mono" href="' + esc(p.link) + '"' + linkAttrs(p.link) + '>Read more →</a>' : '') +
+          (p.socialLink ? '<a class="ev-more mono" href="' + esc(p.socialLink) + '"' + linkAttrs(p.socialLink) + '>View Instagram post ↗</a>' : '') +
         '</div>' +
       '</div></div>'
     );
@@ -59,7 +69,7 @@
 
   function eventRow(e) {
     return (
-      '<div class="event' + (e.preview ? ' has-preview' : '') + '">' +
+      '<div class="event' + (e.preview ? ' has-preview' : '') + (e.past ? ' past-event' : '') + '">' +
         '<span class="date">' + esc(e.when) + '<br>' + esc(e.where) + '</span>' +
         '<div class="event-main"><h3>' + esc(e.title) + '</h3><p>' + esc(e.desc) + '</p>' +
           previewHtml(e.preview) +
@@ -153,7 +163,7 @@
     if (el && items && items.length) el.innerHTML = items.map(build).join('');
   }
 
-  renderList('home-events', (d.events || []).slice(0, 3), eventRow);  /* homepage: next 3 */
+  renderList('home-events', (d.events || []).filter(function (e) { return !e.past; }).slice(0, 3), eventRow);  /* homepage: upcoming */
   renderList('all-events', d.events, eventRow);                      /* events page: all */
   renderList('reads-list', d.reads, readRow);                        /* blog: further reading */
   renderList('learn-list', d.learn, learnRow);                       /* resources: learn with */

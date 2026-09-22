@@ -30,22 +30,13 @@ window.SITE_DATA = {
 
   events: [
     {
-      when:  "21 Sept - 02 Oct",
-      where: "Brunel University of London",
+      when:  "Tuesday 22nd September 2026",
+      where: "11am - 5pm",
       title: "Brunel Freshers 2026",
-      desc:  "Brunel Freshers 2026 is coming... full events list dropping Summer 2026.",
-      tag:   "freshers",
+      desc:  "Completed — thank you to everyone who stopped by, met the committee and joined the society.",
+      tag:   "past event",
       tone:  "",
-      /* optional: hover over this event to show a rich card.
-         Add an image at assets/freshers.jpg, or remove 'img' to keep the gradient. */
-      preview: {
-        pill:  "collab",
-        cap:   "OUR FIRST COLLABORATION EVENT",
-        title: "Freshers Week 2026",
-        desc:  "We're opening the year with a freshers collaboration built to welcome new faces, show off the society, and kick things off with a proper first impression.",
-        img:   "assets/freshers.png",
-        link:  "https://brunel.native.fm/event/brunel-freshers-2026/284387"
-      }
+      past:  true
     },
     {
       when:  "05 Oct",
@@ -81,6 +72,33 @@ window.SITE_DATA = {
      ---------------------------------------------------------- */
   /* CYBERTUTOR:START */
   posts: [
+    {
+      date:  "21 sep 2026",
+      title: "The Vulnerability Gap: Why Discovery Is Outrunning Repair",
+      desc:  "Advanced AI models have collapsed the timeline for discovering serious vulnerabilities in widely used open source software from weeks or months to hours, but this speed-up has exposed a structural bottleneck:…",
+      tag:   "vuln",
+      tone:  "warm",
+      image: "https://substackcdn.com/image/fetch/$s_!UZAT!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5a754b38-44eb-4665-bc50-6b57955cdca9_1672x941.png",
+      link:  "https://mohammedzuoriki.substack.com/p/the-vulnerability-gap-why-discovery"
+    },
+    {
+      date:  "20 sep 2026",
+      title: "China's FamousSparrow APT Spies on US Politics in Latin America",
+      desc:  "The Chinese cyber-espionage group “FamousSparrow” has shifted its focus since mid‑2025 to infiltrate government agencies and key industries across Central and South America using a newly built, modular C++ backdoor…",
+      tag:   "news",
+      tone:  "",
+      image: "https://substackcdn.com/image/fetch/$s_!fmH2!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9809886c-d82e-4444-a5b3-bb616bbca3c6_1986x1114.png",
+      link:  "https://mohammedzuoriki.substack.com/p/chinas-famoussparrow-apt-spies-on"
+    },
+    {
+      date:  "19 sep 2026",
+      title: "AI Agent Breaches Spanish Organization, Modifies Personal Data",
+      desc:  "A Spanish organization suffered a personal-data breach after a human-controlled agentic AI system discovered exposed credentials and exploited a vulnerability in an enterprise application. According to Spain’s…",
+      tag:   "breach",
+      tone:  "",
+      image: "https://substackcdn.com/image/fetch/$s_!qiil!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff5801f74-563b-4c4f-bbea-7e98ea56c210_1666x1118.png",
+      link:  "https://mohammedzuoriki.substack.com/p/ai-agent-breaches-spanish-organization"
+    },
     {
       date:  "18 sep 2026",
       title: "CISA Ditches Weekly Vulnerability Roundups for Risk-Based Focus",
@@ -134,33 +152,6 @@ window.SITE_DATA = {
       tone:  "warm",
       image: "https://substackcdn.com/image/fetch/$s_!Kye4!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbb1ceb40-c7e2-4dcc-8453-c4920e648870_1968x1108.png",
       link:  "https://mohammedzuoriki.substack.com/p/threat-actor-generates-1m-personalized"
-    },
-    {
-      date:  "12 sep 2026",
-      title: "Papercut AI Swarm Attack Heralds Changes for Cyber Kill Chain",
-      desc:  "In late August, a likely Russian-speaking threat actor deployed hundreds of AI agents to rapidly exploit two vulnerabilities in Internet-connected PaperCut NG/MF print-management instances, compromising at least 440…",
-      tag:   "ai",
-      tone:  "cool",
-      image: "https://substackcdn.com/image/fetch/$s_!DNbG!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Feab3291c-d343-4695-9c15-ca690d01a844_1600x900.jpeg",
-      link:  "https://mohammedzuoriki.substack.com/p/papercut-ai-swarm-attack-heralds"
-    },
-    {
-      date:  "11 sep 2026",
-      title: "Nightmare-Eclipse Strikes Again With 'ShieldCrash' Windows Exploit",
-      desc:  "Security researcher Nightmare-Eclipse has released “ShieldCrash,” a Windows zero-day exploit that allegedly bypasses Microsoft’s recent fix for the ShieldBreak vulnerability in Windows Defender’s Malware Protection…",
-      tag:   "vuln",
-      tone:  "warm",
-      image: "https://substackcdn.com/image/fetch/$s_!9-X2!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fde9d98a3-bfe0-41b5-b360-afe788bd236d_1200x660.jpeg",
-      link:  "https://mohammedzuoriki.substack.com/p/nightmare-eclipse-strikes-again-with"
-    },
-    {
-      date:  "10 sep 2026",
-      title: "Mythos Vulnerability Firehose Hits a Human Bottleneck",
-      desc:  "A VulnCheck analysis of Anthropic’s Project Glasswing data found that Claude Mythos generated 26,153 potential vulnerabilities, but only 2,736—just over 10%—had reached the disclosure process and 202 had been…",
-      tag:   "vuln",
-      tone:  "warm",
-      image: "https://substackcdn.com/image/fetch/$s_!RJ9M!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F09f95e85-9cf6-4d98-84b1-052fa0e467e4_1024x683.png",
-      link:  "https://mohammedzuoriki.substack.com/p/mythos-vulnerability-firehose-hits"
     }
   ],
   /* CYBERTUTOR:END */
@@ -215,16 +206,14 @@ window.SITE_DATA = {
       duties: []
     },
     {
-      name: "",
+      name: "Alex Javadi",
       role: "vice chair / president",
-      initials: "VC",
-      photo: "",
+      initials: "AJ",
+      photo: "assets/alex.png",
       accent: "cool",
       bio: "",
       duties: [
-        "Support the Founder/President in running the society",
-        "Help with effective committee management",
-        "Act as Union contact when the Founder/President and Secretary are unavailable"
+       "Alex is taking on the Vice President role this year. He is here to support the Founder and President in running the society, helping keep committee matters on track and running effectively behind the scenes. When the Founder and President and Secretary aren't available, he steps in as the Union's point of contact, so there's always someone to turn to. If you've ever got a question or need a hand, don't hesitate to reach out, that's exactly what he is here for."
       ]
     },
     {
