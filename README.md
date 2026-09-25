@@ -1,13 +1,15 @@
 # 🔐 Brunel Cyber Security Society
 
-[![Live Demo](https://img.shields.io/badge/demo-live_site-6FC9D8?style=for-the-badge&logo=githubpages&logoColor=white)](https://brunelcybersec.github.io/brunel-cyber-society/)
+[![Live Demo](https://img.shields.io/badge/demo-live_site-6FC9D8?style=for-the-badge&logo=githubpages&logoColor=white)](https://brunelcs.org)
+
 [![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=flat&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+
 [![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=flat&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=flat&logo=javascript&logoColor=%23F7DF1E)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 The official website for Brunel University London's Cybersecurity Society. Built with a terminal-inspired aesthetic, modular content management, and responsive design.
 
-**Live site:** [brunelcybersec.github.io/brunel-cyber-society](https://brunelcybersec.github.io/brunel-cyber-society/)
+ **Live site:** [brunelcs.org](https://brunelcs.org)
 
 ---
 
