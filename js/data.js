@@ -204,20 +204,18 @@ window.SITE_DATA = {
       initials: "MZ",
       photo: "assets/IMG_4556.jpg",
       accent: "warm",
-      bio: "Mohammed is the Founder and President of the Cyber Security Society. He leads the committee, keeps everything running smoothly, acts as the main contact with the Union, and represents the society at events. He also makes sure members are properly signed up and is always on hand when anything needs sorting :)",
+      bio: "Mohammed Zuoriki is the Founder and President of Brunel Cyber Security Society. He provides overall leadership and strategic direction for the society, oversees committee operations, represents the society at events, and serves as a principal point of contact with the Union. He is also responsible for supporting membership administration and ensuring the effective delivery of the society's activities.",
       duties: []
     },
     {
       name: "Alex Javadi",
-      role: "vice chair / president",
+      role: "vice president",
       email: "a.javadi@brunelcs.org",
       initials: "AJ",
       photo: "assets/alex.png",
       accent: "cool",
-      bio: "",
-      duties: [
-       "Alex is taking on the Vice President role this year. He is here to support the Founder and President in running the society, helping keep committee matters on track and running effectively behind the scenes. When the Founder and President and Secretary aren't available, he steps in as the Union's point of contact, so there's always someone to turn to. If you've ever got a question or need a hand, don't hesitate to reach out, that's exactly what he is here for."
-      ]
+      bio: "Alex Javadi serves as Vice President of Brunel Cyber Security Society. He supports the President in the management and coordination of the society, assists with committee operations, and helps ensure that organisational responsibilities are carried out effectively. In the absence of the President and Secretary, he may also act as a point of contact between the society and the Union.",
+      duties: []
     },
     {
       name: "Abdirahman Abdikadir",
@@ -226,7 +224,7 @@ window.SITE_DATA = {
       initials: "AA",
       photo: "assets/abdirahman.jpg",
       accent: "warm",
-      bio: "Abdirahman is taking on the Secretary role this year.He is here to keep things running smoothly behind the scenes, taking notes during meetings so nothing gets lost, sharing them with the Union so everyone's in the loop, and stepping in as a friendly point of contact whenever the Founder's not around. If you've ever got a question about what was discussed or decided, don't hesitate to reach out to him, that's exactly what he is here for.",
+      bio: "Abdirahman Abdikadir serves as Secretary of Brunel Cyber Security Society. He is responsible for maintaining accurate records of committee meetings, documenting key decisions and actions, and supporting formal communication with the Union. He also assists the committee with administrative coordination and the effective management of society documentation.",
       duties: []
     },
     {
@@ -236,7 +234,7 @@ window.SITE_DATA = {
       initials: "PN",
       photo: "assets/Parm.JPG",
       accent: "warm",
-      bio: "Parmbir is your Treasurer and one of the co-founders of the Cyber Security Society. He makes sure our money is where it's supposed to be, keeps an eye on the finances, chases sponsorships, and ensures our members are well supplied with pizza. If the budget goes missing... he'll investigate (after finishing his slice). :)",
+      bio: "Parmbir Singh Nandha is a Co-Founder and Treasurer of Brunel Cyber Security Society. He oversees the society's financial administration, including budgeting, expenditure monitoring and financial planning. He also supports sponsorship activity and works with the committee to ensure that society funds and resources are managed responsibly.",
       duties: []
     },
     {
@@ -246,7 +244,7 @@ window.SITE_DATA = {
       initials: "WO",
       photo: "assets/kartik.png",
       accent: "cool",
-      bio: "Kartik is taking on the Web Officer role this year. He looks after the society's website: keeping it updated with events and resources, building new pages and features throughout the year, and being the one to fix things when they break. If you ever spot something off with the site, a dead link, or have an idea for what it should do next, that's exactly what he's here for.",
+      bio: "Kartik serves as Web Officer of Brunel Cyber Security Society. He is responsible for the development, maintenance and ongoing management of the society's website, including the publication of events, resources and other digital content. He also oversees technical improvements, resolves website issues and supports the continued development of the society's online presence.",
       duties: []
     },
   ]
