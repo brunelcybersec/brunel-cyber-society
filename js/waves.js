@@ -27,7 +27,7 @@
   /* a page can request a different look with data-variant="b" on the canvas */
   const VARIANT = canvas.dataset.variant || 'a';
   const SPEED = VARIANT === 'b' ? 0.009 : 0.012;
-  const DIM = VARIANT === 'b' ? 0.55 : 1;   /* dimmer when used as a full-page background */
+  const DIM = VARIANT === 'b' ? 0.28 : 1;   /* dimmer when used as a full-page background */
 
   const STEP = 9;                            /* horizontal sampling step (px) — lower = smoother but heavier */
   const ROW_GAP = VARIANT === 'b' ? 22 : 16; /* vertical gap between lines (px) */
