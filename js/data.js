@@ -204,7 +204,7 @@ window.SITE_DATA = {
       initials: "MZ",
       photo: "assets/IMG_4556.jpg",
       accent: "warm",
-      bio: "Mohammed is your Society President and helps keep everything running smoothly. He provides leadership, keeps the committee organised, acts as the main contact with the Union, and represents the society at events. He makes sure everyone is properly signed up as a member. He is the crazy digital security guy, so if anything needs sorting, he is always on it :)",
+      bio: "Mohammed is the Founder and President of the Cyber Security Society. He leads the committee, keeps everything running smoothly, acts as the main contact with the Union, and represents the society at events. He also makes sure members are properly signed up and is always on hand when anything needs sorting :)",
       duties: []
     },
     {
