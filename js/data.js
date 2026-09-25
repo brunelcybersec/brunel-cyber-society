@@ -185,6 +185,7 @@ window.SITE_DATA = {
      One { } block per person, in the order they should appear.
        name     : full name. Leave "" to show a 'Your name here' placeholder.
        role      : their title, e.g. "secretary".
+       email    : their personal committee email address.
        initials  : 1-3 letters shown when there is no photo (or while it loads).
        photo     : path to their picture, e.g. "assets/parm.jpg".
                    Leave "" for no photo (the initials show instead).
@@ -199,15 +200,17 @@ window.SITE_DATA = {
     {
       name: "Mohammed Zuoriki",
       role: "founder / president",
+      email: "m.zuoriki@brunelcs.org",
       initials: "MZ",
       photo: "assets/IMG_4556.jpg",
       accent: "warm",
-      bio: "Mohammed your Society President and I help keep everything running smoothly. He provides leadership, keeps the committee organised, acts as the main contact with the Union, and represents the society at events. He makes sure everyone is properly signed up as a member. He is the crazy digital security guy, so if anything needs sorting, he is always on it :) ",
+      bio: "Mohammed is your Society President and helps keep everything running smoothly. He provides leadership, keeps the committee organised, acts as the main contact with the Union, and represents the society at events. He makes sure everyone is properly signed up as a member. He is the crazy digital security guy, so if anything needs sorting, he is always on it :)",
       duties: []
     },
     {
       name: "Alex Javadi",
       role: "vice chair / president",
+      email: "a.javadi@brunelcs.org",
       initials: "AJ",
       photo: "assets/alex.png",
       accent: "cool",
@@ -219,6 +222,7 @@ window.SITE_DATA = {
     {
       name: "Abdirahman Abdikadir",
       role: "secretary",
+      email: "a.abdikadir@brunelcs.org",
       initials: "AA",
       photo: "assets/abdirahman.jpg",
       accent: "warm",
@@ -228,6 +232,7 @@ window.SITE_DATA = {
     {
       name: "Kartik",
       role: "web officer",
+      email: "k.kartik@brunelcs.org",
       initials: "WO",
       photo: "assets/kartik.png",
       accent: "cool",
@@ -237,25 +242,13 @@ window.SITE_DATA = {
     {
       name: "Parmbir Singh Nandha",
       role: "treasurer / co-founder",
+      email: "p.singh@brunelcs.org",
       initials: "PN",
       photo: "assets/Parm.JPG",
       accent: "warm",
       bio: "Parmbir is your Treasurer and one of the co-founders of the Cyber Security Society. He makes sure our money is where it's supposed to be, keeps an eye on the finances, chases sponsorships, and ensures our members are well supplied with pizza. If the budget goes missing... he'll investigate (after finishing his slice). :)",
       duties: []
     },
-    {
-      name: "",
-      role: "events officer",
-      initials: "EO",
-      photo: "",
-      accent: "cool",
-      bio: "",
-      duties: [
-        "Plan society activities and events with the Societies' Administrator",
-        "Make sure event-planning tasks are completed on time",
-        "With the committee, ensure event information reaches members"
-      ]
-    }
   ]
 
 };

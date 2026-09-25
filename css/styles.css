@@ -557,6 +557,14 @@ h2 {
   color: var(--muted);
   margin: 5px 0 16px;
 }
+.member-email {
+  display: inline-block;
+  margin: -7px 0 16px;
+  color: var(--text);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  word-break: break-word;
+}
 .member p { color: var(--muted); font-size: 14px; line-height: 1.6; }
 .member .bio {
   color: #c8c5c2;

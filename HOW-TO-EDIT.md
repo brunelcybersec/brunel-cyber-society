@@ -178,7 +178,7 @@ Files" feature and search for the old value:
 
 - **Discord invite:** search for `discord.gg/anmggPyVcs` and replace the link.
 - **Instagram:** search for `instagram.com/cybersoc.brunel`.
-- **Email:** search for `cybersec@brunel.ac.uk` and replace with the real address.
+- **Email:** search for `contact@brunelcs.org` and replace with the real address.
 - **GitHub (footer icon):** search for `github.com/brunelcybersec` (no hyphen).
 - **YouTube:** search for `youtube.com/@CyberTutor24` and replace with the real channel.
 

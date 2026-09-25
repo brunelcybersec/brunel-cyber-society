@@ -125,6 +125,9 @@
       ? '<h3>' + esc(m.name) + '</h3>'
       : '<h3 class="placeholder">Your name here</h3>';
     const bio = m.bio ? '<p class="bio">' + esc(m.bio) + '</p>' : '';
+    const email = m.email
+      ? '<a class="member-email" href="mailto:' + esc(m.email) + '">email: ' + esc(m.email) + ' ↗</a>'
+      : '';
     const duties = (m.duties && m.duties.length)
       ? '<ul class="duties">' +
           m.duties.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') +
@@ -135,6 +138,7 @@
         '<div class="avatar">' + esc(m.initials || '') + img + '</div>' +
         name +
         '<p class="role">' + esc(m.role || '') + '</p>' +
+        email +
         bio +
         duties +
       '</div>'
