@@ -246,7 +246,7 @@ window.SITE_DATA = {
       initials: "WO",
       photo: "assets/kartik.png",
       accent: "cool",
-      bio: "Kartik is a second-year BSc Computer Science (Artificial Intelligence) student at Brunel and a Vice Chancellor's Scholar. He contributes to Brunel Talent Marketplace's open-source software engineering programme and is particularly interested in the intersection of AI and cybersecurity, enjoying building and shipping his own projects in his spare time. Outside of code, he's a Student Ambassador and has a background in theatre and congo drumming.",
+      bio: "Kartik is taking on the Web Officer role this year. He looks after the society's website: keeping it updated with events and resources, building new pages and features throughout the year, and being the one to fix things when they break. If you ever spot something off with the site, a dead link, or have an idea for what it should do next, that's exactly what he's here for.",
       duties: []
     },
   ]
