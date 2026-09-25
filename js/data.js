@@ -230,16 +230,6 @@ window.SITE_DATA = {
       duties: []
     },
     {
-      name: "Kartik",
-      role: "web officer",
-      email: "k.kartik@brunelcs.org",
-      initials: "WO",
-      photo: "assets/kartik.png",
-      accent: "cool",
-      bio: "Kartik is a second-year BSc Computer Science (Artificial Intelligence) student at Brunel and a Vice Chancellor's Scholar. He contributes to Brunel Talent Marketplace's open-source software engineering programme and is particularly interested in the intersection of AI and cybersecurity, enjoying building and shipping his own projects in his spare time. Outside of code, he's a Student Ambassador and has a background in theatre and congo drumming.",
-      duties: []
-    },
-    {
       name: "Parmbir Singh Nandha",
       role: "treasurer / co-founder",
       email: "p.singh@brunelcs.org",
@@ -247,6 +237,16 @@ window.SITE_DATA = {
       photo: "assets/Parm.JPG",
       accent: "warm",
       bio: "Parmbir is your Treasurer and one of the co-founders of the Cyber Security Society. He makes sure our money is where it's supposed to be, keeps an eye on the finances, chases sponsorships, and ensures our members are well supplied with pizza. If the budget goes missing... he'll investigate (after finishing his slice). :)",
+      duties: []
+    },
+    {
+      name: "Kartik",
+      role: "web officer",
+      email: "k.kartik@brunelcs.org",
+      initials: "WO",
+      photo: "assets/kartik.png",
+      accent: "cool",
+      bio: "Kartik is a second-year BSc Computer Science (Artificial Intelligence) student at Brunel and a Vice Chancellor's Scholar. He contributes to Brunel Talent Marketplace's open-source software engineering programme and is particularly interested in the intersection of AI and cybersecurity, enjoying building and shipping his own projects in his spare time. Outside of code, he's a Student Ambassador and has a background in theatre and congo drumming.",
       duties: []
     },
   ]

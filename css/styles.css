@@ -515,8 +515,9 @@ h2 {
     column-gap: 32px;
   }
   .member-grid > .member {
-    flex: 0 1 calc((100% - 64px) / 3);
+    flex: 0 1 calc((100% - 32px) / 2);
     min-width: 280px;
+    max-width: 480px;
   }
 }
 .member {
