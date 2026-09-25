@@ -509,12 +509,14 @@ h2 {
 }
 @media (min-width: 960px) {
   .member-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     column-gap: 32px;
   }
-  /* Keep an odd final row centred while the temporary vacancy is hidden. */
-  .member-grid > .member:last-child:nth-child(odd) {
-    grid-column: 2;
+  .member-grid > .member {
+    flex: 0 1 calc((100% - 64px) / 3);
+    min-width: 280px;
   }
 }
 .member {
