@@ -100,14 +100,18 @@ const FEED_HEADERS = {
   'accept': 'application/rss+xml, application/xml;q=0.9, */*;q=0.8',
   'accept-language': 'en-US,en;q=0.9',
 };
-const PROXY_FEED = `https://api.allorigins.win/raw?url=${encodeURIComponent(FEED)}`;
+const PROXIES = [
+  (url) => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
+  (url) => `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
+  (url) => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
+];
 
 async function fetchFeed(url, attempt = 1, maxAttempts = 3) {
   console.log(`Fetching ${url} (attempt ${attempt}/${maxAttempts}) ...`);
   const res = await fetch(url, { headers: FEED_HEADERS });
   if (!res.ok) {
     if (attempt < maxAttempts) {
-      console.warn(`Feed request failed: HTTP ${res.status} — retrying...`);
+      console.warn(`Feed request failed: HTTP ${res.status} - retrying...`);
       await new Promise((r) => setTimeout(r, 2000 * attempt));
       return fetchFeed(url, attempt + 1, maxAttempts);
     }
@@ -120,14 +124,20 @@ async function fetchFeedWithFallback() {
   try {
     return await fetchFeed(FEED);
   } catch (err) {
-    console.warn(`Direct feed fetch failed (${err.message}) — falling back to proxy...`);
+    console.warn(`Direct feed fetch failed (${err.message}) - trying proxies...`);
+  }
+
+  for (let i = 0; i < PROXIES.length; i++) {
+    const proxyUrl = PROXIES[i](FEED);
     try {
-      return await fetchFeed(PROXY_FEED, 1, 2);
-    } catch (err2) {
-      console.error(`Proxy feed fetch also failed: ${err2.message}`);
-      process.exit(1);
+      return await fetchFeed(proxyUrl, 1, 2);
+    } catch (err) {
+      console.warn(`Proxy ${i + 1}/${PROXIES.length} failed (${err.message})`);
     }
   }
+
+  console.error('All feed fetch attempts failed (direct + all proxies).');
+  process.exit(1);
 }
 
 const xml = await fetchFeedWithFallback();
