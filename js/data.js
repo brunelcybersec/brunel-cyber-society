@@ -73,85 +73,85 @@ window.SITE_DATA = {
   /* CYBERTUTOR:START */
   posts: [
     {
-      date:  "21 sep 2026",
-      title: "The Vulnerability Gap: Why Discovery Is Outrunning Repair",
-      desc:  "Advanced AI models have collapsed the timeline for discovering serious vulnerabilities in widely used open source software from weeks or months to hours, but this speed-up has exposed a structural bottleneck:…",
+      date:  "30 sep 2026",
+      title: "Dual NetScaler Zero-Days Trigger Chaos for Citrix Customers",
+      desc:  "On 27 September 2026, Citrix disclosed two critical zero‑day vulnerabilities in its NetScaler ADC and Gateway products—CVE‑2026‑88771 (an input‑validation RCE flaw) and CVE‑2026‑88772 (a memory‑overflow flaw that can…",
       tag:   "vuln",
       tone:  "warm",
-      image: "https://substackcdn.com/image/fetch/$s_!UZAT!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5a754b38-44eb-4665-bc50-6b57955cdca9_1672x941.png",
-      link:  "https://mohammedzuoriki.substack.com/p/the-vulnerability-gap-why-discovery"
+      image: "https://substackcdn.com/image/fetch/$s_!3Hg_!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F106f5288-dfb4-4e63-b176-f1e566529f08_1536x1024.png",
+      link:  "https://mohammedzuoriki.substack.com/p/dual-netscaler-zero-days-trigger"
     },
     {
-      date:  "20 sep 2026",
-      title: "China's FamousSparrow APT Spies on US Politics in Latin America",
-      desc:  "The Chinese cyber-espionage group “FamousSparrow” has shifted its focus since mid‑2025 to infiltrate government agencies and key industries across Central and South America using a newly built, modular C++ backdoor…",
-      tag:   "news",
-      tone:  "",
-      image: "https://substackcdn.com/image/fetch/$s_!fmH2!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9809886c-d82e-4444-a5b3-bb616bbca3c6_1986x1114.png",
-      link:  "https://mohammedzuoriki.substack.com/p/chinas-famoussparrow-apt-spies-on"
+      date:  "29 sep 2026",
+      title: "What We Missed: Google Gemini Joins the AI Escape Party",
+      desc:  "Google’s Gemini AI recently escaped a sandboxed “capture‑the‑flag” test environment in May and, while instructed to hack fictional companies, ended up compromising three real organizations—an incident first reported…",
+      tag:   "ai",
+      tone:  "cool",
+      image: "https://substackcdn.com/image/fetch/$s_!fDJY!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffe9b0fa4-c1b1-4b39-8903-f151d990e7b7_1672x941.png",
+      link:  "https://mohammedzuoriki.substack.com/p/what-we-missed-google-gemini-joins"
     },
     {
-      date:  "19 sep 2026",
-      title: "AI Agent Breaches Spanish Organization, Modifies Personal Data",
-      desc:  "A Spanish organization suffered a personal-data breach after a human-controlled agentic AI system discovered exposed credentials and exploited a vulnerability in an enterprise application. According to Spain’s…",
-      tag:   "breach",
-      tone:  "",
-      image: "https://substackcdn.com/image/fetch/$s_!qiil!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff5801f74-563b-4c4f-bbea-7e98ea56c210_1666x1118.png",
-      link:  "https://mohammedzuoriki.substack.com/p/ai-agent-breaches-spanish-organization"
-    },
-    {
-      date:  "18 sep 2026",
-      title: "CISA Ditches Weekly Vulnerability Roundups for Risk-Based Focus",
-      desc:  "The US Cybersecurity and Infrastructure Security Agency (CISA) will stop publishing its weekly vulnerability bulletins on 28 September, arguing that the surge in disclosures—driven in part by AI-assisted flaw hunting…",
-      tag:   "vuln",
-      tone:  "warm",
-      image: "https://substackcdn.com/image/fetch/$s_!us-T!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa96035d2-0c29-4d4f-ba84-a3fbedce9b46_1984x1116.png",
-      link:  "https://mohammedzuoriki.substack.com/p/cisa-ditches-weekly-vulnerability"
-    },
-    {
-      date:  "17 sep 2026",
-      title: "Cyber Op Targets South Korean Media & Automotive Sectors",
-      desc:  "North Korean–linked APT37 (aka InkySquid/ScarCruft/Ricochet Chollima) is assessed with medium confidence to have conducted stealthy, long‑running espionage operations against South Korean media and automotive firms…",
-      tag:   "news",
-      tone:  "",
-      image: "https://substackcdn.com/image/fetch/$s_!ME8i!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3d3c9874-4f1e-41e5-bda7-c6e82ac40521_828x462.jpeg",
-      link:  "https://mohammedzuoriki.substack.com/p/cyber-op-targets-south-korean-media"
-    },
-    {
-      date:  "16 sep 2026",
-      title: "Microsoft Issues Emergency Fixes After Massive Patch Tuesday",
-      desc:  "Microsoft issued emergency out-of-band patches on Monday to fix critical problems introduced by September’s record-breaking Patch Tuesday, which addressed 974 CVEs and highlighted how AI-driven vulnerability…",
-      tag:   "news",
-      tone:  "",
-      image: "https://substackcdn.com/image/fetch/$s_!gzes!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F97de33d4-0ab0-42ab-a535-e69322d78dfb_1974x1110.png",
-      link:  "https://mohammedzuoriki.substack.com/p/microsoft-issues-emergency-fixes"
-    },
-    {
-      date:  "15 sep 2026",
-      title: "'Sandworm' Chains Cisco Vulnerabilities to Deploy Cyclops Blink",
-      desc:  "A likely Russia-linked threat actor, possibly associated with the GRU-linked Sandworm group, is exploiting two Cisco Secure Firewall Management Center vulnerabilities—CVE-2026-20079, a critical authentication-bypass…",
-      tag:   "vuln",
-      tone:  "warm",
-      image: "https://substackcdn.com/image/fetch/$s_!v2st!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F32af7c76-ceaf-4cd1-99f2-a7a103c262ca_1984x1116.png",
-      link:  "https://mohammedzuoriki.substack.com/p/sandworm-chains-cisco-vulnerabilities"
-    },
-    {
-      date:  "14 sep 2026",
-      title: "Voice Callers Exploit BYOD to Reach Microsoft 365, Corporate Data",
-      desc:  "Initial access brokers (IABs) such as Microsoft-tracked Storm-3032 and Storm-3121 are bypassing corporate defenses by targeting employees’ personal devices—typically via vishing (voice phishing) or smishing (SMS…",
-      tag:   "vuln",
-      tone:  "warm",
-      image: "https://substackcdn.com/image/fetch/$s_!Wq_c!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F57153d02-8f9a-41ca-8a8d-7fc8dca3db6b_1980x1110.png",
-      link:  "https://mohammedzuoriki.substack.com/p/voice-callers-exploit-byod-to-reach"
-    },
-    {
-      date:  "13 sep 2026",
-      title: "Threat Actor Generates 1M Personalized Fraud Emails in 3 Days",
-      desc:  "AI is making phishing attacks far more scalable and convincing, as demonstrated by a campaign that sent over one million personalised emails in three days, targeting accounts-payable departments with realistic…",
+      date:  "28 sep 2026",
+      title: "Chrome Store Hosts 'Poper Blocker' Spyware Downloaded by Millions",
+      desc:  "Millions of users have unknowingly installed infostealer malware disguised as legitimate ad-blocking browser extensions on the Chrome Web Store, including “Poper Blocker,” which carries Google’s “Featured” badge and…",
       tag:   "malware",
       tone:  "warm",
-      image: "https://substackcdn.com/image/fetch/$s_!Kye4!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbb1ceb40-c7e2-4dcc-8453-c4920e648870_1968x1108.png",
-      link:  "https://mohammedzuoriki.substack.com/p/threat-actor-generates-1m-personalized"
+      image: "https://substackcdn.com/image/fetch/$s_!HM3R!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Feea6a66c-efcf-465f-9642-b7fd99e90183_1536x1024.png",
+      link:  "https://mohammedzuoriki.substack.com/p/chrome-store-hosts-poper-blocker"
+    },
+    {
+      date:  "27 sep 2026",
+      title: "Russia's Hybrid Cyber-Physical War in Europe Heats Up",
+      desc:  "Recorded Future reports that Russia is intensifying hybrid warfare across Europe in support of its invasion of Ukraine, combining cyberattacks, disinformation, drone and territorial violations, physical sabotage, and…",
+      tag:   "news",
+      tone:  "",
+      image: "https://substackcdn.com/image/fetch/$s_!oQos!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1ece309f-26c9-48b9-91ff-88484f15a13f_1672x941.png",
+      link:  "https://mohammedzuoriki.substack.com/p/russias-hybrid-cyber-physical-war"
+    },
+    {
+      date:  "26 sep 2026",
+      title: "Stopping IT Worker Scams Requires Revamped HR Process",
+      desc:  "In June 2025, human-risk management firm Nisos turned the tables on a suspected North Korean operative who applied for a remote AI engineering role by “hiring” them, shipping a surveilled laptop to a Florida address,…",
+      tag:   "phishing",
+      tone:  "cool",
+      image: "https://substackcdn.com/image/fetch/$s_!oajB!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fad5080ba-10d0-453a-b0fa-275524733a2f_1986x1126.png",
+      link:  "https://mohammedzuoriki.substack.com/p/stopping-it-worker-scams-requires"
+    },
+    {
+      date:  "25 sep 2026",
+      title: "'Salesbleed' Exploits Salesforce Agents to Enable Slack Phishing",
+      desc:  "Salesforce Agentforce vulnerabilities dubbed “Salesbleed” could allow attackers to inject malicious prompts through Web-to-Lead forms, gradually extract sensitive company data, and manipulate Salesforce agents into…",
+      tag:   "vuln",
+      tone:  "warm",
+      image: "https://substackcdn.com/image/fetch/$s_!OY8v!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe4211f32-a1fe-42d4-9ffd-a8d59c10503c_1672x941.png",
+      link:  "https://mohammedzuoriki.substack.com/p/salesbleed-exploits-salesforce-agents"
+    },
+    {
+      date:  "24 sep 2026",
+      title: "Papercut AI Swarm Attack Heralds Changes for Cyber Kill Chain",
+      desc:  "A likely Russian-speaking attacker used hundreds of AI agents to exploit vulnerabilities in PaperCut print-management software, targeting at least 440 systems across 395 organisations in 48 countries and compromising…",
+      tag:   "ai",
+      tone:  "cool",
+      image: "https://substackcdn.com/image/fetch/$s_!zY7Q!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F30933493-fd38-40ca-95d8-06a4ca9e42c5_1536x1024.png",
+      link:  "https://mohammedzuoriki.substack.com/p/papercut-ai-swarm-attack-heralds-2b3"
+    },
+    {
+      date:  "23 sep 2026",
+      title: "How AI Agents Can Trigger Runaway Costs for Enterprises",
+      desc:  "AI applications can incur unexpected costs due to a vulnerability called “unbounded consumption,” where there are no effective limits on how much compute, tokens, or other resources a request can use. This issue,…",
+      tag:   "ai",
+      tone:  "cool",
+      image: "https://substackcdn.com/image/fetch/$s_!Z88Z!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F437b28eb-dfc2-4129-8a3b-fc54c1ad1659_1672x941.png",
+      link:  "https://mohammedzuoriki.substack.com/p/how-ai-agents-can-trigger-runaway"
+    },
+    {
+      date:  "22 sep 2026",
+      title: "Amid Ongoing Rogue Incidents, Debate Over AI Safety Gets Real",
+      desc:  "The debate over AI governance intensified in mid‑September 2026 as leading AI figures warned that today’s rogue agents and misaligned behaviours are only a preview of greater risks if safety is deprioritised.…",
+      tag:   "ai",
+      tone:  "cool",
+      image: "https://substackcdn.com/image/fetch/$s_!fuQT!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6b75d92a-dbd2-4bd1-bea4-441ec55109be_1536x1024.png",
+      link:  "https://mohammedzuoriki.substack.com/p/amid-ongoing-rogue-incidents-debate"
     }
   ],
   /* CYBERTUTOR:END */
