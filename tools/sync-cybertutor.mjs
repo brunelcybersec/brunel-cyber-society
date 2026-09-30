@@ -100,11 +100,7 @@ const FEED_HEADERS = {
   'accept': 'application/rss+xml, application/xml;q=0.9, */*;q=0.8',
   'accept-language': 'en-US,en;q=0.9',
 };
-const PROXIES = [
-  (url) => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
-  (url) => `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
-  (url) => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
-];
+const RELAY_FEED = 'https://cybertutor-feed-relay.vercel.app/api/cybertutor-feed';
 
 async function fetchFeed(url, attempt = 1, maxAttempts = 3) {
   console.log(`Fetching ${url} (attempt ${attempt}/${maxAttempts}) ...`);
@@ -124,20 +120,15 @@ async function fetchFeedWithFallback() {
   try {
     return await fetchFeed(FEED);
   } catch (err) {
-    console.warn(`Direct feed fetch failed (${err.message}) - trying proxies...`);
+    console.warn(`Direct feed fetch failed (${err.message}) - trying relay...`);
   }
 
-  for (let i = 0; i < PROXIES.length; i++) {
-    const proxyUrl = PROXIES[i](FEED);
-    try {
-      return await fetchFeed(proxyUrl, 1, 2);
-    } catch (err) {
-      console.warn(`Proxy ${i + 1}/${PROXIES.length} failed (${err.message})`);
-    }
+  try {
+    return await fetchFeed(RELAY_FEED, 1, 2);
+  } catch (err) {
+    console.error('Relay feed fetch also failed: ' + err.message);
+    process.exit(1);
   }
-
-  console.error('All feed fetch attempts failed (direct + all proxies).');
-  process.exit(1);
 }
 
 const xml = await fetchFeedWithFallback();
