@@ -247,6 +247,16 @@ window.SITE_DATA = {
       bio: "Kartik serves as Web Officer of Brunel Cyber Security Society. He is responsible for the development, maintenance and ongoing management of the society's website, including the publication of events, resources and other digital content. He also oversees technical improvements, resolves website issues and supports the continued development of the society's online presence.",
       duties: []
     },
+    {
+      name: "Lawand Salah",
+      role: "events officer",
+      email: "l.salah@brunelcs.org",
+      initials: "LS",
+      photo: "assets/lawand.jpg",
+      accent: "cool",
+      bio: "Lawand Salah serves as Events Officer of Brunel Cyber Security Society. He is responsible for planning and organising the society's workshops, CTF nights, talks and networking events, including venue bookings and coordination with speakers and partners. He also manages event promotion, attendee communications and on-the-day logistics, and works with the committee to ensure events are run cost-effectively and continually improved through member feedback.",
+      duties: []
+    },
   ]
 
 };
