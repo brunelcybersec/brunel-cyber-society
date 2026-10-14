@@ -79,13 +79,29 @@
   </div>
 </nav>
 
-<div class="cam-banner">
-  <div class="cam-banner-inner">
-    <span class="pill cool">cybersecurity awareness month</span>
-    <p>Cybersecurity Awareness Month runs all October. Strong unique passwords, MFA everywhere, and spotting phishing catch most attacks before they start.</p>
-    <a class="cam-banner-link" href="security-basics.html">Read our stay-safe guide &rarr;</a>
+<section class="cam-callout">
+  <div class="cam-callout-inner">
+    <div class="cam-callout-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V5z"/><path d="M9 12l2 2 4-4"/></svg>
+    </div>
+    <p class="cam-callout-tag">// cybersecurity awareness month</p>
+    <h2>Think before you click.</h2>
+    <p class="cam-callout-copy">October is Cybersecurity Awareness Month. Strong unique passwords, MFA everywhere, and spotting phishing catch most attacks before they start. Each one takes minutes to set up.</p>
+    <div class="cta-row">
+      <a class="btn solid" href="security-basics.html">Read our stay-safe guide</a>
+      <a class="btn ghost-btn" href="resources.html">Browse resources</a>
+    </div>
   </div>
-</div>
+</section>
+<script>
+(function () {
+  var cutoff = new Date(2026, 10, 1); // 1 Nov 2026 - after this the section removes itself
+  if (new Date() >= cutoff) {
+    var el = document.querySelector('.cam-callout');
+    if (el) { el.remove(); }
+  }
+})();
+</script>
 
 <main id="main" tabindex="-1">
 <header class="hero">
