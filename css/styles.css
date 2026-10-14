@@ -1931,3 +1931,34 @@ main { display: block; }
 @media (prefers-reduced-motion: reduce) {
   .skip-link, .bc-copy-ico svg, .faq-icon::before, .faq-icon::after { transition: none; }
 }
+
+/* ---------- cybersecurity awareness month banner ---------- */
+.cam-banner {
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+.cam-banner-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 14px 40px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.cam-banner-inner p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text);
+  flex: 1 1 320px;
+}
+.cam-banner-link {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--cool);
+  white-space: nowrap;
+}
+.cam-banner-link:hover { text-decoration: underline; }
+@media (max-width: 640px) {
+  .cam-banner-inner { padding: 12px 20px; }
+}
