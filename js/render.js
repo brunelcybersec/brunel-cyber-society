@@ -209,17 +209,22 @@
   renderList('learn-list', d.learn, learnRow);                       /* resources: learn with */
   renderList('committee-list', d.committee, memberRow);              /* committee page */
 
+  /* our own posts (society announcements etc.) always lead, ahead of
+     the synced CyberTutor ones - kept in a separate array in data.js
+     so the daily sync never overwrites them. */
+  const allPosts = (d.ownPosts || []).concat(d.posts || []);
+
   /* homepage: teaser of the latest 3 blog posts */
   const homePosts = document.getElementById('home-posts');
-  if (homePosts && d.posts && d.posts.length) {
-    homePosts.innerHTML = '<div class="post-grid">' + d.posts.slice(0, 3).map(postRow).join('') + '</div>';
+  if (homePosts && allPosts.length) {
+    homePosts.innerHTML = '<div class="post-grid">' + allPosts.slice(0, 3).map(postRow).join('') + '</div>';
   }
 
   /* blog page: featured first post + grid of the rest */
   const blog = document.getElementById('blog-list');
-  if (blog && d.posts && d.posts.length) {
+  if (blog && allPosts.length) {
     blog.innerHTML =
-      featuredHtml(d.posts[0]) +
-      '<div class="post-grid">' + d.posts.slice(1).map(postRow).join('') + '</div>';
+      featuredHtml(allPosts[0]) +
+      '<div class="post-grid">' + allPosts.slice(1).map(postRow).join('') + '</div>';
   }
 })();
