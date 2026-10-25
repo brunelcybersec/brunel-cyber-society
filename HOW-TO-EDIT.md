@@ -203,6 +203,22 @@ The main contact page layout (the big cards) is in `frontend/contact.html`.
 
 ---
 
+## Phishing alert (pop-up + banner)
+
+While the phishing campaign is active, the homepage shows a pop-up once per visit
+and every page (except Stay safe) shows a small banner at the bottom. Visitors can
+close the banner with its **✕**.
+
+**To switch both off** when the campaign is over: open `frontend/js/site.js`, find
+`const PHISHING_ALERT = true;` and change `true` to `false`.
+
+The wording lives in the same file, just below that line.
+
+Separately, clicking any link that leaves the site shows a short
+"leaving brunelcs.org" check with the real address. That one stays on.
+
+---
+
 ## Previewing your changes
 
 - The simple way: double-click `frontend/index.html` to open it in your browser.

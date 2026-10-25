@@ -1300,6 +1300,8 @@ header.hero::after {
   padding: 4px 9px;
   font-size: 12px;
   letter-spacing: 0.06em;
+  white-space: nowrap;   /* "// latest" etc. must not break onto two lines on phones */
+  flex: none;
 }
 .ctf-band-inner .section-head .tag { color: var(--text); }
 
@@ -1930,4 +1932,216 @@ main { display: block; }
 
 @media (prefers-reduced-motion: reduce) {
   .skip-link, .bc-copy-ico svg, .faq-icon::before, .faq-icon::after { transition: none; }
+}
+
+/* ============================================================
+   PHISHING ALERT  (homepage pop-up + site-wide banner)
+   and the "leaving brunelcs.org" link check.
+   Built by site.js; switch it all off with PHISHING_ALERT there.
+   ============================================================ */
+
+/* ---- shared: pulsing warm dot + close (X) button ---- */
+.ph-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--warm);
+  animation: ph-pulse 2s infinite;
+}
+@keyframes ph-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(224, 138, 109, 0.5); }
+  70%  { box-shadow: 0 0 0 8px rgba(224, 138, 109, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(224, 138, 109, 0); }
+}
+.ph-x {
+  width: 32px; height: 32px; flex: none;
+  display: grid; place-items: center;
+  border: 1px solid var(--line); border-radius: 6px;
+  background: transparent; color: var(--muted); cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+.ph-x:hover { color: var(--text); border-color: var(--text); }
+.ph-x svg { width: 14px; height: 14px; }
+
+/* ---- pop-up (homepage, once per visit) ---- */
+.ph-pop {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--text);
+  padding: 0;
+  margin: auto;                 /* the global margin reset would otherwise pin it top-left */
+  width: min(540px, calc(100vw - 32px));
+  max-height: calc(100vh - 32px);
+  overflow: auto;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(224, 138, 109, 0.12);
+}
+.ph-pop::backdrop {
+  background: rgba(11, 11, 13, 0.45);
+  -webkit-backdrop-filter: blur(12px) saturate(0.8);
+  backdrop-filter: blur(12px) saturate(0.8);
+}
+.ph-pop[open] { animation: ph-pop-in 0.38s cubic-bezier(0.22, 1, 0.36, 1); }
+.ph-pop[open]::backdrop { animation: ph-fade 0.3s ease; }
+@keyframes ph-pop-in {
+  from { opacity: 0; transform: translateY(18px) scale(0.96); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes ph-fade { from { opacity: 0; } to { opacity: 1; } }
+
+.ph-pop-top {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 14px 16px 14px 24px;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(90deg, rgba(224, 138, 109, 0.12), transparent 70%);
+}
+.ph-live {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.08em;
+  color: var(--warm);
+}
+.ph-live .date { color: var(--muted); letter-spacing: 0.04em; }
+.ph-pop-body { padding: 24px; }
+.ph-pop h2 { font-size: clamp(22px, 4vw, 26px); text-wrap: balance; }
+.ph-lede { color: var(--muted); margin-top: 8px; font-size: 15px; text-wrap: pretty; }
+.ph-steps {
+  list-style: none; counter-reset: step;
+  display: grid; gap: 11px;
+  margin-top: 18px; padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+.ph-steps li {
+  counter-increment: step;
+  display: flex; gap: 12px;
+  font-size: 14.5px; line-height: 1.5; color: var(--muted);
+}
+.ph-steps li::before {
+  content: counter(step, decimal-leading-zero);
+  font-family: 'JetBrains Mono', monospace; font-size: 12px;
+  color: var(--cool); padding-top: 2px; flex: none;
+}
+.ph-steps strong { color: var(--text); font-weight: 500; }
+.ph-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.ph-actions .btn { padding: 11px 20px; }
+.ph-actions .ghost-btn { background: transparent; }
+
+/* ---- banner (every page except stay-safe; X hides it on this device) ---- */
+.ph-banner {
+  /* fixed palette so it stays dark and readable on the light crack-the-vault page */
+  --text: #E9E6E3; --muted: #8E8B8F; --line: #2E2E34;
+  color: var(--text);
+  position: fixed;
+  left: 50%; bottom: 18px;
+  transform: translateX(-50%);
+  z-index: 70;
+  width: min(760px, calc(100vw - 24px));
+  display: flex; align-items: center; gap: 14px;
+  padding: 10px 10px 10px 18px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(19, 19, 22, 0.94);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  animation: ph-banner-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.ph-banner::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: var(--warm);
+}
+@keyframes ph-banner-in {
+  from { opacity: 0; transform: translate(-50%, 16px); }
+  to   { opacity: 1; transform: translate(-50%, 0); }
+}
+.ph-banner .ph-live { flex: none; font-size: 11.5px; }
+.ph-b-text { flex: 1; min-width: 0; font-size: 14px; line-height: 1.45; color: var(--muted); }
+.ph-b-text strong { color: var(--text); font-weight: 500; }
+.ph-b-link {
+  flex: none;
+  font-family: 'JetBrains Mono', monospace; font-size: 12.5px;
+  color: var(--cool);
+  padding: 6px 4px;
+}
+.ph-b-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+.ph-banner .ph-x { width: 30px; height: 30px; }
+.ph-banner .ph-x svg { width: 13px; height: 13px; }
+/* keep the footer reachable above the banner while it's showing */
+html.has-ph-banner body { padding-bottom: 84px; }
+
+/* ---- "leaving brunelcs.org" link check ---- */
+.leave-dlg {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--text);
+  padding: 0;
+  margin: auto;
+  width: min(460px, calc(100vw - 32px));
+  position: relative;
+  overflow: hidden;
+}
+.leave-dlg::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: var(--warm);
+}
+.leave-dlg::backdrop {
+  background: rgba(11, 11, 13, 0.6);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+.leave-inner { padding: 22px 24px 24px; }
+.leave-tag {
+  font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em;
+  color: var(--warm);
+}
+.leave-dlg h2 { font-size: 21px; margin-top: 10px; }
+.leave-dlg p { color: var(--muted); font-size: 14.5px; margin-top: 8px; }
+.leave-url {
+  display: block;
+  margin-top: 14px; padding: 11px 13px;
+  border: 1px solid var(--line); border-radius: 6px;
+  background: rgba(11, 11, 13, 0.6);
+  font-family: 'JetBrains Mono', monospace; font-size: 13px;
+  color: var(--muted); word-break: break-all; line-height: 1.5;
+}
+.leave-url strong { color: var(--text); font-weight: 500; }
+.leave-tip { display: flex; gap: 10px; align-items: flex-start; margin-top: 14px; font-size: 13.5px; }
+.leave-tip svg { width: 16px; height: 16px; flex: none; margin-top: 3px; color: var(--cool); }
+.leave-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.leave-actions .btn { padding: 11px 20px; }
+.leave-actions .ghost-btn { background: transparent; }
+.leave-skip {
+  margin-top: 14px;
+  font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--muted);
+  display: flex; align-items: center; gap: 8px; cursor: pointer;
+}
+.leave-skip input { accent-color: var(--cool); }
+
+@media (max-width: 720px) {
+  /* banner: tag · link · X on one row, the headline sentence below */
+  .ph-banner {
+    bottom: 10px;
+    flex-wrap: wrap; align-items: center; gap: 4px 10px;
+    padding: 8px 8px 10px 14px;
+  }
+  .ph-banner .ph-live { order: 1; font-size: 11px; }
+  .ph-b-link { order: 2; margin-left: auto; font-size: 12px; }
+  .ph-banner .ph-x { order: 3; width: 28px; height: 28px; }
+  .ph-b-text { order: 4; flex-basis: 100%; font-size: 13.5px; }
+  .ph-b-more { display: none; }
+  html.has-ph-banner body { padding-bottom: 110px; }
+}
+@media (max-width: 480px) {
+  .ph-pop-top { padding-left: 18px; }
+  .ph-pop-body { padding: 20px 18px; }
+  .ph-actions { flex-direction: column; }
+  .ph-actions .btn { width: 100%; text-align: center; }
+  .leave-inner { padding: 18px 18px 20px; }
+  .leave-actions .btn { flex: 1; text-align: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ph-dot, .ph-banner,
+  .ph-pop[open], .ph-pop[open]::backdrop { animation: none; }
+  .ph-x { transition: none; }
 }
