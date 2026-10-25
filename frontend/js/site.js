@@ -127,9 +127,12 @@
   });
 
   /* ----- phishing alert: homepage pop-up + site-wide banner ----- */
-  /* Set to false to switch off the pop-up AND the banner on every page
-     once the campaign is over. The link check below stays on. */
-  const PHISHING_ALERT = true;
+  /* Runs until the end date, then the pop-up AND the banner disappear from
+     every page on their own. Set PHISHING_ALERT_ON to false to stop it
+     early. The link check further down is not affected. */
+  const PHISHING_ALERT_ON = true;
+  const PHISHING_ALERT_UNTIL = new Date(2026, 10, 1);   /* 1 Nov 2026, 00:00 (months count from 0) */
+  const PHISHING_ALERT = PHISHING_ALERT_ON && new Date() < PHISHING_ALERT_UNTIL;
 
   const X_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
   const canDialog = typeof HTMLDialogElement === 'function';

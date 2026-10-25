@@ -209,8 +209,12 @@ While the phishing campaign is active, the homepage shows a pop-up once per visi
 and every page (except Stay safe) shows a small banner at the bottom. Visitors can
 close the banner with its **✕**.
 
-**To switch both off** when the campaign is over: open `frontend/js/site.js`, find
-`const PHISHING_ALERT = true;` and change `true` to `false`.
+**It removes itself automatically on 1 November 2026.** Nothing to do.
+
+- **To stop it early:** open `frontend/js/site.js`, find
+  `const PHISHING_ALERT_ON = true;` and change `true` to `false`.
+- **To extend it:** change the date in `PHISHING_ALERT_UNTIL = new Date(2026, 10, 1)`.
+  Careful: months count from 0, so `10` means November and `11` means December.
 
 The wording lives in the same file, just below that line.
 

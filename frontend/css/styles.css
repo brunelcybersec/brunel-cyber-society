@@ -359,6 +359,15 @@ h2 {
   border-radius: 12px;
   padding: 8px 28px;
 }
+/* shown by render.js when there are no upcoming events */
+.events-empty { padding: 20px 0; color: var(--muted); font-size: 15px; }
+.events-empty a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
+#home-events .events-empty {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 20px 28px;
+}
 .past-event { opacity: 0.72; }
 .past-event .date, .past-event .pill { color: var(--muted); }
 

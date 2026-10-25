@@ -217,6 +217,17 @@
   renderList('home-events', upcomingEvents.slice(0, 3), eventRow);  /* homepage: next 3 upcoming */
   renderList('upcoming-events', upcomingEvents, eventRow);          /* events page: upcoming */
   renderList('past-events', pastEvents, eventRow);                  /* events page: past */
+
+  /* nothing coming up: say so instead of leaving an empty box */
+  if (!upcomingEvents.length) {
+    ['home-events', 'upcoming-events'].forEach(function (id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.innerHTML = '<p class="events-empty">Nothing scheduled right now. New dates go up in the ' +
+          '<a href="https://discord.gg/anmggPyVcs" target="_blank" rel="noopener">Discord</a> first.</p>';
+      }
+    });
+  }
   renderList('reads-list', d.reads, readRow);                        /* blog: further reading */
   renderList('learn-list', d.learn, learnRow);                       /* resources: learn with */
   renderList('committee-list', d.committee, memberRow);              /* committee page */
