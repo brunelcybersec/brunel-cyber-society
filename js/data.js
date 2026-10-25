@@ -74,6 +74,30 @@ window.SITE_DATA = {
   ],
 
   /* ----------------------------------------------------------
+     OUR OWN POSTS  (shown on blog.html, always listed first)
+     ----------------------------------------------------------
+     Use this for society announcements, write-ups, or anything we
+     want featured - same shape as the posts below, but written by
+     us and NEVER touched by the daily CyberTutor sync (it is
+     outside the CYBERTUTOR markers), so it is safe to edit here.
+       link : leave "" for no link, or point it at a page/section
+              on our own site, e.g. "security-basics.html#phishing".
+              A full https:// link opens in a new tab; a same-site
+              link like that does not.
+     ---------------------------------------------------------- */
+  ownPosts: [
+    {
+      date:  "25 oct 2026",
+      title: "A phishing campaign is targeting Brunel students right now",
+      desc:  "Brunel's IT Security team has flagged emails disguised as training, career and opportunity offers that push you to click, register or respond fast. Here's how to spot them and what to do if one lands in your inbox.",
+      tag:   "phishing",
+      tone:  "cool",
+      image: "",
+      link:  "security-basics.html#phishing"
+    }
+  ],
+
+  /* ----------------------------------------------------------
      BLOG POSTS  (shown on blog.html)
      ----------------------------------------------------------
      These mirror our CyberTutor newsletter on Substack. The first
