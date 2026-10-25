@@ -67,9 +67,25 @@
     );
   }
 
+  /* works out whether an event is in the past from its date: field,
+     so events move to Past events automatically - no flag to remember.
+     e.past: true still works as a manual override (e.g. a cancelled
+     event) if it's ever needed. */
+  function parseEventDate(e) {
+    if (!e.date) return null;
+    const d = new Date(e.date + 'T23:59:59');
+    return isNaN(d.getTime()) ? null : d;
+  }
+  function isPastEvent(e) {
+    if (e.past) return true;
+    const d = parseEventDate(e);
+    return d ? d.getTime() < Date.now() : false;
+  }
+
   function eventRow(e) {
+    const past = isPastEvent(e);
     return (
-      '<div class="event' + (e.preview ? ' has-preview' : '') + (e.past ? ' past-event' : '') + '">' +
+      '<div class="event' + (e.preview ? ' has-preview' : '') + (past ? ' past-event' : '') + '">' +
         '<span class="date">' + esc(e.when) + '<br>' + esc(e.where) + '</span>' +
         '<div class="event-main"><h3>' + esc(e.title) + '</h3><p>' + esc(e.desc) + '</p>' +
           previewHtml(e.preview) +
@@ -167,8 +183,28 @@
     if (el && items && items.length) el.innerHTML = items.map(build).join('');
   }
 
-  renderList('home-events', (d.events || []).filter(function (e) { return !e.past; }).slice(0, 3), eventRow);  /* homepage: upcoming */
-  renderList('all-events', d.events, eventRow);                      /* events page: all */
+  const upcomingEvents = (d.events || [])
+    .filter(function (e) { return !isPastEvent(e); })
+    .sort(function (a, b) {
+      const da = parseEventDate(a), db = parseEventDate(b);
+      if (!da && !db) return 0;
+      if (!da) return 1;
+      if (!db) return -1;
+      return da - db;
+    });
+  const pastEvents = (d.events || [])
+    .filter(isPastEvent)
+    .sort(function (a, b) {
+      const da = parseEventDate(a), db = parseEventDate(b);
+      if (!da && !db) return 0;
+      if (!da) return 1;
+      if (!db) return -1;
+      return db - da;
+    });
+
+  renderList('home-events', upcomingEvents.slice(0, 3), eventRow);  /* homepage: next 3 upcoming */
+  renderList('upcoming-events', upcomingEvents, eventRow);          /* events page: upcoming */
+  renderList('past-events', pastEvents, eventRow);                  /* events page: past */
   renderList('reads-list', d.reads, readRow);                        /* blog: further reading */
   renderList('learn-list', d.learn, learnRow);                       /* resources: learn with */
   renderList('committee-list', d.committee, memberRow);              /* committee page */

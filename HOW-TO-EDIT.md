@@ -91,12 +91,19 @@ In `js/data.js`, find the `events:` list. Each event looks like:
   title: "Meet and Greet",
   desc:  "Come say hi and meet the committee.",
   tag:   "social",
-  tone:  ""
+  tone:  "",
+  date:  "2026-10-05"
 }
 ```
 
-- Events show on the **events page** (all of them) and the **homepage** (first 3).
-- Keep them in date order, soonest first. Delete events once they've happened.
+- Events show on the **events page**, split automatically into
+  **Upcoming events** and **Past events**, and on the **homepage**
+  (the next 3 upcoming ones).
+- `date` must be `"YYYY-MM-DD"` and is what the site uses to work out
+  whether an event is upcoming or past, so it can't go stale. `when`/`where`
+  are just the text shown on the page, so they can say whatever reads
+  best (e.g. "28 Oct").
+- Keep them in date order, soonest first.
 - `tone` sets the little tag colour: `"cool"`, `"warm"`, or `""` for grey.
 
 **Optional hover card:** an event can show a rich pop-up card when you hover it.

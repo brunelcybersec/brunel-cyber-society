@@ -5,8 +5,10 @@
    New here? Read HOW-TO-EDIT.md (same folder as index.html) first.
 
    HOW IT WORKS
-   - Events listed here appear on the events page (all of them)
-     and on the homepage (the first 3) automatically.
+   - Events listed here appear on the events page, split
+     automatically into "Upcoming events" and "Past events"
+     based on each event's date: field, and on the homepage
+     (the next 3 upcoming ones).
    - Blog posts appear on the blog page. The FIRST post in the
      list becomes the big featured card.
    - Committee members appear on the committee page.
@@ -16,7 +18,12 @@
      paste it where you want it in the list, change the text.
    - To remove one: delete its { ... } block (including the comma).
    - Keep events in date order, soonest first.
-   - Delete events once they've happened.
+   - Every event needs a date: "YYYY-MM-DD" field (e.g. "2026-10-28").
+     This is what the site uses to work out automatically whether
+     it's upcoming or past, so it can't drift out of sync the way
+     the old when/where text could.
+   - Past events stay listed automatically. Delete really old ones
+     occasionally if the Past events list gets too long.
 
    "tone" controls the tag colour:
      "cool" = teal   (we use it for workshops/guides)
@@ -36,15 +43,16 @@ window.SITE_DATA = {
       desc:  "Completed — thank you to everyone who stopped by, met the committee and joined the society.",
       tag:   "past event",
       tone:  "",
-      past:  true
+      date:  "2026-09-22"
     },
     {
-      when:  "05 Oct",
+      when:  "28 Sep",
       where: "7:00pm",
       title: "Meet and Greet",
       desc:  "Come say hi, meet the committee and other members, and hear what we have planned for the year.",
       tag:   "social",
       tone:  "",
+      date:  "2026-09-28",
       preview: {
         pill:  "social",
         cap:   "FIRST SOCIAL OF THE YEAR",
@@ -53,6 +61,15 @@ window.SITE_DATA = {
         img:   "assets/meet_and_greet.jpg",
         link:  "#"
       }
+    },
+    {
+      when:  "28 Oct",
+      where: "1:00pm - 5:00pm",
+      title: "HackerRank Collaboration Hackathon",
+      desc:  "HackerRank is teaming up with Brunel Cyber Security Society and Brunel Blockchain Society to run a collaborative hackathon. More details to follow.",
+      tag:   "hackathon",
+      tone:  "warm",
+      date:  "2026-10-28"
     }
   ],
 

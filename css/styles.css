@@ -353,7 +353,7 @@ h2 {
   margin-bottom: 2px;
 }
 .event p { color: var(--muted); font-size: 14.5px; }
-#all-events {
+#upcoming-events, #past-events {
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 12px;
