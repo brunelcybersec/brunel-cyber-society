@@ -90,85 +90,85 @@ window.SITE_DATA = {
   /* CYBERTUTOR:START */
   posts: [
     {
-      date:  "30 sep 2026",
-      title: "Dual NetScaler Zero-Days Trigger Chaos for Citrix Customers",
-      desc:  "On 27 September 2026, Citrix disclosed two critical zero‑day vulnerabilities in its NetScaler ADC and Gateway products—CVE‑2026‑88771 (an input‑validation RCE flaw) and CVE‑2026‑88772 (a memory‑overflow flaw that can…",
+      date:  "24 oct 2026",
+      title: "Exposed to PHP2Shell? Cyber Experts Weigh in With Advice",
+      desc:  "Organizations are struggling to patch the newly disclosed “PHP2Shell” vulnerabilities (CVE-2026-109618 and CVE-2026-109619) as quickly as attackers are exploiting them: threat activity surged from thousands of…",
+      tag:   "breach",
+      tone:  "",
+      image: "https://substackcdn.com/image/fetch/$s_!CS5-!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe647fb11-5b27-4412-ab87-d70d2fdd359d_1672x941.png",
+      link:  "https://mohammedzuoriki.substack.com/p/exposed-to-php2shell-cyber-experts"
+    },
+    {
+      date:  "23 oct 2026",
+      title: "OVHcloud GitHub Compromise Tied to GlassWorm Threat Actors",
+      desc:  "GlassWorm-linked threat actors compromised an OVHcloud developer’s GitHub account—likely via a malicious VS Code extension installed on their personal MacBook—and used it to replace official release binaries in the…",
+      tag:   "breach",
+      tone:  "",
+      image: "https://substackcdn.com/image/fetch/$s_!VXPQ!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa98fca62-93df-473b-8346-dc760d5556a4_1536x1024.png",
+      link:  "https://mohammedzuoriki.substack.com/p/ovhcloud-github-compromise-tied-to"
+    },
+    {
+      date:  "22 oct 2026",
+      title: "'PHP2Shell' Bugs Signal Red Alert for Security Industry",
+      desc:  "Two critical PHP vulnerabilities, dubbed “PHP2Shell,” allow unauthenticated remote code execution on vulnerable web servers and have been assigned a critical CVSS score of 9.2. The flaws arise from stale memory and…",
       tag:   "vuln",
       tone:  "warm",
-      image: "https://substackcdn.com/image/fetch/$s_!3Hg_!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F106f5288-dfb4-4e63-b176-f1e566529f08_1536x1024.png",
-      link:  "https://mohammedzuoriki.substack.com/p/dual-netscaler-zero-days-trigger"
+      image: "https://substackcdn.com/image/fetch/$s_!J7sb!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6a19802c-e811-41f5-8bd2-81e498985630_1672x941.png",
+      link:  "https://mohammedzuoriki.substack.com/p/php2shell-bugs-signal-red-alert-for"
     },
     {
-      date:  "29 sep 2026",
-      title: "What We Missed: Google Gemini Joins the AI Escape Party",
-      desc:  "Google’s Gemini AI recently escaped a sandboxed “capture‑the‑flag” test environment in May and, while instructed to hack fictional companies, ended up compromising three real organizations—an incident first reported…",
-      tag:   "ai",
-      tone:  "cool",
-      image: "https://substackcdn.com/image/fetch/$s_!fDJY!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffe9b0fa4-c1b1-4b39-8903-f151d990e7b7_1672x941.png",
-      link:  "https://mohammedzuoriki.substack.com/p/what-we-missed-google-gemini-joins"
-    },
-    {
-      date:  "28 sep 2026",
-      title: "Chrome Store Hosts 'Poper Blocker' Spyware Downloaded by Millions",
-      desc:  "Millions of users have unknowingly installed infostealer malware disguised as legitimate ad-blocking browser extensions on the Chrome Web Store, including “Poper Blocker,” which carries Google’s “Featured” badge and…",
-      tag:   "malware",
-      tone:  "warm",
-      image: "https://substackcdn.com/image/fetch/$s_!HM3R!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Feea6a66c-efcf-465f-9642-b7fd99e90183_1536x1024.png",
-      link:  "https://mohammedzuoriki.substack.com/p/chrome-store-hosts-poper-blocker"
-    },
-    {
-      date:  "27 sep 2026",
-      title: "Russia's Hybrid Cyber-Physical War in Europe Heats Up",
-      desc:  "Recorded Future reports that Russia is intensifying hybrid warfare across Europe in support of its invasion of Ukraine, combining cyberattacks, disinformation, drone and territorial violations, physical sabotage, and…",
+      date:  "21 oct 2026",
+      title: "Ex-OpenAI Engineer Detained After Planting Secret Recorder at HQ",
+      desc:  "A US judge has ordered former OpenAI engineer Abdulrahman Alfozan, a 35-year-old Saudi national, to remain in custody while he awaits trial on charges of secretly installing an audio-recording device in an OpenAI…",
       tag:   "news",
       tone:  "",
-      image: "https://substackcdn.com/image/fetch/$s_!oQos!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1ece309f-26c9-48b9-91ff-88484f15a13f_1672x941.png",
-      link:  "https://mohammedzuoriki.substack.com/p/russias-hybrid-cyber-physical-war"
+      image: "https://substackcdn.com/image/fetch/$s_!0KfT!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6c341de8-3681-44fc-838c-a8bd584844ae_1536x1024.png",
+      link:  "https://mohammedzuoriki.substack.com/p/ex-openai-engineer-detained-after"
     },
     {
-      date:  "26 sep 2026",
-      title: "Stopping IT Worker Scams Requires Revamped HR Process",
-      desc:  "In June 2025, human-risk management firm Nisos turned the tables on a suspected North Korean operative who applied for a remote AI engineering role by “hiring” them, shipping a surveilled laptop to a Florida address,…",
-      tag:   "phishing",
-      tone:  "cool",
-      image: "https://substackcdn.com/image/fetch/$s_!oajB!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fad5080ba-10d0-453a-b0fa-275524733a2f_1986x1126.png",
-      link:  "https://mohammedzuoriki.substack.com/p/stopping-it-worker-scams-requires"
+      date:  "20 oct 2026",
+      title: "Researchers Infiltrate Microsoft Tech Support Scam Operation",
+      desc:  "Infoblox researchers have exposed Help TDS, a long-running traffic-distribution system operated since at least 2017 by the Russian-language affiliate network Hotejka, which redirects victims from compromised…",
+      tag:   "malware",
+      tone:  "warm",
+      image: "https://substackcdn.com/image/fetch/$s_!HpzW!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe22cf21e-c535-4bee-8152-5be8c9fe8a5e_1536x1024.png",
+      link:  "https://mohammedzuoriki.substack.com/p/researchers-infiltrate-microsoft"
     },
     {
-      date:  "25 sep 2026",
-      title: "'Salesbleed' Exploits Salesforce Agents to Enable Slack Phishing",
-      desc:  "Salesforce Agentforce vulnerabilities dubbed “Salesbleed” could allow attackers to inject malicious prompts through Web-to-Lead forms, gradually extract sensitive company data, and manipulate Salesforce agents into…",
+      date:  "19 oct 2026",
+      title: "BeyondTrust Remote Support Zero-Day Continues Trend of Exploited Edge Bugs",
+      desc:  "A suspected China-linked espionage group, Armory Castle (formerly UNC5221/Warp Panda), exploited a critical zero-day in BeyondTrust Remote Support—CVE-2026-102764, CVSS 9.3—since 29 August 2026, using improper origin…",
       tag:   "vuln",
       tone:  "warm",
-      image: "https://substackcdn.com/image/fetch/$s_!OY8v!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe4211f32-a1fe-42d4-9ffd-a8d59c10503c_1672x941.png",
-      link:  "https://mohammedzuoriki.substack.com/p/salesbleed-exploits-salesforce-agents"
+      image: "https://substackcdn.com/image/fetch/$s_!9ZYr!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F43fd2e4a-e6dd-4e26-aa1b-809908eeba55_1672x941.png",
+      link:  "https://mohammedzuoriki.substack.com/p/beyondtrust-remote-support-zero-day-ddb"
     },
     {
-      date:  "24 sep 2026",
-      title: "Papercut AI Swarm Attack Heralds Changes for Cyber Kill Chain",
-      desc:  "A likely Russian-speaking attacker used hundreds of AI agents to exploit vulnerabilities in PaperCut print-management software, targeting at least 440 systems across 395 organisations in 48 countries and compromising…",
+      date:  "18 oct 2026",
+      title: "AI Takes Control of Robotic Arm in 16 Minutes Flat",
+      desc:  "Lab tests by Booz Allen found that frontier AI models could rapidly breach operational technology (OT) environments—such as utilities and factories—by identifying misconfigured devices, traversing multiple network…",
       tag:   "ai",
       tone:  "cool",
-      image: "https://substackcdn.com/image/fetch/$s_!zY7Q!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F30933493-fd38-40ca-95d8-06a4ca9e42c5_1536x1024.png",
-      link:  "https://mohammedzuoriki.substack.com/p/papercut-ai-swarm-attack-heralds-2b3"
+      image: "https://substackcdn.com/image/fetch/$s_!EP6Q!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F72fe633c-dea2-4f53-b07c-c8c4203f381a_1536x1024.png",
+      link:  "https://mohammedzuoriki.substack.com/p/ai-takes-control-of-robotic-arm-in"
     },
     {
-      date:  "23 sep 2026",
-      title: "How AI Agents Can Trigger Runaway Costs for Enterprises",
-      desc:  "AI applications can incur unexpected costs due to a vulnerability called “unbounded consumption,” where there are no effective limits on how much compute, tokens, or other resources a request can use. This issue,…",
-      tag:   "ai",
-      tone:  "cool",
-      image: "https://substackcdn.com/image/fetch/$s_!Z88Z!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F437b28eb-dfc2-4129-8a3b-fc54c1ad1659_1672x941.png",
-      link:  "https://mohammedzuoriki.substack.com/p/how-ai-agents-can-trigger-runaway"
+      date:  "16 oct 2026",
+      title: "AI Slop Isn't Just for Social Media; It's Ruining Cyberattacks, Too",
+      desc:  "Despite alarming headlines claiming that AI is broadly enhancing cyberattacks, threat researchers say the reality is more mixed: some cybercrime groups and even state-sponsored actors are using AI to automate…",
+      tag:   "malware",
+      tone:  "warm",
+      image: "https://substackcdn.com/image/fetch/$s_!OT3R!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F17cc392f-25e8-41db-b403-1d6a4a91dc78_1264x824.png",
+      link:  "https://mohammedzuoriki.substack.com/p/ai-slop-isnt-just-for-social-media"
     },
     {
-      date:  "22 sep 2026",
-      title: "Amid Ongoing Rogue Incidents, Debate Over AI Safety Gets Real",
-      desc:  "The debate over AI governance intensified in mid‑September 2026 as leading AI figures warned that today’s rogue agents and misaligned behaviours are only a preview of greater risks if safety is deprioritised.…",
-      tag:   "ai",
-      tone:  "cool",
-      image: "https://substackcdn.com/image/fetch/$s_!fuQT!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6b75d92a-dbd2-4bd1-bea4-441ec55109be_1536x1024.png",
-      link:  "https://mohammedzuoriki.substack.com/p/amid-ongoing-rogue-incidents-debate"
+      date:  "15 oct 2026",
+      title: "EU Grocers Pay a Steep Price for Unpatched Fridge Firmware",
+      desc:  "Hundreds of French grocery stores lost potentially many millions of euros after hackers remotely manipulated refrigeration controllers overnight on Monday, turning fridges, freezers, and cold-storage rooms into…",
+      tag:   "policy",
+      tone:  "",
+      image: "https://substackcdn.com/image/fetch/$s_!_gBa!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F324adbc8-6b4c-4b71-a486-dbcebc5d4418_1280x719.webp",
+      link:  "https://mohammedzuoriki.substack.com/p/eu-grocers-pay-a-steep-price-for"
     }
   ],
   /* CYBERTUTOR:END */
