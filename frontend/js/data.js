@@ -2,7 +2,7 @@
    THIS IS THE ONLY FILE YOU NEED TO EDIT TO UPDATE CONTENT
    ============================================================
 
-   New here? Read HOW-TO-EDIT.md (same folder as index.html) first.
+   New here? Read HOW-TO-EDIT.md in the project root first.
 
    HOW IT WORKS
    - Events listed here appear on the events page, split
@@ -58,8 +58,7 @@ window.SITE_DATA = {
         cap:   "FIRST SOCIAL OF THE YEAR",
         title: "Meet and Greet",
         desc:  "An informal evening to meet the committee and fellow members, hear what's planned for the year, and settle in before the workshops kick off. Snacks, introductions and zero pressure.",
-        img:   "assets/meet_and_greet.jpg",
-        link:  "#"
+        img:   "assets/meet_and_greet.jpg"
       }
     },
     {
@@ -108,7 +107,7 @@ window.SITE_DATA = {
        desc : a one-line teaser. Keep it short.
      This list is AUTO-GENERATED from the CyberTutor Substack feed.
      Everything between the CYBERTUTOR markers is overwritten on sync
-     (the daily GitHub Action, or: node tools/sync-cybertutor.mjs),
+     (the daily GitHub Action, or: node backend/tools/sync-cybertutor.mjs),
      so edit posts on Substack, not here. First post = featured card.
      ---------------------------------------------------------- */
   /* CYBERTUTOR:START */
