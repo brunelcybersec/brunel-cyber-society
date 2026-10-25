@@ -36,7 +36,7 @@ We run practical workshops covering everything from web exploitation to digital 
 | **CSS3** | Styling, animations, responsive design (single stylesheet) |
 | **Vanilla JavaScript** | Dynamic content, mobile menu, wave animation, typing effect |
 | **Node.js** (GitHub Action only) | Scheduled script that syncs blog posts from Substack |
-| **GitHub Pages** | Free hosting and deployment |
+| **GitHub Pages** | Free hosting, deployed from `frontend/` (`.github/workflows/deploy.yml`) |
 | **GitHub Actions** | Daily automated blog sync (`.github/workflows/update-blog.yml`) |
 
 **Design tokens:**
@@ -50,30 +50,38 @@ We run practical workshops covering everything from web exploitation to digital 
 
 ```
 brunel-cyber-society/
-├── index.html                    # Homepage
-├── events.html                   # Events + CTF team
-├── blog.html                     # Blog (CyberTutor writeups, auto-synced)
-├── resources.html                # Learning resources
-├── committee.html                # Committee members
-├── contact.html                  # Contact page
-├── credits.html                  # Site credits
-├── 404.html                      # Custom error page
-├── favicon.svg                   # Site favicon
-├── assets/                       # Images: logos, committee photos, OG image
-├── css/
-│   └── styles.css                # All styling (variables, layout, components)
-├── js/
-│   ├── data.js                   # ALL content (events, committee, blog posts) – edit this!
-│   ├── render.js                 # Renders content from data.js into the pages
-│   ├── site.js                   # Mobile menu, scroll reveals
-│   ├── waves.js                  # Animated wave background
-│   └── preloader.js              # Page preloader
-├── tools/
-│   └── sync-cybertutor.mjs       # Pulls latest posts from the CyberTutor Substack RSS feed
+├── backend/
+│   └── tools/
+│       └── sync-cybertutor.mjs   # Pulls latest posts from the CyberTutor Substack RSS feed
+├── frontend/
+│   ├── index.html                # Homepage
+│   ├── events.html               # Events + CTF team
+│   ├── blog.html                 # Blog (CyberTutor writeups, auto-synced)
+│   ├── resources.html            # Learning resources
+│   ├── committee.html            # Committee members
+│   ├── contact.html              # Contact page
+│   ├── credits.html              # Site credits
+│   ├── 404.html                  # Custom error page
+│   ├── security-basics.html      # Stay-safe guide (passwords, MFA, phishing)
+│   ├── crack-the-vault.html      # Vault-cracking reflex mini-game
+│   ├── favicon.svg               # Site favicon
+│   ├── CNAME                     # Custom domain (brunelcs.org)
+│   ├── assets/                   # Images: logos, committee photos, OG image
+│   ├── css/
+│   │   └── styles.css            # All styling (variables, layout, components)
+│   └── js/
+│       ├── data.js               # ALL content (events, committee, blog posts) – edit this!
+│       ├── render.js             # Renders content from data.js into the pages
+│       ├── site.js               # Mobile menu, scroll reveals
+│       ├── waves.js              # Animated wave background
+│       └── preloader.js          # Page preloader
 ├── .github/workflows/
+│   ├── deploy.yml                # Publishes frontend/ to GitHub Pages on every push to main
 │   └── update-blog.yml           # Daily GitHub Action that runs the sync script
 ├── HOW-TO-EDIT.md                # Non-technical guide for committee members
-└── README.md
+├── README.md                     # Project overview
+├── .gitignore
+└── .gitattributes
 ```
 
 ---
@@ -93,7 +101,7 @@ brunel-cyber-society/
 
 ## 🔄 Updating Content
 
-**To update events or committee members:** Edit `js/data.js` – the homepage, events page, and committee page update automatically.
+**To update events or committee members:** Edit `frontend/js/data.js` – the homepage, events page, and committee page update automatically.
 
 ```javascript
 // Example: Adding a new event
@@ -111,4 +119,18 @@ events: [
 
 Not comfortable editing code directly? See [`HOW-TO-EDIT.md`](HOW-TO-EDIT.md) for a plain-English guide aimed at non-technical committee members.
 
-**Blog posts are automatic:** a [GitHub Action](.github/workflows/update-blog.yml) runs `tools/sync-cybertutor.mjs` every day at 07:00 UTC, pulls the latest posts from the [CyberTutor Substack feed](https://mohammedzuoriki.substack.com/feed), and commits any changes to `js/data.js` directly. You can also trigger it manually from the **Actions** tab, or run `node tools/sync-cybertutor.mjs` locally (requires Node 18+, no dependencies).
+**Blog posts are automatic:** a [GitHub Action](.github/workflows/update-blog.yml) runs `backend/tools/sync-cybertutor.mjs` every day at 07:00 UTC, pulls the latest posts from the [CyberTutor Substack feed](https://mohammedzuoriki.substack.com/feed), and commits any changes to `frontend/js/data.js` directly. You can also trigger it manually from the **Actions** tab, or run `node backend/tools/sync-cybertutor.mjs` locally (requires Node 18+, no dependencies).
+
+---
+
+## 🚀 Deployment
+
+`frontend/` is the website; everything else is tooling and docs. The
+[deploy workflow](.github/workflows/deploy.yml) uploads `frontend/` to GitHub Pages on every push to
+`main` that touches it, so the live URLs stay at the root (`brunelcs.org/events.html`).
+
+**One-time setup:** in the repo go to **Settings → Pages → Build and deployment → Source** and pick
+**GitHub Actions**. The custom domain `brunelcs.org` stays as configured there.
+
+**Run locally:** open `frontend/index.html` in a browser, or serve the folder with
+`npx serve frontend` so root-absolute links on the 404 page resolve.

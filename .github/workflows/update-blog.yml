@@ -1,8 +1,9 @@
 name: Sync blog from CyberTutor
 
-# Keeps blog.html in step with the CyberTutor Substack with zero manual work.
-# Runs once a day (and on demand), pulls the latest posts into js/data.js, and
-# commits only if something actually changed.
+# Keeps frontend/blog.html in step with the CyberTutor Substack with zero manual work.
+# Runs once a day (and on demand), pulls the latest posts into frontend/js/data.js, and
+# commits only if something actually changed. The push then triggers deploy.yml,
+# which publishes the updated site.
 
 on:
   schedule:
@@ -25,15 +26,15 @@ jobs:
           node-version: '22'
 
       - name: Pull latest CyberTutor posts
-        run: node tools/sync-cybertutor.mjs
+        run: node backend/tools/sync-cybertutor.mjs
 
       - name: Commit if the feed changed
         run: |
-          if [ -n "$(git status --porcelain js/data.js)" ]; then
+          if [ -n "$(git status --porcelain frontend/js/data.js)" ]; then
             git config user.name  "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add js/data.js
-            git commit -m "blog: sync latest CyberTutor posts [skip ci]"
+            git add frontend/js/data.js
+            git commit -m "blog: sync latest CyberTutor posts"
             git push
           else
             echo "No new posts — nothing to commit."

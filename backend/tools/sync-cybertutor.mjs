@@ -3,9 +3,9 @@
    sync-cybertutor.mjs
    ------------------------------------------------------------
    Pulls the latest CyberTutor posts from the Substack RSS feed
-   and writes them into js/data.js, between the CYBERTUTOR markers.
+   and writes them into frontend/js/data.js, between the CYBERTUTOR markers.
 
-   Run it by hand:   node tools/sync-cybertutor.mjs
+   Run it by hand:   node backend/tools/sync-cybertutor.mjs
    ...or let the GitHub Action (.github/workflows/update-blog.yml)
    run it for you on a schedule.
 
@@ -18,7 +18,7 @@ import { dirname, join } from 'node:path';
 
 const FEED  = 'https://mohammedzuoriki.substack.com/feed';
 const COUNT = 9;                       // how many recent posts to show
-const DATA  = join(dirname(fileURLToPath(import.meta.url)), '..', 'js', 'data.js');
+const DATA  = join(dirname(fileURLToPath(import.meta.url)), '..', '..', 'frontend', 'js', 'data.js');
 const MONTHS = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
 
 if (typeof fetch !== 'function') {
@@ -52,6 +52,18 @@ function formatDate(pubDate) {
   const d = new Date(pubDate);
   if (isNaN(d)) return '';
   return `${String(d.getUTCDate()).padStart(2, '0')} ${MONTHS[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
+}
+
+// Only accept https URLs on hosts we expect. The feed can arrive via the relay,
+// so anything else (javascript:, a look-alike domain, a phishing page) is
+// dropped rather than published on the site.
+const LINK_HOSTS  = ['mohammedzuoriki.substack.com'];
+const IMAGE_HOSTS = ['substackcdn.com', 'substack-post-media.s3.amazonaws.com'];
+function safeUrl(raw, hosts) {
+  try {
+    const u = new URL(clean(raw));
+    return u.protocol === 'https:' && hosts.includes(u.hostname) ? u.href : '';
+  } catch { return ''; }
 }
 
 // ask Substack's image CDN for a card-sized version instead of the full image
@@ -148,13 +160,13 @@ const posts = items
       desc:  summary(field(it, 'content:encoded')),
       tag,
       tone,
-      image: enc ? thumb(enc[1]) : '',
-      link:  field(it, 'link'),
+      image: enc ? thumb(safeUrl(enc[1], IMAGE_HOSTS)) : '',
+      link:  safeUrl(field(it, 'link'), LINK_HOSTS),
     };
   })
-  .filter((p) => {                     // drop blanks and repeated headlines
+  .filter((p) => {                     // drop blanks, untrusted links and repeated headlines
     const key = p.title.toLowerCase();
-    if (!p.title || seen.has(key)) return false;
+    if (!p.title || !p.link || seen.has(key)) return false;
     seen.add(key);
     return true;
   })
@@ -162,7 +174,9 @@ const posts = items
 
 /* ---- serialise into the js/data.js style and splice in ---- */
 
-const q = (s) => `"${String(s).replace(/\\/g, '\\\\').replace(/"/g, '\\"')}"`;
+// JSON.stringify escapes quotes, backslashes and line breaks, so feed text
+// can never break out of its string literal in data.js
+const q = (s) => JSON.stringify(String(s));
 const body = posts.map((p) => `    {
       date:  ${q(p.date)},
       title: ${q(p.title)},
@@ -178,7 +192,7 @@ const block = `  posts: [\n${body}\n  ],`;
 let src = await readFile(DATA, 'utf8');
 const re = /(\/\* CYBERTUTOR:START \*\/)[\s\S]*?(\/\* CYBERTUTOR:END \*\/)/;
 if (!re.test(src)) {
-  console.error('Could not find the /* CYBERTUTOR:START */ ... /* CYBERTUTOR:END */ markers in js/data.js.');
+  console.error('Could not find the /* CYBERTUTOR:START */ ... /* CYBERTUTOR:END */ markers in frontend/js/data.js.');
   process.exit(1);
 }
 const next = src.replace(re, `$1\n${block}\n  $2`);
@@ -187,6 +201,6 @@ if (next === src) {
   console.log('Already up to date — no changes.');
 } else {
   await writeFile(DATA, next);
-  console.log(`Synced ${posts.length} posts into js/data.js:`);
+  console.log(`Synced ${posts.length} posts into frontend/js/data.js:`);
   posts.forEach((p) => console.log(`  · ${p.date}  [${p.tag}]  ${p.title}`));
 }
