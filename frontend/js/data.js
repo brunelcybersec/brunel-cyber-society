@@ -113,6 +113,24 @@ window.SITE_DATA = {
   /* CYBERTUTOR:START */
   posts: [
     {
+      date:  "27 oct 2026",
+      title: "'Gheist' Weaponizes GitHub Tokens to Steal Cloud Secrets",
+      desc:  "The “Gheist” campaign is an active attack that uses stolen GitHub tokens—largely obtained through infostealer malware and earlier supply-chain breaches—to plant malicious GitHub Actions workflows in over 13,500…",
+      tag:   "breach",
+      tone:  "",
+      image: "https://substackcdn.com/image/fetch/$s_!c8kL!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff78f6ae9-64d2-4889-b5c4-cc2b9f52acb7_1672x941.png",
+      link:  "https://mohammedzuoriki.substack.com/p/gheist-weaponizes-github-tokens-to"
+    },
+    {
+      date:  "26 oct 2026",
+      title: "AI Agents as Insider Threats: Inside Microsoft's Bet on a Unified Security Stack",
+      desc:  "Microsoft has expanded Project Perception to treat AI agents as potential “agentic insiders”—privileged employees that can be manipulated, compromised, or act unpredictably—by discovering agents across an…",
+      tag:   "ai",
+      tone:  "cool",
+      image: "https://substackcdn.com/image/fetch/$s_!UB_K!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1cf5bdfd-fca8-44ac-9de1-609dabe49212_1672x941.png",
+      link:  "https://mohammedzuoriki.substack.com/p/ai-agents-as-insider-threats-inside"
+    },
+    {
       date:  "24 oct 2026",
       title: "Exposed to PHP2Shell? Cyber Experts Weigh in With Advice",
       desc:  "Organizations are struggling to patch the newly disclosed “PHP2Shell” vulnerabilities (CVE-2026-109618 and CVE-2026-109619) as quickly as attackers are exploiting them: threat activity surged from thousands of…",
@@ -174,24 +192,6 @@ window.SITE_DATA = {
       tone:  "cool",
       image: "https://substackcdn.com/image/fetch/$s_!EP6Q!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F72fe633c-dea2-4f53-b07c-c8c4203f381a_1536x1024.png",
       link:  "https://mohammedzuoriki.substack.com/p/ai-takes-control-of-robotic-arm-in"
-    },
-    {
-      date:  "16 oct 2026",
-      title: "AI Slop Isn't Just for Social Media; It's Ruining Cyberattacks, Too",
-      desc:  "Despite alarming headlines claiming that AI is broadly enhancing cyberattacks, threat researchers say the reality is more mixed: some cybercrime groups and even state-sponsored actors are using AI to automate…",
-      tag:   "malware",
-      tone:  "warm",
-      image: "https://substackcdn.com/image/fetch/$s_!OT3R!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F17cc392f-25e8-41db-b403-1d6a4a91dc78_1264x824.png",
-      link:  "https://mohammedzuoriki.substack.com/p/ai-slop-isnt-just-for-social-media"
-    },
-    {
-      date:  "15 oct 2026",
-      title: "EU Grocers Pay a Steep Price for Unpatched Fridge Firmware",
-      desc:  "Hundreds of French grocery stores lost potentially many millions of euros after hackers remotely manipulated refrigeration controllers overnight on Monday, turning fridges, freezers, and cold-storage rooms into…",
-      tag:   "policy",
-      tone:  "",
-      image: "https://substackcdn.com/image/fetch/$s_!_gBa!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F324adbc8-6b4c-4b71-a486-dbcebc5d4418_1280x719.webp",
-      link:  "https://mohammedzuoriki.substack.com/p/eu-grocers-pay-a-steep-price-for"
     }
   ],
   /* CYBERTUTOR:END */
