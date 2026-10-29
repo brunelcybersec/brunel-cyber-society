@@ -113,6 +113,15 @@ window.SITE_DATA = {
   /* CYBERTUTOR:START */
   posts: [
     {
+      date:  "28 oct 2026",
+      title: "Attacker Relentlessly Scans for Credentials by Impersonating AI Bots",
+      desc:  "A threat actor has been impersonating more than 30 AI bots—including agents attributed to OpenAI, Anthropic, Perplexity, and Meta—to scan organizations for exposed passwords, API keys, cloud credentials, and private…",
+      tag:   "phishing",
+      tone:  "cool",
+      image: "https://substackcdn.com/image/fetch/$s_!tmkr!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffcfa65fd-7f48-4411-81d1-d2ee6b13027c_1536x1024.png",
+      link:  "https://mohammedzuoriki.substack.com/p/attacker-relentlessly-scans-for-credentials"
+    },
+    {
       date:  "27 oct 2026",
       title: "'Gheist' Weaponizes GitHub Tokens to Steal Cloud Secrets",
       desc:  "The “Gheist” campaign is an active attack that uses stolen GitHub tokens—largely obtained through infostealer malware and earlier supply-chain breaches—to plant malicious GitHub Actions workflows in over 13,500…",
@@ -183,15 +192,6 @@ window.SITE_DATA = {
       tone:  "warm",
       image: "https://substackcdn.com/image/fetch/$s_!9ZYr!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F43fd2e4a-e6dd-4e26-aa1b-809908eeba55_1672x941.png",
       link:  "https://mohammedzuoriki.substack.com/p/beyondtrust-remote-support-zero-day-ddb"
-    },
-    {
-      date:  "18 oct 2026",
-      title: "AI Takes Control of Robotic Arm in 16 Minutes Flat",
-      desc:  "Lab tests by Booz Allen found that frontier AI models could rapidly breach operational technology (OT) environments—such as utilities and factories—by identifying misconfigured devices, traversing multiple network…",
-      tag:   "ai",
-      tone:  "cool",
-      image: "https://substackcdn.com/image/fetch/$s_!EP6Q!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F72fe633c-dea2-4f53-b07c-c8c4203f381a_1536x1024.png",
-      link:  "https://mohammedzuoriki.substack.com/p/ai-takes-control-of-robotic-arm-in"
     }
   ],
   /* CYBERTUTOR:END */
