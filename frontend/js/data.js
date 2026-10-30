@@ -113,6 +113,15 @@ window.SITE_DATA = {
   /* CYBERTUTOR:START */
   posts: [
     {
+      date:  "29 oct 2026",
+      title: "Shadowy AI Relay Disables OpenAI Codex, Claude Code Sandboxes",
+      desc:  "An unauthorized AI relay service, first identified by Symantec, has been installing genuine OpenAI Codex and Anthropic Claude Code command-line tools on systems at roughly a dozen organizations mainly in mainland…",
+      tag:   "ai",
+      tone:  "cool",
+      image: "https://substackcdn.com/image/fetch/$s_!wLuB!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5163c9a3-4fe4-4eab-9c3b-16d39bf7916b_1536x1024.png",
+      link:  "https://mohammedzuoriki.substack.com/p/shadowy-ai-relay-disables-openai"
+    },
+    {
       date:  "28 oct 2026",
       title: "Attacker Relentlessly Scans for Credentials by Impersonating AI Bots",
       desc:  "A threat actor has been impersonating more than 30 AI bots—including agents attributed to OpenAI, Anthropic, Perplexity, and Meta—to scan organizations for exposed passwords, API keys, cloud credentials, and private…",
@@ -183,15 +192,6 @@ window.SITE_DATA = {
       tone:  "warm",
       image: "https://substackcdn.com/image/fetch/$s_!HpzW!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe22cf21e-c535-4bee-8152-5be8c9fe8a5e_1536x1024.png",
       link:  "https://mohammedzuoriki.substack.com/p/researchers-infiltrate-microsoft"
-    },
-    {
-      date:  "19 oct 2026",
-      title: "BeyondTrust Remote Support Zero-Day Continues Trend of Exploited Edge Bugs",
-      desc:  "A suspected China-linked espionage group, Armory Castle (formerly UNC5221/Warp Panda), exploited a critical zero-day in BeyondTrust Remote Support—CVE-2026-102764, CVSS 9.3—since 29 August 2026, using improper origin…",
-      tag:   "vuln",
-      tone:  "warm",
-      image: "https://substackcdn.com/image/fetch/$s_!9ZYr!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F43fd2e4a-e6dd-4e26-aa1b-809908eeba55_1672x941.png",
-      link:  "https://mohammedzuoriki.substack.com/p/beyondtrust-remote-support-zero-day-ddb"
     }
   ],
   /* CYBERTUTOR:END */
