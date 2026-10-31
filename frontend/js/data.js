@@ -113,6 +113,15 @@ window.SITE_DATA = {
   /* CYBERTUTOR:START */
   posts: [
     {
+      date:  "30 oct 2026",
+      title: "Undead Software Projects Continue to Raise Security Risks",
+      desc:  "A modified version of the abandoned 2014 BitTorrent client Time4Popcorn left persistent updaters running on more than 2.5 million Windows machines and an estimated 300,000 Macs, checking domains that had lapsed and…",
+      tag:   "news",
+      tone:  "",
+      image: "https://substackcdn.com/image/fetch/$s_!9AxX!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F59ca36fc-20d1-4a06-809b-9e64796ddb84_1672x941.png",
+      link:  "https://mohammedzuoriki.substack.com/p/undead-software-projects-continue"
+    },
+    {
       date:  "29 oct 2026",
       title: "Shadowy AI Relay Disables OpenAI Codex, Claude Code Sandboxes",
       desc:  "An unauthorized AI relay service, first identified by Symantec, has been installing genuine OpenAI Codex and Anthropic Claude Code command-line tools on systems at roughly a dozen organizations mainly in mainland…",
@@ -183,15 +192,6 @@ window.SITE_DATA = {
       tone:  "",
       image: "https://substackcdn.com/image/fetch/$s_!0KfT!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6c341de8-3681-44fc-838c-a8bd584844ae_1536x1024.png",
       link:  "https://mohammedzuoriki.substack.com/p/ex-openai-engineer-detained-after"
-    },
-    {
-      date:  "20 oct 2026",
-      title: "Researchers Infiltrate Microsoft Tech Support Scam Operation",
-      desc:  "Infoblox researchers have exposed Help TDS, a long-running traffic-distribution system operated since at least 2017 by the Russian-language affiliate network Hotejka, which redirects victims from compromised…",
-      tag:   "malware",
-      tone:  "warm",
-      image: "https://substackcdn.com/image/fetch/$s_!HpzW!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe22cf21e-c535-4bee-8152-5be8c9fe8a5e_1536x1024.png",
-      link:  "https://mohammedzuoriki.substack.com/p/researchers-infiltrate-microsoft"
     }
   ],
   /* CYBERTUTOR:END */
