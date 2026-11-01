@@ -37,7 +37,7 @@ We run practical workshops covering everything from web exploitation to digital 
 | **Vanilla JavaScript** | Dynamic content, mobile menu, wave animation, typing effect |
 | **Node.js** (GitHub Action only) | Scheduled script that syncs blog posts from Substack |
 | **GitHub Pages** | Free hosting, deployed from `frontend/` (`.github/workflows/deploy.yml`) |
-| **GitHub Actions** | Daily automated blog sync (`.github/workflows/update-blog.yml`) |
+| **GitHub Actions** | Daily automated blog sync (`.github/workflows/update-blog.yml`) and pre-deploy checks (`.github/workflows/check.yml`) |
 
 **Design tokens:**
 - Black background (`#0B0B0D`)
@@ -52,7 +52,8 @@ We run practical workshops covering everything from web exploitation to digital 
 brunel-cyber-society/
 ├── backend/
 │   └── tools/
-│       └── sync-cybertutor.mjs   # Pulls latest posts from the CyberTutor Substack RSS feed
+│       ├── sync-cybertutor.mjs   # Pulls latest posts from the CyberTutor Substack RSS feed
+│       └── check-site.mjs        # Sanity checks run by CI before every deploy
 ├── frontend/
 │   ├── index.html                # Homepage
 │   ├── events.html               # Events + CTF team
@@ -63,7 +64,6 @@ brunel-cyber-society/
 │   ├── credits.html              # Site credits
 │   ├── 404.html                  # Custom error page
 │   ├── security-basics.html      # Stay-safe guide (passwords, MFA, phishing)
-│   ├── crack-the-vault.html      # Vault-cracking reflex mini-game
 │   ├── favicon.svg               # Site favicon
 │   ├── CNAME                     # Custom domain (brunelcs.org)
 │   ├── assets/                   # Images: logos, committee photos, OG image
@@ -76,6 +76,7 @@ brunel-cyber-society/
 │       ├── waves.js              # Animated wave background
 │       └── preloader.js          # Page preloader
 ├── .github/workflows/
+│   ├── check.yml                 # Runs check-site.mjs on pull requests and before each deploy
 │   ├── deploy.yml                # Publishes frontend/ to GitHub Pages on every push to main
 │   └── update-blog.yml           # Daily GitHub Action that runs the sync script
 ├── HOW-TO-EDIT.md                # Non-technical guide for committee members
@@ -128,6 +129,11 @@ Not comfortable editing code directly? See [`HOW-TO-EDIT.md`](HOW-TO-EDIT.md) fo
 `frontend/` is the website; everything else is tooling and docs. The
 [deploy workflow](.github/workflows/deploy.yml) uploads `frontend/` to GitHub Pages on every push to
 `main` that touches it, so the live URLs stay at the root (`brunelcs.org/events.html`).
+
+Before deploying it runs [`check-site.mjs`](backend/tools/check-site.mjs), which fails the run (and keeps the
+last good version live) if any script has a syntax error, an event is missing a `"YYYY-MM-DD"` date, or a
+same-site link or image path doesn't exist with exactly that capitalisation. The same check runs on every pull
+request. Run it locally with `node backend/tools/check-site.mjs`.
 
 **One-time setup:** in the repo go to **Settings → Pages → Build and deployment → Source** and pick
 **GitHub Actions**. The custom domain `brunelcs.org` stays as configured there.

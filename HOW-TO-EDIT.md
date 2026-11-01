@@ -252,4 +252,10 @@ re-do it more carefully.
 You don't need to do anything special. Once a change is merged into `main`,
 the **Deploy site to GitHub Pages** action publishes the `frontend` folder to
 [brunelcs.org](https://brunelcs.org) within a minute or two. You can watch it in
-the **Actions** tab. Good luck! 🛡️
+the **Actions** tab.
+
+Before publishing, it checks your edit automatically. If something is wrong
+(a missing comma in `data.js`, an event without a date, a photo whose file name
+doesn't match exactly), the run turns red, the live site stays as it was, and
+the error message in the **Actions** tab tells you which line to fix.
+Good luck! 🛡️

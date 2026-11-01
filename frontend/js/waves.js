@@ -38,6 +38,10 @@
   let rafId = null;
   let inView = true;
 
+  /**
+   * Draw the static dot grid (one dot every 90px) onto an offscreen canvas.
+   * Called only on resize; render() then copies it in with a single drawImage.
+   */
   function buildGrid() {
     grid = document.createElement('canvas');
     grid.width = w * dpr;
@@ -52,11 +56,22 @@
     }
   }
 
+  /**
+   * Match the canvas to its on-screen size and rebuild everything that
+   * depends on that size.
+   *
+   * A canvas has two sizes: its CSS size (clientWidth/Height) and its
+   * pixel buffer (width/height). On high-DPI screens (devicePixelRatio 2 or
+   * 3) the buffer must be larger or the lines look blurry. setTransform then
+   * scales drawing so the rest of the code can keep using CSS pixels. DPR
+   * is capped at 2 because a 3x buffer costs more than twice the pixels of
+   * a 2x one, for a difference you can barely see.
+   */
   function resize() {
     dpr = Math.min(window.devicePixelRatio || 1, 2);
     w = canvas.clientWidth;
     h = canvas.clientHeight;
-    canvas.width = w * dpr;
+    canvas.width = w * dpr;     /* note: setting width/height also clears the canvas */
     canvas.height = h * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     rows = Math.floor(h / ROW_GAP);
@@ -81,6 +96,20 @@
     }, 150);
   });
 
+  /**
+   * Height of the imaginary wave surface at point (x, y) and time `time`.
+   *
+   * It adds up three sine waves, each with its own direction (the x/y
+   * multipliers), speed (the time multiplier) and height (the trailing
+   * number). Adding a few sines with unrelated frequencies gives motion
+   * that looks organic and doesn't visibly repeat. This is a cheap
+   * alternative to real noise functions.
+   *
+   * @param {number} x Horizontal position in CSS px.
+   * @param {number} y The row's base y position in CSS px.
+   * @param {number} time Animation clock `t`.
+   * @returns {number} How far to lift the line at this point, in px (can be negative).
+   */
   function surface(x, y, time) {
     if (VARIANT === 'b') {
       /* contact background: longer, more diagonal swells moving the other way */
@@ -117,9 +146,11 @@
         else path.lineTo(xs[i], y);
       }
 
+      /* rows with taller crests are drawn brighter, which gives a sense of depth */
       const bright = Math.min(1, 0.18 + (peak / 80));
 
-      /* stroke the same path three times, shifted, for the colour fringe */
+      /* stroke the same path three times, shifted, for the colour fringe.
+         save()/restore() undo each translate, so the next layer starts unshifted. */
       ctx.globalAlpha = bright * 0.5 * DIM;
       ctx.strokeStyle = WARM;
       ctx.save(); ctx.translate(-1.4, 0); ctx.stroke(path); ctx.restore();
@@ -134,12 +165,21 @@
     ctx.globalAlpha = 1;
   }
 
-  function loop() {
+  /* requestAnimationFrame runs the callback before the next screen repaint
+     and pauses by itself in background tabs. t advances by the real time
+     elapsed, scaled so SPEED keeps meaning "per 60Hz frame" (~16.7ms); that
+     way 60Hz and 120Hz screens animate at the same speed. The 100ms cap
+     stops a big jump after a slow frame. */
+  let lastTs = null;
+  function loop(ts) {
+    if (lastTs !== null) t += SPEED * Math.min(ts - lastTs, 100) / (1000 / 60);
+    lastTs = ts;
     render();
-    t += SPEED;
     rafId = requestAnimationFrame(loop);
   }
 
+  /* start() and stop() use rafId === null to mean "not running", so calling
+     start() twice can never set up two loops at once */
   function start() {
     if (reduceMotion) return;
     if (rafId === null && inView && !document.hidden) {
@@ -151,6 +191,7 @@
     if (rafId !== null) {
       cancelAnimationFrame(rafId);
       rafId = null;
+      lastTs = null;   /* so time spent paused isn't counted on resume */
     }
   }
 

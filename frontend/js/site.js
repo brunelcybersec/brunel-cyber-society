@@ -1,14 +1,27 @@
 /* Shared behaviour for every page:
    mobile menu, sticky-nav state, button ripple, scroll reveals,
-   and a small reward for the curious. */
+   click-to-copy, the phishing alert, the external-link check,
+   and a small reward for the curious.
+
+   Loaded last on each page (after render.js), so the cards render.js
+   builds are already in the DOM when the reveal code below looks for
+   them. Each feature checks that its elements exist, so the same file
+   works on every page. */
 
 (function () {
+  /* honour the OS-level "reduce motion" accessibility setting */
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ----- mobile menu ----- */
   const btn = document.querySelector('.menu-btn');
   const links = document.querySelector('.nav-links');
   if (btn && links) {
+    /**
+     * Open or close the mobile menu. The visual state, aria-expanded
+     * (read out by screen readers) and the button label all change
+     * together here, so they can never disagree.
+     * @param {boolean} open
+     */
     const setMenu = function (open) {
       links.classList.toggle('open', open);
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
@@ -18,6 +31,8 @@
     btn.addEventListener('click', function () {
       setMenu(!links.classList.contains('open'));
     });
+    /* event delegation: one listener on the container catches clicks on any
+       link inside it, so tapping a link (e.g. "#join") also closes the menu */
     links.addEventListener('click', function (e) {
       if (e.target.tagName === 'A') setMenu(false);
     });
@@ -33,7 +48,9 @@
     const onScroll = function () {
       navEl.classList.toggle('scrolled', window.scrollY > 8);
     };
-    onScroll();
+    onScroll();   /* run once now, in case the page loads already scrolled (refresh, #anchor) */
+    /* passive: tells the browser we never call preventDefault(), so it can
+       keep scrolling smoothly without waiting for this handler */
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
@@ -42,6 +59,7 @@
      it; we only place it and clean it up). Skipped for disabled buttons and
      when the user prefers reduced motion. */
   if (!reduceMotion) {
+    /* one delegated listener on document, so it also covers buttons created later */
     document.addEventListener('click', function (e) {
       const target = e.target.closest('.btn');
       if (!target || target.classList.contains('disabled')) return;
@@ -72,17 +90,21 @@
     });
   });
 
+  /* no animation wanted (or an old browser): show everything straight away,
+     so no content is ever left invisible */
   if (reduceMotion || !('IntersectionObserver' in window)) {
     revealEls.forEach(function (el) { el.classList.add('visible'); });
   } else {
+    /* IntersectionObserver lets the browser report when an element enters the
+       viewport, which is cheaper than checking positions on every scroll event */
     const io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          io.unobserve(entry.target);
+          io.unobserve(entry.target);   /* reveal once only; stop watching it */
         }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.12 });            /* trigger once 12% of the section is visible */
     revealEls.forEach(function (el) { io.observe(el); });
   }
 
@@ -90,6 +112,12 @@
   document.querySelectorAll('.bc-copy[data-copy]').forEach(function (btn) {
     const hint = btn.querySelector('.bc-copy-hint');
     let resetTimer;
+    /**
+     * Show the copy result for 1.8s, then reset. Clearing the previous
+     * timer first means a quick second click doesn't get cut short by
+     * the first click's reset.
+     * @param {boolean} ok true if the copy worked.
+     */
     const flash = function (ok) {
       btn.classList.toggle('copied', ok);
       if (hint) {
@@ -106,10 +134,13 @@
     };
     btn.addEventListener('click', function () {
       const text = btn.getAttribute('data-copy');
+      /* the modern Clipboard API is asynchronous (returns a Promise) and only
+         exists on HTTPS pages or localhost */
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(function () { flash(true); }, function () { flash(false); });
       } else {
-        /* fallback for older browsers / non-secure contexts */
+        /* fallback for older browsers / non-secure contexts: select the text in
+           an off-screen textarea and use the deprecated execCommand('copy') */
         try {
           const ta = document.createElement('textarea');
           ta.value = text;
@@ -132,10 +163,26 @@
      early. The link check further down is not affected. */
   const PHISHING_ALERT_ON = true;
   const PHISHING_ALERT_UNTIL = new Date(2026, 10, 1);   /* 1 Nov 2026, 00:00 (months count from 0) */
+  /* compared against the visitor's own clock and time zone, so the exact
+     switch-off moment differs slightly from one visitor to another */
   const PHISHING_ALERT = PHISHING_ALERT_ON && new Date() < PHISHING_ALERT_UNTIL;
 
   const X_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+  /* feature detection: both the pop-up and the link check use <dialog>,
+     so they are skipped entirely in browsers without it */
   const canDialog = typeof HTMLDialogElement === 'function';
+
+  /**
+   * Read from or write to localStorage/sessionStorage without crashing.
+   * Storage access can throw (Safari private mode, blocked site data, full
+   * quota), and one uncaught error would stop the rest of this file.
+   *
+   * @param {Storage} store localStorage or sessionStorage.
+   * @param {string} key
+   * @param {string} [value] Leave this out to read; pass it to write.
+   * @returns {string|null|undefined} The stored value when reading (null if
+   *   missing or unavailable); undefined after a write.
+   */
   const storage = function (store, key, value) {
     try {
       if (value === undefined) return store.getItem(key);
@@ -147,12 +194,17 @@
   const guideHref = (navSafe ? navSafe.getAttribute('href') : 'security-basics.html') + '#phishing';
   const onSafePage = !!document.getElementById('phishing');
 
-  /* pop-up: homepage only, once per visit, after the boot screen has gone */
+  /* pop-up: homepage only, once per visit, after the boot screen has gone.
+     sessionStorage is cleared when the tab closes, so "once per visit" means
+     once per tab session, not once forever. */
   if (PHISHING_ALERT && canDialog && document.body.classList.contains('home') &&
       !storage(sessionStorage, 'phAlertSeen')) {
     const pop = document.createElement('dialog');
     pop.className = 'ph-pop';
     pop.setAttribute('aria-labelledby', 'ph-pop-title');
+    /* fixed markup; the only value inserted is guideHref, which comes from the
+       page's own nav link. <form method="dialog"> buttons close the dialog
+       without any JS. */
     pop.innerHTML =
       '<div class="ph-pop-top">' +
         '<p class="ph-live"><span class="ph-dot" aria-hidden="true"></span>PHISHING ALERT <span class="date">· 23 Oct 2026</span></p>' +
@@ -176,11 +228,17 @@
     /* clicking the blurred area outside the box closes it */
     pop.addEventListener('click', function (e) { if (e.target === pop) pop.close(); });
 
+    /* showModal() (not show()) makes the rest of the page inert, traps keyboard
+       focus inside the dialog and lets Escape close it */
     const show = function () {
       if (pop.open) return;
       storage(sessionStorage, 'phAlertSeen', '1');
       pop.showModal();
     };
+    /* Wait for the boot screen (preloader.js) to finish so the two don't
+       overlap. preloader.js has no event to listen for, so a MutationObserver
+       watches for its signs of finishing: the "pl-done" class being added,
+       or the element being removed from <body>. */
     const pl = document.getElementById('preloader');
     if (!pl || !pl.isConnected || pl.classList.contains('pl-done')) {
       setTimeout(show, 900);
@@ -209,6 +267,7 @@
       '<a class="ph-b-link" href="' + guideHref + '">How to spot them &rarr;</a>' +
       '<button class="ph-x" type="button" aria-label="Dismiss phishing warning">' + X_ICON + '</button>';
     document.body.appendChild(bar);
+    /* the CSS adds bottom padding for this class so the fixed banner never covers the footer */
     document.documentElement.classList.add('has-ph-banner');
     bar.querySelector('.ph-x').addEventListener('click', function () {
       bar.remove();
@@ -243,14 +302,20 @@
     document.body.appendChild(dlg);
     const urlEl = dlg.querySelector('.leave-url');
     const skipEl = dlg.querySelector('.leave-skip input');
+    /* the link that was intercepted, held here until the dialog closes */
     let pending = null;
 
     document.addEventListener('click', function (e) {
+      /* skip clicks something else already handled, and modified or
+         non-left clicks (open in new tab / window), which should behave normally */
       if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
       const a = e.target.closest('a[href]');
       if (!a || storage(localStorage, 'leaveCheckOff') === '1') return;
+      /* a.href (the property, not the attribute) is already an absolute URL;
+         URL() splits it into protocol/hostname/path for us */
       let u;
       try { u = new URL(a.href, location.href); } catch (err) { return; }
+      /* only http(s) links to other sites; mailto:, tel: and our own pages pass through */
       if (!/^https?:$/.test(u.protocol) || OUR_HOSTS.indexOf(u.hostname) !== -1) return;
 
       e.preventDefault();
@@ -265,8 +330,12 @@
       dlg.showModal();
     });
 
+    /* "close" fires however the dialog closes (either button or Escape).
+       returnValue is the value of the button that submitted the form, so
+       only the "Open link" button continues to the site. */
     dlg.addEventListener('close', function () {
       if (dlg.returnValue === 'go' && pending) {
+        /* the "don't ask again" box only counts when the visitor goes ahead */
         if (skipEl.checked) storage(localStorage, 'leaveCheckOff', '1');
         if (pending.newTab) window.open(pending.href, '_blank', 'noopener');
         else location.href = pending.href;
@@ -276,6 +345,7 @@
   }
 
   /* ----- for the curious ----- */
+  /* each %c in the message applies the next CSS string argument to the text after it */
   console.log(
     '%cbrunel_cybersec>_ %cnice instinct, opening the console.\n' +
     'BRUNEL{v1ew_s0urce_h4cker}\n' +

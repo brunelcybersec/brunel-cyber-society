@@ -2034,7 +2034,7 @@ main { display: block; }
 
 /* ---- banner (every page except stay-safe; X hides it on this device) ---- */
 .ph-banner {
-  /* fixed palette so it stays dark and readable on the light crack-the-vault page */
+  /* fixed palette so the banner looks the same whatever page variables it sits on */
   --text: #E9E6E3; --muted: #8E8B8F; --line: #2E2E34;
   color: var(--text);
   position: fixed;
