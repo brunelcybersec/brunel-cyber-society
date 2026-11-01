@@ -571,6 +571,68 @@ h2 {
 }
 
 /* ---------- CTF band (events page) ---------- */
+/* ---------- events: CTF achievements ---------- */
+.ach-meta {
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.ach-item h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  font-size: clamp(22px, 2.6vw, 26px);
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+.ach-lede { color: #a9a6ab; font-size: 16px; line-height: 1.7; max-width: 720px; }
+.ach-stats { grid-template-columns: repeat(3, 1fr); margin: 28px 0; }
+@media (max-width: 600px) {
+  .ach-stats { grid-template-columns: 1fr; }
+  .ach-stats .stat { padding: 18px 20px; }
+  .ach-stats .stat .num { font-size: 28px; }
+}
+/* Columns sized to each image's aspect ratio (certificate 1280x908 ≈ 141:100,
+   photo 640x854 ≈ 75:100), so both sit at the same height with no cropping —
+   every number on the certificate stays visible. */
+.ach-media {
+  display: grid;
+  grid-template-columns: 141fr 75fr;
+  gap: 14px;
+  align-items: start;
+  margin-top: 32px;
+}
+.ach-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);   /* placeholder tone while the lazy image loads */
+}
+.ach-media figcaption {
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.ach-media figcaption a {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-color: rgba(233, 230, 227, 0.35);
+  text-underline-offset: 3px;
+}
+.ach-media figcaption a:hover { text-decoration-color: var(--text); }
+@media (max-width: 720px) {
+  .ach-media { grid-template-columns: 1fr; gap: 24px; }
+  .ach-media figure:last-child img { max-width: 280px; }   /* supporting photo shouldn't fill a whole phone screen */
+}
+
+/* homepage teaser for the latest CTF result (reuses the .more-cta panel) */
+.ctf-teaser .more-cta-text p { color: #b9b6ba; font-size: 16px; max-width: 560px; }
+/* must outrank the line above (and .more-cta-text p) to keep the small mono meta style */
+.ctf-teaser .more-cta-text .ach-meta { font-size: 12.5px; color: var(--muted); margin-bottom: 10px; }
+
 .ctf-band { background: var(--surface); }
 .ctf-band-inner {
   max-width: 1080px;
