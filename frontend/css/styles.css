@@ -53,7 +53,7 @@ nav.scrolled {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   border-bottom-color: transparent;
 }
-@media (min-width: 721px) {
+@media (min-width: 901px) {
   nav {
     background: rgba(11, 11, 13, 0.7);
     -webkit-backdrop-filter: blur(12px);
@@ -417,6 +417,10 @@ h2 {
   top: 100%; left: 0;
   padding-top: 12px;            /* invisible bridge so the card stays open as you move into it */
   width: min(600px, calc(100vw - 48px));
+  /* never wider than its event column: even while hidden, a card that
+     sticks out past the screen edge makes the page scroll sideways on phones */
+  max-width: 100%;
+  container-type: inline-size;
   z-index: 40;
   opacity: 0;
   visibility: hidden;
@@ -424,11 +428,24 @@ h2 {
   transition: opacity 0.22s ease, transform 0.22s ease;
   pointer-events: none;
 }
-.event.has-preview:hover .preview {
+/* :focus-within opens it for keyboard users (the row is focusable, see
+   render.js) and on touch screens, where a tap focuses the row */
+.event.has-preview:hover .preview,
+.event.has-preview:focus-within .preview {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
   pointer-events: auto;
+}
+.event.has-preview:focus-visible {
+  outline: 1.5px solid var(--cool);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+/* a narrow column (tablets): stack image above text instead of squeezing two columns */
+@container (max-width: 520px) {
+  .ev-card { grid-template-columns: 1fr; }
+  .ev-media { min-height: 150px; }
 }
 .ev-card {
   display: grid;
@@ -493,7 +510,7 @@ h2 {
 }
 .ev-more:hover { background: rgba(255, 255, 255, 0.06); border-color: var(--text); }
 @media (prefers-reduced-motion: reduce) {
-  .preview, .event.has-preview:hover .preview { transform: none; }
+  .preview, .event.has-preview:hover .preview, .event.has-preview:focus-within .preview { transform: none; }
 }
 @media (max-width: 680px) {
   .ev-card { grid-template-columns: 1fr; }
@@ -680,14 +697,15 @@ footer {
 }
 footer a:hover { color: var(--text); }
 footer .links { display: flex; gap: 22px; flex-wrap: wrap; }
-footer .links a { display: inline-flex; align-items: center; gap: 7px; }
+/* min-height: a 24px tap target (WCAG 2.2 target size) without moving the centred text */
+footer .links a { display: inline-flex; align-items: center; gap: 7px; min-height: 24px; }
 footer .links a svg { width: 14px; height: 14px; flex: none; }
 .footer-credit {
   flex-basis: 100%;
   margin: 6px 0 0;
   padding-top: 18px;
   border-top: 1px solid var(--line);
-  color: #5f5f66;
+  color: #7d7c83;   /* dimmer than the links but still 4.7:1 on --bg (WCAG AA) */
   font-size: 11.5px;
 }
 .footer-credit a {
@@ -784,7 +802,10 @@ footer .links a svg { width: 14px; height: 14px; flex: none; }
 }
 
 /* ---------- responsive ---------- */
-@media (max-width: 720px) {
+/* The menu collapses at 900px, wider than the 720px layout breakpoint:
+   the eight nav links need ~880px in one row, so on tablets (768-900px)
+   they used to run off the right edge and hide the 'join' button. */
+@media (max-width: 900px) {
   nav {
     padding: 14px 20px;
     /* the nav blur traps fixed children, which broke the menu, so on
@@ -793,11 +814,6 @@ footer .links a svg { width: 14px; height: 14px; flex: none; }
     backdrop-filter: none;
     background: rgba(11, 11, 13, 0.97);
   }
-  section { padding: 56px 20px; }
-  .page-head { padding: 120px 20px 24px; }
-  .event { grid-template-columns: 1fr; gap: 8px; }
-  .ctf-band-inner { padding: 56px 20px 64px; }
-  footer { padding: 28px 20px; }
 
   .menu-btn { display: block; }
   .nav-links {
@@ -819,6 +835,13 @@ footer .links a svg { width: 14px; height: 14px; flex: none; }
   }
   .nav-links a { font-size: 17px; }
   body.menu-open { overflow: hidden; }
+}
+@media (max-width: 720px) {
+  section { padding: 56px 20px; }
+  .page-head { padding: 120px 20px 24px; }
+  .event { grid-template-columns: 1fr; gap: 8px; }
+  .ctf-band-inner { padding: 56px 20px 64px; }
+  footer { padding: 28px 20px; }
 }
 
 /* ---------- reduced motion ---------- */
@@ -1282,7 +1305,7 @@ body {
 }
 .nav-links a:hover::after,
 .nav-links a[aria-current="page"]::after { transform: scaleX(1); }
-@media (max-width: 720px) { .nav-links a::after { display: none; } }
+@media (max-width: 900px) { .nav-links a::after { display: none; } }
 
 /* ---- hero: vignette to focus the headline over the waves ---- */
 header.hero::after {

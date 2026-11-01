@@ -189,8 +189,11 @@
    */
   function eventRow(e) {
     const past = isPastEvent(e);
+    /* rows with a hover card are focusable, so keyboard and touch users can
+       open the card too (CSS :focus-within) */
     return (
-      '<div class="event' + (e.preview ? ' has-preview' : '') + (past ? ' past-event' : '') + '">' +
+      '<div class="event' + (e.preview ? ' has-preview' : '') + (past ? ' past-event' : '') + '"' +
+        (e.preview ? ' tabindex="0"' : '') + '>' +
         '<span class="date">' + esc(e.when) + '<br>' + esc(e.where) + '</span>' +
         '<div class="event-main"><h3>' + esc(e.title) + '</h3><p>' + esc(e.desc) + '</p>' +
           previewHtml(e.preview) +
@@ -362,11 +365,25 @@
     ['home-events', 'upcoming-events'].forEach(function (id) {
       const el = document.getElementById(id);
       if (el) {
-        el.innerHTML = '<p class="events-empty">Nothing scheduled right now. New dates go up in the ' +
-          '<a href="https://discord.gg/anmggPyVcs" target="_blank" rel="noopener">Discord</a> first.</p>';
+        el.innerHTML = '<p class="events-empty">Nothing scheduled right now. New dates are announced first on our ' +
+          '<a href="https://discord.gg/anmggPyVcs" target="_blank" rel="noopener">Discord</a> and ' +
+          '<a href="https://www.instagram.com/cybersoc.brunel/" target="_blank" rel="noopener">Instagram</a>, ' +
+          'so follow along to catch the next one.</p>';
       }
     });
   }
+
+  /* Escape closes an open event card (keyboard users can't "move the mouse
+     away"), as WCAG 1.4.13 expects for content shown on hover or focus */
+  document.addEventListener('keydown', function (e) {
+    const row = document.activeElement && document.activeElement.closest &&
+      document.activeElement.closest('.event.has-preview');
+    if (e.key === 'Escape' && row) document.activeElement.blur();   /* the row, or a link inside its card */
+  });
+
+  /* homepage stat: count the committee from data.js so it never drifts */
+  const committeeStat = document.getElementById('stat-committee');
+  if (committeeStat && d.committee && d.committee.length) committeeStat.textContent = String(d.committee.length);
   renderList('reads-list', d.reads, readRow);                        /* blog: further reading */
   renderList('learn-list', d.learn, learnRow);                       /* resources: learn with */
   renderList('committee-list', d.committee, memberRow);              /* committee page */

@@ -25,9 +25,16 @@
     const setMenu = function (open) {
       links.classList.toggle('open', open);
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
       btn.textContent = open ? '[close]' : '[menu]';
       document.body.classList.toggle('menu-open', open);
+      /* the open menu covers the whole screen, so make the page behind it
+         inert: Tab can't wander onto links the visitor can't see */
+      document.querySelectorAll('main, footer').forEach(function (el) { el.inert = open; });
     };
+    /* tell assistive tech which element the button controls */
+    if (!links.id) links.id = 'site-menu';
+    btn.setAttribute('aria-controls', links.id);
     btn.addEventListener('click', function () {
       setMenu(!links.classList.contains('open'));
     });
@@ -36,10 +43,18 @@
     links.addEventListener('click', function (e) {
       if (e.target.tagName === 'A') setMenu(false);
     });
-    /* Escape closes the menu for keyboard users */
+    /* Escape closes the menu for keyboard users and puts focus back on the button */
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && links.classList.contains('open')) setMenu(false);
+      if (e.key === 'Escape' && links.classList.contains('open')) {
+        setMenu(false);
+        btn.focus();
+      }
     });
+    /* widening the window past the menu breakpoint (styles.css, 900px) while
+       the menu is open would otherwise leave the page inert and unscrollable */
+    const mobileNav = window.matchMedia('(max-width: 900px)');
+    const onBreakpoint = function () { if (!mobileNav.matches) setMenu(false); };
+    if (mobileNav.addEventListener) mobileNav.addEventListener('change', onBreakpoint);
   }
 
   /* ----- nav: compact + elevate once the page scrolls ----- */
@@ -202,9 +217,8 @@
     const pop = document.createElement('dialog');
     pop.className = 'ph-pop';
     pop.setAttribute('aria-labelledby', 'ph-pop-title');
-    /* fixed markup; the only value inserted is guideHref, which comes from the
-       page's own nav link. <form method="dialog"> buttons close the dialog
-       without any JS. */
+    /* fixed markup only; guideHref is set afterwards with setAttribute.
+       <form method="dialog"> buttons close the dialog without any JS. */
     pop.innerHTML =
       '<div class="ph-pop-top">' +
         '<p class="ph-live"><span class="ph-dot" aria-hidden="true"></span>PHISHING ALERT <span class="date">· 23 Oct 2026</span></p>' +
@@ -220,10 +234,11 @@
           '<li><span><strong>Already clicked?</strong> Contact the Brunel IT Service Desk.</span></li>' +
         '</ol>' +
         '<form method="dialog" class="ph-actions">' +
-          '<a class="btn solid" href="' + guideHref + '">How to spot phishing &rarr;</a>' +
+          '<a class="btn solid ph-guide">How to spot phishing &rarr;</a>' +
           '<button class="btn ghost-btn" autofocus>Got it</button>' +
         '</form>' +
       '</div>';
+    pop.querySelector('.ph-guide').setAttribute('href', guideHref);
     document.body.appendChild(pop);
     /* clicking the blurred area outside the box closes it */
     pop.addEventListener('click', function (e) { if (e.target === pop) pop.close(); });
@@ -264,8 +279,10 @@
       '<span class="ph-live"><span class="ph-dot" aria-hidden="true"></span>PHISHING ALERT</span>' +
       '<p class="ph-b-text"><strong>Fake training and career emails are targeting Brunel students.</strong>' +
         '<span class="ph-b-more"> Don\'t click or reply unless you\'re sure.</span></p>' +
-      '<a class="ph-b-link" href="' + guideHref + '">How to spot them &rarr;</a>' +
+      '<a class="ph-b-link">How to spot them &rarr;</a>' +
       '<button class="ph-x" type="button" aria-label="Dismiss phishing warning">' + X_ICON + '</button>';
+    /* set via setAttribute, not string concatenation, so the href can never break out of the markup */
+    bar.querySelector('.ph-b-link').setAttribute('href', guideHref);
     document.body.appendChild(bar);
     /* the CSS adds bottom padding for this class so the fixed banner never covers the footer */
     document.documentElement.classList.add('has-ph-banner');
@@ -278,19 +295,52 @@
 
   /* ----- "leaving brunelcs.org" check on external links ----- */
   /* Pauses before any link that leaves the site and shows the real
-     destination, host in bold. Same-site links, mailto: and
-     ctrl/cmd/shift/middle clicks are left alone. */
+     destination, host in bold. Same-site links, mailto:, the society's
+     own official pages (TRUSTED_LINKS) and ctrl/cmd/shift/middle clicks
+     are left alone. */
   if (canDialog) {
     const OUR_HOSTS = ['brunelcs.org', 'www.brunelcs.org', location.hostname];
+
+    /* Official society destinations that skip the check, so the warning keeps
+       its meaning for everywhere else. Each entry is an exact https origin plus
+       a path prefix matched on whole path segments: "github.com/brunelcybersec"
+       covers ".../brunelcybersec/ctf-writeups" but NOT "github.com/brunelcybersec-x",
+       "evil.github.com", http:// or another port. No wildcards, no subdomains.
+       Only add pages the society itself controls, and never a redirector. */
+    const TRUSTED_LINKS = [
+      'https://brunelstudents.com/organisation/cybersoc/',   /* Students' Union membership page */
+      'https://discord.gg/anmggPyVcs',
+      'https://www.instagram.com/cybersoc.brunel/',
+      'https://github.com/brunelcybersec',
+      'https://www.youtube.com/@CyberTutor24',
+      'https://chat.whatsapp.com/B50Vr2OEtNP2xswsivr9eI',
+      'https://mohammedzuoriki.substack.com/p/'              /* CyberTutor posts on the blog page */
+    ].map(function (t) { return new URL(t); });
+
+    /**
+     * @param {URL} u Parsed link destination (already normalised by URL(),
+     *   so "/brunelcybersec/../x" has become "/x" before we compare).
+     * @returns {boolean} true if u is one of the TRUSTED_LINKS pages.
+     */
+    const isTrusted = function (u) {
+      if (u.username || u.password) return false;   /* "https://a@b" tricks */
+      return TRUSTED_LINKS.some(function (t) {
+        const base = t.pathname.replace(/\/$/, '');
+        return u.origin === t.origin &&
+          (u.pathname === base || u.pathname.indexOf(base + '/') === 0);
+      });
+    };
+
     const dlg = document.createElement('dialog');
     dlg.className = 'leave-dlg';
     dlg.setAttribute('aria-labelledby', 'leave-title');
+    dlg.setAttribute('aria-describedby', 'leave-desc leave-url');
     dlg.innerHTML =
       '<form method="dialog" class="leave-inner">' +
         '<p class="leave-tag">// leaving brunelcs.org</p>' +
         '<h2 id="leave-title">Check where this link goes</h2>' +
-        '<p>You\'re about to open an external site. Read the address before you continue, the same way you would in an email.</p>' +
-        '<span class="leave-url"></span>' +
+        '<p id="leave-desc">You\'re about to open an external site. Read the address before you continue, the same way you would in an email.</p>' +
+        '<span class="leave-url" id="leave-url"></span>' +
         '<p class="leave-tip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V5z"/><path d="M9 12l2 2 4-4"/></svg>' +
           '<span>Phishing links copy real names. The part in bold is the site you\'ll actually land on.</span></p>' +
         '<div class="leave-actions">' +
@@ -300,6 +350,9 @@
         '<label class="leave-skip"><input type="checkbox"> don\'t ask again on this device</label>' +
       '</form>';
     document.body.appendChild(dlg);
+    /* tapping the dimmed backdrop counts as "Stay here" (returnValue stays ''),
+       which helps touch users; Escape and the buttons work as before */
+    dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
     const urlEl = dlg.querySelector('.leave-url');
     const skipEl = dlg.querySelector('.leave-skip input');
     /* the link that was intercepted, held here until the dialog closes */
@@ -316,7 +369,7 @@
       let u;
       try { u = new URL(a.href, location.href); } catch (err) { return; }
       /* only http(s) links to other sites; mailto:, tel: and our own pages pass through */
-      if (!/^https?:$/.test(u.protocol) || OUR_HOSTS.indexOf(u.hostname) !== -1) return;
+      if (!/^https?:$/.test(u.protocol) || OUR_HOSTS.indexOf(u.hostname) !== -1 || isTrusted(u)) return;
 
       e.preventDefault();
       pending = { href: u.href, newTab: a.target === '_blank' };
