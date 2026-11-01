@@ -113,6 +113,15 @@ window.SITE_DATA = {
   /* CYBERTUTOR:START */
   posts: [
     {
+      date:  "01 nov 2026",
+      title: "GhostAction Hacking Wave Fizzles, but Attackers Lurk on in GitHub",
+      desc:  "Read more",
+      tag:   "news",
+      tone:  "",
+      image: "https://substackcdn.com/image/fetch/$s_!f3AA!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb186883f-d3ec-4d64-8ab3-b238e00b80db_1672x941.png",
+      link:  "https://mohammedzuoriki.substack.com/p/ghostaction-hacking-wave-fizzles"
+    },
+    {
       date:  "30 oct 2026",
       title: "Undead Software Projects Continue to Raise Security Risks",
       desc:  "A modified version of the abandoned 2014 BitTorrent client Time4Popcorn left persistent updaters running on more than 2.5 million Windows machines and an estimated 300,000 Macs, checking domains that had lapsed and…",
@@ -183,15 +192,6 @@ window.SITE_DATA = {
       tone:  "warm",
       image: "https://substackcdn.com/image/fetch/$s_!J7sb!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6a19802c-e811-41f5-8bd2-81e498985630_1672x941.png",
       link:  "https://mohammedzuoriki.substack.com/p/php2shell-bugs-signal-red-alert-for"
-    },
-    {
-      date:  "21 oct 2026",
-      title: "Ex-OpenAI Engineer Detained After Planting Secret Recorder at HQ",
-      desc:  "A US judge has ordered former OpenAI engineer Abdulrahman Alfozan, a 35-year-old Saudi national, to remain in custody while he awaits trial on charges of secretly installing an audio-recording device in an OpenAI…",
-      tag:   "news",
-      tone:  "",
-      image: "https://substackcdn.com/image/fetch/$s_!0KfT!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6c341de8-3681-44fc-838c-a8bd584844ae_1536x1024.png",
-      link:  "https://mohammedzuoriki.substack.com/p/ex-openai-engineer-detained-after"
     }
   ],
   /* CYBERTUTOR:END */
