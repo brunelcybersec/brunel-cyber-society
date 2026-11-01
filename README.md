@@ -1,144 +1,200 @@
 # 🔐 Brunel Cyber Security Society
 
-[![Live Demo](https://img.shields.io/badge/demo-live_site-6FC9D8?style=for-the-badge&logo=githubpages&logoColor=white)](https://brunelcs.org)
+[![Live website](https://img.shields.io/badge/website-brunelcs.org-6FC9D8?style=for-the-badge&logo=githubpages&logoColor=white)](https://brunelcs.org/)
 
-[![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=flat&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=flat&logo=javascript&logoColor=F7DF1E)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-[![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=flat&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
-[![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=flat&logo=javascript&logoColor=%23F7DF1E)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+The official website for **Brunel University London's Cyber Security Society**. A student-built home for workshops, Capture the Flag (CTF) competitions, learning resources, society events and membership information.
 
-The official website for Brunel University London's Cybersecurity Society. Built with a terminal-inspired aesthetic, modular content management, and responsive design.
+**Live website:** [brunelcs.org](https://brunelcs.org/) · **Membership:** [Brunel Students' Union](https://brunelstudents.com/organisation/cybersoc/)
 
- **Live site:** [brunelcs.org](https://brunelcs.org)
+## About the society
 
----
+We're a student-run community for anyone interested in understanding how systems work, how they break and how to secure them. Students from any course and experience level are welcome.
 
-## 📋 About
+The website helps visitors find:
 
-This website serves as the digital home for the society, providing information about:
+- **Events and CTFs** — workshops, competitions, talks and society activities.
+- **Learning resources** — platforms, labs and tools for developing practical skills.
+- **Stay Safe** — advice on passwords, MFA, phishing and safer online habits.
+- **The committee** — the students running the society.
+- **Membership and contact information** — how to join, get involved or reach the team.
 
-- **Who we are** – Committee members and our mission
-- **What we do** – Workshops, CTF competitions, guest talks
-- **Resources** – Learning platforms and open-source tools
-- **Blog** – CTF writeups and society news, auto-synced from our [CyberTutor Substack](https://mohammedzuoriki.substack.com/)
-- **How to join** – Free membership for 2026/27
-- **Contact & credits** – Ways to reach the committee, and who built the site
+The [blog](https://brunelcs.org/blog.html) is **temporarily hidden from the homepage and main navigation**, pending a committee decision. The page and its automated CyberTutor content sync remain intact.
 
-We run practical workshops covering everything from web exploitation to digital forensics, compete in national CTF events, and host speakers from industry to talk careers, certifications, and real-world security work.
+## Society highlight: Operation Cymbal — Cold Room 2026
 
----
+The **BrunelCS** team participated in **Operation Cymbal: Cold Room 2026 CTF** (29 October–1 November 2026), involving Google Cloud Security, Hack The Box and the Google Cloud Security Community. The challenges provided hands-on experience with Google SecOps and security investigation workflows.
 
-## 🛠 Tech Stack
+| Reported result | BrunelCS |
+| --- | ---: |
+| Team ranking | **321st of 1,716 teams** |
+| Challenges completed | **18/18** |
+| Points earned | **2,075** |
 
-| Technology | Purpose |
-| :--- | :--- |
-| **HTML5** | Page structure – no framework, no build step |
-| **CSS3** | Styling, animations, responsive design (single stylesheet) |
-| **Vanilla JavaScript** | Dynamic content, mobile menu, wave animation, typing effect |
-| **Node.js** (GitHub Action only) | Scheduled script that syncs blog posts from Substack |
-| **GitHub Pages** | Free hosting, deployed from `frontend/` (`.github/workflows/deploy.yml`) |
-| **GitHub Actions** | Daily automated blog sync (`.github/workflows/update-blog.yml`) and pre-deploy checks (`.github/workflows/check.yml`) |
+These results are taken from the competition summary shared by a participant. The website's [Events & CTF page](https://brunelcs.org/events.html) is the place for society competitions and future updates.
 
-**Design tokens:**
-- Black background (`#0B0B0D`)
-- White/grey text (`#E9E6E3` / `#8E8B8F`)
-- Terminal accents in teal (`#6FC9D8`) and orange (`#E08A6D`)
+## Features
 
----
+- **Custom visual identity:** terminal-inspired styling, dark colour palette, and animated canvas wireframe waves.
+- **Responsive pages:** layouts designed for desktop and mobile.
+- **Content managed in one place:** events, committee information and learning links are maintained through `frontend/js/data.js`.
+- **Automatically dated events:** upcoming and past events are determined from each event's `date` field.
+- **Accessibility considerations:** skip links, keyboard support and reduced-motion handling.
+- **Security awareness:** student-focused guidance and external-link checks.
+- **Automated publishing:** GitHub Actions runs site checks before deployment to GitHub Pages.
+- **Preserved blog system:** CyberTutor articles can still be updated automatically while the blog is hidden from the primary navigation.
 
-## 📁 Project Structure
+## Tech stack
 
-```
+| Technology | Use |
+| --- | --- |
+| HTML5 | Semantic page structure; no frontend framework or build step |
+| CSS3 | Layout, responsive styling, typography and animation |
+| Vanilla JavaScript | Content rendering, navigation, UI behaviour and canvas effects |
+| Node.js (tooling) | Site validation and CyberTutor RSS synchronisation |
+| GitHub Actions | Pull-request checks, deployment and scheduled blog updates |
+| GitHub Pages | Hosting the static `frontend/` directory at `brunelcs.org` |
+
+### Design system
+
+| Element | Value |
+| --- | --- |
+| Background | `#0B0B0D` |
+| Primary text | `#E9E6E3` |
+| Muted text | `#8E8B8F` |
+| Teal accent | `#6FC9D8` |
+| Coral accent | `#E08A6D` |
+| Headings | Space Grotesk |
+| Body | Inter |
+| Technical labels | JetBrains Mono |
+
+The original page layouts were designed in **Figma**, with an intentionally restrained, terminal-inspired identity rather than a generic cybersecurity template.
+
+## Project structure
+
+```text
 brunel-cyber-society/
 ├── backend/
 │   └── tools/
-│       ├── sync-cybertutor.mjs   # Pulls latest posts from the CyberTutor Substack RSS feed
-│       └── check-site.mjs        # Sanity checks run by CI before every deploy
+│       ├── check-site.mjs          # Validate scripts, data and local asset paths
+│       └── sync-cybertutor.mjs     # Sync posts from the CyberTutor RSS feed
 ├── frontend/
-│   ├── index.html                # Homepage
-│   ├── events.html               # Events + CTF team
-│   ├── blog.html                 # Blog (CyberTutor writeups, auto-synced)
-│   ├── resources.html            # Learning resources
-│   ├── committee.html            # Committee members
-│   ├── contact.html              # Contact page
-│   ├── credits.html              # Site credits
-│   ├── 404.html                  # Custom error page
-│   ├── security-basics.html      # Stay-safe guide (passwords, MFA, phishing)
-│   ├── favicon.svg               # Site favicon
-│   ├── CNAME                     # Custom domain (brunelcs.org)
-│   ├── assets/                   # Images: logos, committee photos, OG image
+│   ├── index.html                  # Homepage
+│   ├── events.html                 # Events and CTF team
+│   ├── resources.html              # Learning resources
+│   ├── security-basics.html        # Password, MFA and phishing guidance
+│   ├── committee.html              # Committee members
+│   ├── contact.html                # Contact channels and FAQ
+│   ├── credits.html                # Design and development credits
+│   ├── blog.html                   # Blog (currently unlisted, not deleted)
+│   ├── 404.html                    # Custom error page
+│   ├── favicon.svg
+│   ├── CNAME                       # Custom domain
+│   ├── assets/                     # Images and other media
 │   ├── css/
-│   │   └── styles.css            # All styling (variables, layout, components)
+│   │   └── styles.css              # Shared design system and page styles
 │   └── js/
-│       ├── data.js               # ALL content (events, committee, blog posts) – edit this!
-│       ├── render.js             # Renders content from data.js into the pages
-│       ├── site.js               # Mobile menu, scroll reveals
-│       ├── waves.js              # Animated wave background
-│       └── preloader.js          # Page preloader
-├── .github/workflows/
-│   ├── check.yml                 # Runs check-site.mjs on pull requests and before each deploy
-│   ├── deploy.yml                # Publishes frontend/ to GitHub Pages on every push to main
-│   └── update-blog.yml           # Daily GitHub Action that runs the sync script
-├── HOW-TO-EDIT.md                # Non-technical guide for committee members
-├── README.md                     # Project overview
-├── .gitignore
-└── .gitattributes
+│       ├── data.js                 # Events, committee, posts and resources
+│       ├── render.js               # Populate pages from data.js
+│       ├── site.js                 # Shared interactions and navigation
+│       ├── waves.js                # Animated wave canvas
+│       └── preloader.js            # Page loading sequence
+├── .github/
+│   └── workflows/
+│       ├── check.yml               # Run validation on PRs / via deployment
+│       ├── deploy.yml              # Validate and publish the frontend
+│       └── update-blog.yml         # Daily CyberTutor sync
+├── HOW-TO-EDIT.md                  # Editing guide for committee members
+└── README.md
 ```
 
----
+## Run locally
 
-## 🚀 Key Features
+Clone the repository and serve `frontend/` as a static website:
 
-| Feature | Description |
-| :--- | :--- |
-| **Terminal-style hero** | Typing effect and command-line aesthetic |
-| **Animated wave background** | Canvas-based wireframe waves |
-| **Modular content management** | Events, committee, and blog posts stored in `data.js` – edit one file, updates everywhere |
-| **Auto-synced blog** | GitHub Action pulls new CyberTutor Substack posts into the site daily, no manual copy-paste |
-| **Responsive design** | Works on mobile, tablet, and desktop |
-| **Committee page** | Real member names, photos, and roles |
+```bash
+git clone https://github.com/brunelcybersec/brunel-cyber-society.git
+cd brunel-cyber-society
+python -m http.server 8000 --directory frontend
+```
 
----
+Open **http://localhost:8000** in your browser. On Windows, use `py` instead of `python` if required. Alternatively, use `npx serve frontend` if you have Node.js installed.
 
-## 🔄 Updating Content
+The frontend needs **no dependency installation or build step**. Node.js 18+ is needed only if you want to run the maintenance tools locally.
 
-**To update events or committee members:** Edit `frontend/js/data.js` – the homepage, events page, and committee page update automatically.
+## Update website content
+
+Most committee updates belong in **`frontend/js/data.js`**. The homepage, Events page and Committee page use this content without having to edit each page manually.
+
+For example, an event entry uses the following structure (**illustrative only — not a real announced event**):
 
 ```javascript
-// Example: Adding a new event
-events: [
-  {
-    when:  "wed 15 oct",
-    where: "18:00 · LC265",
-    title: "Intro to web exploitation",
-    desc:  "SQL injection, XSS and how to practise legally.",
-    tag:   "workshop",
-    tone:  "cool"
-  }
-]
+{
+  when:  "10 Feb",
+  where: "18:00 · Room TBC",
+  title: "Example security workshop",
+  desc:  "A sample event used to demonstrate the data format.",
+  tag:   "workshop",
+  tone:  "cool",
+  date:  "2027-02-10"
+}
 ```
 
-Not comfortable editing code directly? See [`HOW-TO-EDIT.md`](HOW-TO-EDIT.md) for a plain-English guide aimed at non-technical committee members.
+The `date` must be in `YYYY-MM-DD` format. It determines whether the website displays the event as upcoming or past. The `when` and `where` fields are the text visitors see.
 
-**Blog posts are automatic:** a [GitHub Action](.github/workflows/update-blog.yml) runs `backend/tools/sync-cybertutor.mjs` every day at 07:00 UTC, pulls the latest posts from the [CyberTutor Substack feed](https://mohammedzuoriki.substack.com/feed), and commits any changes to `frontend/js/data.js` directly. You can also trigger it manually from the **Actions** tab, or run `node backend/tools/sync-cybertutor.mjs` locally (requires Node 18+, no dependencies).
+For non-technical editing instructions, see **[HOW-TO-EDIT.md](HOW-TO-EDIT.md)**.
 
-> **Blog temporarily hidden:** the blog link is commented out of every page's nav, and the "Latest from the blog" section is commented out of `index.html`, pending a committee decision. `blog.html` still works at its URL and the daily sync keeps running. To bring it back, search the `frontend/` folder for `BLOG-HIDDEN` and remove those comment wrappers (one line per page, plus the two wrapper lines around the homepage section).
+### Blog status and restoration
 
----
+The CyberTutor blog is **hidden, not removed**:
 
-## 🚀 Deployment
+- `frontend/blog.html` is still reachable directly.
+- The homepage blog section and navigation links are commented out with `BLOG-HIDDEN` markers.
+- The [blog sync workflow](.github/workflows/update-blog.yml) still runs at **07:00 UTC daily**, fetching posts from the [CyberTutor RSS feed](https://mohammedzuoriki.substack.com/feed).
+- A maintainer can run the sync manually from GitHub Actions or execute `node backend/tools/sync-cybertutor.mjs` locally.
 
-`frontend/` is the website; everything else is tooling and docs. The
-[deploy workflow](.github/workflows/deploy.yml) uploads `frontend/` to GitHub Pages on every push to
-`main` that touches it, so the live URLs stay at the root (`brunelcs.org/events.html`).
+To restore the blog to the main site, search `frontend/` for **`BLOG-HIDDEN`** and carefully remove the corresponding HTML comment wrappers, then run the site checks. The page's code, content and sync automation do not need to be rebuilt.
 
-Before deploying it runs [`check-site.mjs`](backend/tools/check-site.mjs), which fails the run (and keeps the
-last good version live) if any script has a syntax error, an event is missing a `"YYYY-MM-DD"` date, or a
-same-site link or image path doesn't exist with exactly that capitalisation. The same check runs on every pull
-request. Run it locally with `node backend/tools/check-site.mjs`.
+The workflow uses a repository secret named `GH_PAT` for committing updates in a way that can trigger the deployment workflow. Maintainers should manage that secret through GitHub Actions settings; **never put token values in this repository**.
 
-**One-time setup:** in the repo go to **Settings → Pages → Build and deployment → Source** and pick
-**GitHub Actions**. The custom domain `brunelcs.org` stays as configured there.
+## Checks and deployment
 
-**Run locally:** open `frontend/index.html` in a browser, or serve the folder with
-`npx serve frontend` so root-absolute links on the 404 page resolve.
+Before opening a pull request, run:
+
+```bash
+node backend/tools/check-site.mjs
+```
+
+This checks JavaScript syntax, validates required event dates and verifies that local links and media paths exist with the correct spelling and capitalisation.
+
+- **Pull requests:** [`.github/workflows/check.yml`](.github/workflows/check.yml) runs the checks automatically.
+- **Deployments:** [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) runs the same checks, then publishes `frontend/` to GitHub Pages after relevant changes are pushed to `main`.
+- **Blog sync:** [`.github/workflows/update-blog.yml`](.github/workflows/update-blog.yml) updates the feed data and can trigger a new deployment.
+
+A **README-only change does not trigger a website deployment**, since the deployment workflow watches the website and relevant workflow/tooling paths.
+
+To configure hosting, use **Settings → Pages → Build and deployment → Source → GitHub Actions** in the repository. The `frontend/CNAME` file is used for the custom domain.
+
+## Credits
+
+The website was designed and developed as a Brunel Cyber Security Society student project.
+
+- **Original UI design:** desktop and mobile Figma designs for the homepage, committee, events and CTF pages; design decisions covered typography, colour and layout. The designer's name should be added here once confirmed.
+- **Original website development:** **Parmbir Singh Nandha, Mohammed Zuoriki and Abdirahman Abdikadir**.
+- **Ongoing maintenance:** the current Brunel Cyber Security Society committee.
+
+See the [Credits page](https://brunelcs.org/credits.html) for design and technical acknowledgements.
+
+## Contributing and contact
+
+Contributions to the website, documentation and society resources are welcome. Open a pull request for review, and consult [HOW-TO-EDIT.md](HOW-TO-EDIT.md) before changing content.
+
+- [Discord](https://discord.gg/anmggPyVcs)
+- [Instagram](https://www.instagram.com/cybersoc.brunel/)
+- [GitHub](https://github.com/brunelcybersec)
+- [Email](mailto:contact@brunelcs.org)
+
+If you find a potential security issue, contact the committee privately via email rather than posting exploit details in a public issue.
