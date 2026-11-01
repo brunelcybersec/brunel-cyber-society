@@ -10,8 +10,14 @@ on:
     paths:
       - 'frontend/**'
       - '.github/workflows/deploy.yml'
+      - '.github/workflows/check.yml'
+      - 'backend/tools/check-site.mjs'
   workflow_dispatch: {}
 
+# Least privilege: the job's token can read the repo and publish to Pages,
+# nothing else. id-token lets deploy-pages prove to GitHub, using a
+# short-lived OIDC token, that this workflow is allowed to deploy, so no
+# long-lived secret needs to be stored.
 permissions:
   contents: read
   pages: write
@@ -23,8 +29,15 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # Same checks as on pull requests; a failure here stops the deploy below,
+  # so the live site keeps its last good version.
+  check:
+    uses: ./.github/workflows/check.yml
+
   deploy:
+    needs: check
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -33,9 +46,12 @@ jobs:
 
       - uses: actions/configure-pages@v5
 
+      # Package only frontend/, so backend/, workflows and docs are never
+      # served publicly on the website.
       - uses: actions/upload-pages-artifact@v3
         with:
           path: frontend
 
+      # The id lets the environment URL above read this step's page_url output.
       - id: deployment
         uses: actions/deploy-pages@v4

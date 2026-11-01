@@ -209,8 +209,12 @@ While the phishing campaign is active, the homepage shows a pop-up once per visi
 and every page (except Stay safe) shows a small banner at the bottom. Visitors can
 close the banner with its **✕**.
 
-**To switch both off** when the campaign is over: open `frontend/js/site.js`, find
-`const PHISHING_ALERT = true;` and change `true` to `false`.
+**It removes itself automatically on 1 November 2026.** Nothing to do.
+
+- **To stop it early:** open `frontend/js/site.js`, find
+  `const PHISHING_ALERT_ON = true;` and change `true` to `false`.
+- **To extend it:** change the date in `PHISHING_ALERT_UNTIL = new Date(2026, 10, 1)`.
+  Careful: months count from 0, so `10` means November and `11` means December.
 
 The wording lives in the same file, just below that line.
 
@@ -248,4 +252,10 @@ re-do it more carefully.
 You don't need to do anything special. Once a change is merged into `main`,
 the **Deploy site to GitHub Pages** action publishes the `frontend` folder to
 [brunelcs.org](https://brunelcs.org) within a minute or two. You can watch it in
-the **Actions** tab. Good luck! 🛡️
+the **Actions** tab.
+
+Before publishing, it checks your edit automatically. If something is wrong
+(a missing comma in `data.js`, an event without a date, a photo whose file name
+doesn't match exactly), the run turns red, the live site stays as it was, and
+the error message in the **Actions** tab tells you which line to fix.
+Good luck! 🛡️

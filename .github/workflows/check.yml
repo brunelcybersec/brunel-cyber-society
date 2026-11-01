@@ -1,0 +1,29 @@
+name: Check site
+
+# Fast sanity checks (backend/tools/check-site.mjs): every script parses,
+# data.js loads with valid event dates, and every same-site link and image
+# exists with the exact capitalisation GitHub Pages needs.
+# Runs on every pull request, and deploy.yml calls it before each deploy,
+# so a typo in data.js fails here instead of breaking the live site.
+
+on:
+  pull_request: {}
+  workflow_call: {}           # lets deploy.yml reuse this as its first job
+  workflow_dispatch: {}       # adds a manual "Run workflow" button in the Actions tab
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Run site checks
+        run: node backend/tools/check-site.mjs

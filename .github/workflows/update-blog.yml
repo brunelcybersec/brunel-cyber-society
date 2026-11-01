@@ -10,13 +10,26 @@ on:
     - cron: '0 7 * * *'      # every day at 07:00 UTC
   workflow_dispatch: {}       # adds a manual "Run workflow" button in the Actions tab
 
+# Read-only: the push below uses GH_PAT, not the built-in GITHUB_TOKEN, so
+# that token never needs write access. If GH_PAT is ever missing or expired,
+# the push fails loudly instead of committing without triggering a deploy.
 permissions:
-  contents: write
+  contents: read
+
+# a manual run started during the scheduled one waits, rather than racing it to push
+concurrency:
+  group: blog-sync
+  cancel-in-progress: false
 
 jobs:
   sync:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
+      # Check out with a personal access token instead of the default
+      # GITHUB_TOKEN. GitHub deliberately doesn't start other workflows from
+      # pushes made with GITHUB_TOKEN (this prevents endless loops), so
+      # without the PAT the push below would never trigger deploy.yml.
       - uses: actions/checkout@v4
         with:
           token: ${{ secrets.GH_PAT }}
@@ -28,6 +41,12 @@ jobs:
       - name: Pull latest CyberTutor posts
         run: node backend/tools/sync-cybertutor.mjs
 
+      # never commit a data.js that would break the site
+      - name: Check the site still works
+        run: node backend/tools/check-site.mjs
+
+      # `git status --porcelain <file>` prints a line only if that file has
+      # changed, so `-n` (string is non-empty) means "there are new posts".
       - name: Commit if the feed changed
         run: |
           if [ -n "$(git status --porcelain frontend/js/data.js)" ]; then

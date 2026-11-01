@@ -1,11 +1,39 @@
 /* Renders events, posts, committee and resource cards from js/data.js into the pages.
-   You should never need to edit this file — edit js/data.js instead. */
+   You should never need to edit this file — edit js/data.js instead.
+
+   Every page loads this same file. Each render step looks for its own
+   container (#home-events, #blog-list, ...) and quietly does nothing if
+   that container isn't on the current page.
+
+   Wrapped in an IIFE (an immediately-invoked function) so its helpers
+   stay private instead of becoming globals that could clash with
+   site.js or another script. */
 (function () {
+  /* data.js must load first (see the <script> order in each page);
+     the {} fallback keeps the page working if it fails to load. */
   const d = window.SITE_DATA || {};
 
-  /* Escape text before putting it in HTML, so titles/descriptions
-     containing & < > " (e.g. "Crypto & C2") render correctly and
-     can never break the page. */
+  /* Remove any <img data-hide-broken> that fails to load. Load errors don't
+     bubble, so this listens in the capture phase, which still reaches the
+     document. One listener here replaces inline onerror="" attributes, which
+     a strict Content Security Policy would block. */
+  document.addEventListener('error', function (e) {
+    const el = e.target;
+    if (el.tagName === 'IMG' && el.hasAttribute('data-hide-broken')) el.remove();
+  }, true);
+
+  /**
+   * Escape text before putting it in HTML, so titles/descriptions
+   * containing & < > " (e.g. "Crypto & C2") render correctly and
+   * can never break the page.
+   *
+   * `&` is replaced first; doing it later would turn the `&lt;` we just
+   * produced into `&amp;lt;`. Single quotes are not escaped, which is safe
+   * only because every attribute in this file is wrapped in double quotes.
+   *
+   * @param {*} s Any value; null/undefined become an empty string.
+   * @returns {string} Text that is safe inside element content or a "..." attribute.
+   */
   function esc(s) {
     return String(s == null ? '' : s)
       .replace(/&/g, '&amp;')
@@ -14,25 +42,56 @@
       .replace(/"/g, '&quot;');
   }
 
-  /* Only let safe links through: same-site paths, http(s) and mailto.
-     Anything else (javascript:, data:, //other-site ...) becomes "#", so a
-     bad value in data.js or the synced feed can never run code on click. */
+  /**
+   * Only let safe links through: same-site paths, http(s) and mailto.
+   * Anything else (javascript:, data:, //other-site ...) becomes "#", so a
+   * bad value in data.js or the synced feed can never run code on click.
+   *
+   * This is an allowlist: known-good schemes pass, and any other
+   * "scheme:" prefix is rejected. That is safer than trying to list
+   * every dangerous scheme.
+   *
+   * @param {*} url Raw URL from data.js.
+   * @returns {string} The URL, or "#" if it isn't on the allowlist. Not HTML-escaped (see attrUrl).
+   */
   function safeUrl(url) {
     /* browsers ignore tabs/newlines inside URLs ("java\tscript:"), so drop them first */
     const s = String(url == null ? '' : url).replace(/[\u0000-\u001F\u007F]/g, '').trim();
     if (/^(https?:|mailto:)/i.test(s)) return s;
+    /* any other "scheme:" prefix, or a protocol-relative "//host" / "\\host" */
     if (/^[a-z][a-z0-9+.-]*:/i.test(s) || /^[\/\\]{2}/.test(s)) return '#';
-    return s;
+    return s;   /* a relative path such as "assets/x.jpg" or "security-basics.html#phishing" */
   }
+
+  /**
+   * Make a URL safe to place inside an href="..." or src="..." attribute:
+   * check the scheme, then HTML-escape it.
+   * @param {*} url Raw URL from data.js.
+   * @returns {string}
+   */
   function attrUrl(url) { return esc(safeUrl(url)); }
 
+  /**
+   * Tag pill such as "[workshop]". The tone ("cool" / "warm" / "") is used
+   * as a CSS class that picks the colour.
+   * @param {{tag: string, tone: string}} item
+   * @returns {string} HTML
+   */
   function pillHtml(item) {
     return '<span class="pill ' + esc(item.tone) + '">[' + esc(item.tag) + ']</span>';
   }
 
-  /* external (http/https) links open in a new tab; same-site links don't */
+  /* external (http/https) links open in a new tab; same-site links don't.
+     rel="noopener" stops the opened page from reaching back to this tab
+     through window.opener (an attack called "reverse tabnabbing"). */
   function isExternal(link) { return /^https?:/i.test(link || ''); }
   function linkAttrs(link) { return isExternal(link) ? ' target="_blank" rel="noopener"' : ''; }
+
+  /**
+   * Choose the "read more" text: ↗ means the link leaves the site, → means it stays.
+   * @param {string} link
+   * @returns {string} Plain text. It comes from fixed strings, so it needs no escaping.
+   */
   function readLabel(link) {
     if (/substack\.com/i.test(link || '')) return 'read on Substack ↗';
     if (isExternal(link)) return 'read more ↗';
@@ -46,17 +105,28 @@
       : '';
   }
 
-  /* optional rich hover card for an event (e.preview) */
+  /**
+   * Optional rich hover card for an event (e.preview).
+   *
+   * Picks the media in this order: a gallery (several images/videos), then a
+   * single video, then a single image. Videos are muted because browsers
+   * only allow autoplay for muted video. data-hide-broken makes a broken
+   * image disappear instead of showing the browser's broken-image icon.
+   *
+   * @param {Object} [p] The event's preview object: pill, cap, title, desc,
+   *   img, video, gallery[], link, socialLink. All fields are optional.
+   * @returns {string} HTML, or "" when the event has no preview.
+   */
   function previewHtml(p) {
     if (!p) return '';
     const media = (p.gallery || []).map(function (item) {
       if (item.type === 'video') {
         return '<video class="ev-video" autoplay muted loop playsinline preload="metadata" poster="' + attrUrl(item.poster || '') + '"><source src="' + attrUrl(item.src) + '" type="video/mp4"></video>';
       }
-      return '<img class="ev-img" src="' + attrUrl(item.src) + '" alt="" loading="lazy" decoding="async" onerror="this.remove()">';
+      return '<img class="ev-img" src="' + attrUrl(item.src) + '" alt="" loading="lazy" decoding="async" data-hide-broken>';
     }).join('');
     const fallbackImg = !media && p.img
-      ? '<img class="ev-img" src="' + attrUrl(p.img) + '" alt="" loading="lazy" decoding="async" onerror="this.remove()">'
+      ? '<img class="ev-img" src="' + attrUrl(p.img) + '" alt="" loading="lazy" decoding="async" data-hide-broken>'
       : '';
     const fallbackVideo = !media && p.video
       ? '<video class="ev-video" autoplay muted loop playsinline preload="metadata" poster="' + attrUrl(p.img || '') + '"><source src="' + attrUrl(p.video) + '" type="video/mp4"></video>'
@@ -83,21 +153,47 @@
      so events move to Past events automatically - no flag to remember.
      e.past: true still works as a manual override (e.g. a cancelled
      event) if it's ever needed. */
+
+  /**
+   * Turn an event's "YYYY-MM-DD" date into a Date at 23:59:59 that day.
+   *
+   * Using the end of the day keeps an event "upcoming" for its whole day.
+   * Adding a time also changes the time zone: a date-only string such as
+   * "2026-10-28" is read as midnight UTC, but "2026-10-28T23:59:59" (no
+   * "Z") is read as the visitor's local time, which is what we want here.
+   *
+   * @param {{date?: string}} e Event object.
+   * @returns {Date|null} null when the date is missing or invalid.
+   */
   function parseEventDate(e) {
     if (!e.date) return null;
     const d = new Date(e.date + 'T23:59:59');
-    return isNaN(d.getTime()) ? null : d;
+    return isNaN(d.getTime()) ? null : d;   /* an invalid Date's getTime() is NaN */
   }
+
+  /**
+   * @param {{past?: boolean, date?: string}} e Event object.
+   * @returns {boolean} true if the event is over. An event with no usable
+   *   date counts as upcoming, so a typo doesn't hide it.
+   */
   function isPastEvent(e) {
     if (e.past) return true;
     const d = parseEventDate(e);
     return d ? d.getTime() < Date.now() : false;
   }
 
+  /**
+   * One row in an events list.
+   * @param {Object} e Event from SITE_DATA.events (when, where, title, desc, tag, tone, date, preview?).
+   * @returns {string} HTML
+   */
   function eventRow(e) {
     const past = isPastEvent(e);
+    /* rows with a hover card are focusable, so keyboard and touch users can
+       open the card too (CSS :focus-within) */
     return (
-      '<div class="event' + (e.preview ? ' has-preview' : '') + (past ? ' past-event' : '') + '">' +
+      '<div class="event' + (e.preview ? ' has-preview' : '') + (past ? ' past-event' : '') + '"' +
+        (e.preview ? ' tabindex="0"' : '') + '>' +
         '<span class="date">' + esc(e.when) + '<br>' + esc(e.where) + '</span>' +
         '<div class="event-main"><h3>' + esc(e.title) + '</h3><p>' + esc(e.desc) + '</p>' +
           previewHtml(e.preview) +
@@ -107,7 +203,12 @@
     );
   }
 
-  /* a secondary blog post, rendered as a card in the grid below the featured */
+  /**
+   * A secondary blog post, rendered as a card in the grid below the featured one.
+   * The whole card is a single <a>, so it can be clicked anywhere.
+   * @param {Object} p Post (date, title, desc, tag, tone, image, link).
+   * @returns {string} HTML
+   */
   function postRow(p) {
     return (
       '<a class="post-card' + (p.image ? ' has-media' : '') + '" href="' + attrUrl(p.link || '#') + '"' + linkAttrs(p.link) + '>' +
@@ -120,7 +221,11 @@
     );
   }
 
-  /* a "learn with" platform card on the resources page */
+  /**
+   * A "learn with" platform card on the resources page.
+   * @param {{name: string, url: string, level?: string, note?: string}} l
+   * @returns {string} HTML
+   */
   function learnRow(l) {
     return (
       '<a class="learn-card" href="' + attrUrl(l.url) + '" target="_blank" rel="noopener">' +
@@ -133,7 +238,11 @@
     );
   }
 
-  /* an external "further reading" link on the blog page */
+  /**
+   * An external "further reading" link on the blog page.
+   * @param {{name: string, url: string, note?: string}} r
+   * @returns {string} HTML
+   */
   function readRow(r) {
     return (
       '<a class="read-link" href="' + attrUrl(r.url) + '" target="_blank" rel="noopener">' +
@@ -143,11 +252,21 @@
     );
   }
 
-  /* a committee member card */
+  /**
+   * A committee member card.
+   *
+   * The initials and the photo share the avatar box, with the photo on
+   * top. If the photo is missing or fails to load, data-hide-broken removes
+   * it and the initials show through.
+   *
+   * @param {Object} m Member (name, role, email, initials, photo, accent, bio, duties[]).
+   * @returns {string} HTML
+   */
   function memberRow(m) {
+    /* only two classes are allowed, so data.js can't inject an arbitrary class name */
     const accent = (m.accent === 'cool') ? 'cool' : 'warm';
     const img = m.photo
-      ? '<img src="' + attrUrl(m.photo) + '" alt="' + esc(m.name || '') + '" width="56" height="56" loading="lazy" decoding="async" onerror="this.remove()">'
+      ? '<img src="' + attrUrl(m.photo) + '" alt="' + esc(m.name || '') + '" width="56" height="56" loading="lazy" decoding="async" data-hide-broken>'
       : '';
     const name = m.name
       ? '<h3>' + esc(m.name) + '</h3>'
@@ -173,7 +292,11 @@
     );
   }
 
-  /* the big featured blog card (first post) */
+  /**
+   * The big featured blog card (first post). Same data as postRow, bigger layout.
+   * @param {Object} p Post.
+   * @returns {string} HTML
+   */
   function featuredHtml(p) {
     return (
       '<a class="featured' + (p.image ? ' has-media' : '') + '" href="' + attrUrl(p.link || '#') + '"' + linkAttrs(p.link) + '>' +
@@ -188,15 +311,34 @@
     );
   }
 
-  /* Fill #id with items run through build(). No-op when the container
-     isn't on this page or there's nothing to show. */
+  /**
+   * Fill #id with items run through build(). No-op when the container
+   * isn't on this page or there's nothing to show.
+   *
+   * Assigning innerHTML is only safe because every builder above escapes
+   * its text with esc() and its URLs with attrUrl().
+   *
+   * @param {string} id Container element id.
+   * @param {Array} [items] Data items.
+   * @param {function(Object): string} build Turns one item into an HTML string.
+   */
   function renderList(id, items, build) {
     const el = document.getElementById(id);
     if (el && items && items.length) el.innerHTML = items.map(build).join('');
   }
 
-  /* sort by date: soonest first (dir 1) or newest first (dir -1);
-     events without a usable date always sink to the bottom */
+  /**
+   * Sort by date: soonest first (dir 1) or newest first (dir -1);
+   * events without a usable date always sink to the bottom.
+   *
+   * This returns a comparator for Array.prototype.sort: negative means
+   * a comes first, positive means b comes first, 0 means keep their order.
+   * Subtracting two Dates gives the gap in milliseconds; multiplying by
+   * dir flips the order.
+   *
+   * @param {1|-1} dir
+   * @returns {function(Object, Object): number}
+   */
   function byDate(dir) {
     return function (a, b) {
       const da = parseEventDate(a), db = parseEventDate(b);
@@ -217,6 +359,31 @@
   renderList('home-events', upcomingEvents.slice(0, 3), eventRow);  /* homepage: next 3 upcoming */
   renderList('upcoming-events', upcomingEvents, eventRow);          /* events page: upcoming */
   renderList('past-events', pastEvents, eventRow);                  /* events page: past */
+
+  /* nothing coming up: say so instead of leaving an empty box */
+  if (!upcomingEvents.length) {
+    ['home-events', 'upcoming-events'].forEach(function (id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.innerHTML = '<p class="events-empty">Nothing scheduled right now. New dates are announced first on our ' +
+          '<a href="https://discord.gg/anmggPyVcs" target="_blank" rel="noopener">Discord</a> and ' +
+          '<a href="https://www.instagram.com/cybersoc.brunel/" target="_blank" rel="noopener">Instagram</a>, ' +
+          'so follow along to catch the next one.</p>';
+      }
+    });
+  }
+
+  /* Escape closes an open event card (keyboard users can't "move the mouse
+     away"), as WCAG 1.4.13 expects for content shown on hover or focus */
+  document.addEventListener('keydown', function (e) {
+    const row = document.activeElement && document.activeElement.closest &&
+      document.activeElement.closest('.event.has-preview');
+    if (e.key === 'Escape' && row) document.activeElement.blur();   /* the row, or a link inside its card */
+  });
+
+  /* homepage stat: count the committee from data.js so it never drifts */
+  const committeeStat = document.getElementById('stat-committee');
+  if (committeeStat && d.committee && d.committee.length) committeeStat.textContent = String(d.committee.length);
   renderList('reads-list', d.reads, readRow);                        /* blog: further reading */
   renderList('learn-list', d.learn, learnRow);                       /* resources: learn with */
   renderList('committee-list', d.committee, memberRow);              /* committee page */
