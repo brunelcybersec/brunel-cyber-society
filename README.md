@@ -122,6 +122,8 @@ Not comfortable editing code directly? See [`HOW-TO-EDIT.md`](HOW-TO-EDIT.md) fo
 
 **Blog posts are automatic:** a [GitHub Action](.github/workflows/update-blog.yml) runs `backend/tools/sync-cybertutor.mjs` every day at 07:00 UTC, pulls the latest posts from the [CyberTutor Substack feed](https://mohammedzuoriki.substack.com/feed), and commits any changes to `frontend/js/data.js` directly. You can also trigger it manually from the **Actions** tab, or run `node backend/tools/sync-cybertutor.mjs` locally (requires Node 18+, no dependencies).
 
+> **Blog temporarily hidden:** the blog link is commented out of every page's nav, and the "Latest from the blog" section is commented out of `index.html`, pending a committee decision. `blog.html` still works at its URL and the daily sync keeps running. To bring it back, search the `frontend/` folder for `BLOG-HIDDEN` and remove those comment wrappers (one line per page, plus the two wrapper lines around the homepage section).
+
 ---
 
 ## 🚀 Deployment
