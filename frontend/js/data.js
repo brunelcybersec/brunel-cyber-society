@@ -113,6 +113,15 @@ window.SITE_DATA = {
   /* CYBERTUTOR:START */
   posts: [
     {
+      date:  "02 nov 2026",
+      title: "Risks & Rewards: How AI Is Redefining the CISO's Role",
+      desc:  "At ISC2 Strategic Congress 2026 in Denver, Nvidia’s Mark Weatherford argued that the CISO role is rapidly evolving around AI: security leaders must both help the business gain a competitive edge from AI and use it to…",
+      tag:   "ai",
+      tone:  "cool",
+      image: "https://substackcdn.com/image/fetch/$s_!_Yhb!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F22d1a093-f446-41ae-bc78-c7ab840dd18e_1440x810.png",
+      link:  "https://mohammedzuoriki.substack.com/p/risks-and-rewards-how-ai-is-redefining"
+    },
+    {
       date:  "01 nov 2026",
       title: "GhostAction Hacking Wave Fizzles, but Attackers Lurk on in GitHub",
       desc:  "Read more",
@@ -183,15 +192,6 @@ window.SITE_DATA = {
       tone:  "",
       image: "https://substackcdn.com/image/fetch/$s_!VXPQ!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa98fca62-93df-473b-8346-dc760d5556a4_1536x1024.png",
       link:  "https://mohammedzuoriki.substack.com/p/ovhcloud-github-compromise-tied-to"
-    },
-    {
-      date:  "22 oct 2026",
-      title: "'PHP2Shell' Bugs Signal Red Alert for Security Industry",
-      desc:  "Two critical PHP vulnerabilities, dubbed “PHP2Shell,” allow unauthenticated remote code execution on vulnerable web servers and have been assigned a critical CVSS score of 9.2. The flaws arise from stale memory and…",
-      tag:   "vuln",
-      tone:  "warm",
-      image: "https://substackcdn.com/image/fetch/$s_!J7sb!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6a19802c-e811-41f5-8bd2-81e498985630_1672x941.png",
-      link:  "https://mohammedzuoriki.substack.com/p/php2shell-bugs-signal-red-alert-for"
     }
   ],
   /* CYBERTUTOR:END */
