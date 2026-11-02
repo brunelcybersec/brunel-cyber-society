@@ -1,6 +1,6 @@
 name: Sync blog from CyberTutor
 
-# Keeps frontend/blog.html in step with the CyberTutor Substack with zero manual work.
+# Keeps frontend/pages/blog.html in step with the CyberTutor Substack with zero manual work.
 # Runs once a day (and on demand), pulls the latest posts into frontend/js/data.js, and
 # commits only if something actually changed. The push then triggers deploy.yml,
 # which publishes the updated site.

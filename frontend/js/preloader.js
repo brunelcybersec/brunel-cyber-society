@@ -115,25 +115,27 @@
     pct = Math.min(100, pct + 3 + Math.floor(Math.random() * 9));
     pctEl.textContent = pct + '%';
     if (pct >= 100) clearInterval(pctId);
-  }, 95);
+  }, 60);
 
   /* type the boot lines one by one with a little jitter.
      A chain of setTimeouts (each line schedules the next) is used instead of
-     setInterval so every gap can have its own random length. */
+     setInterval so every gap can have its own random length.
+     Timings are tuned so the whole sequence takes ~1.5s (it was ~2.9s, which
+     held every first visit well after the page had actually loaded). */
   let i = 0;
   (function nextLine() {
     if (i < lines.length) {
       addLine(lines[i]);
       i++;
-      after(nextLine, 210 + Math.floor(Math.random() * 160));
+      after(nextLine, 120 + Math.floor(Math.random() * 80));
     } else {
-      after(reveal, 240);
+      after(reveal, 120);
     }
   })();
 
   /**
    * Scramble-decrypt the brand wordmark, then glitch out.
-   * On each 38ms tick, the first `frame` characters show the real text and
+   * On each 26ms tick, the first `frame` characters show the real text and
    * the rest are random glyphs, so the name "locks in" left to right.
    */
   function reveal() {
@@ -157,9 +159,9 @@
         clearInterval(scrambleId);     /* stop only the scramble; safety timer stays armed */
         brandEl.textContent = target;
         pl.classList.add('pl-flash');
-        after(exitWhenReady, 460);
+        after(exitWhenReady, 280);
       }
-    }, 38);
+    }, 26);
   }
 
   /* hard safety: never trap the visitor, whatever happens (e.g. 'load' never

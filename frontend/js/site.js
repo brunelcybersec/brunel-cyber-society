@@ -206,7 +206,7 @@
   };
   /* reuse the nav's own stay-safe link so the URL is right on every page (incl. 404) */
   const navSafe = document.querySelector('.nav-links a[href$="security-basics.html"]');
-  const guideHref = (navSafe ? navSafe.getAttribute('href') : 'security-basics.html') + '#phishing';
+  const guideHref = (navSafe ? navSafe.getAttribute('href') : '/pages/security-basics.html') + '#phishing';
   const onSafePage = !!document.getElementById('phishing');
 
   /* pop-up: homepage only, once per visit, after the boot screen has gone.

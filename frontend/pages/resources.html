@@ -3,24 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Credits · Brunel Cyber Security Society</title>
-<meta name="description" content="Who built the Brunel Cyber Security Society website, and what it's made with.">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="canonical" href="https://brunelcs.org/credits.html">
-<meta property="og:title" content="Credits · Brunel Cyber Security Society">
-<meta property="og:description" content="Who built the Brunel Cyber Security Society website, and what it's made with.">
+<title>Resources · Brunel Cyber Security Society</title>
+<meta name="description" content="Open-source tools built by the society, plus the free platforms we recommend for learning security.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://brunelcs.org/pages/resources.html">
+<meta property="og:title" content="Resources · Brunel Cyber Security Society">
+<meta property="og:description" content="Open-source tools built by the society, plus the free platforms we recommend for learning security.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://brunelcs.org/credits.html">
+<meta property="og:url" content="https://brunelcs.org/pages/resources.html">
 <meta property="og:image" content="https://brunelcs.org/assets/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Credits · Brunel Cyber Security Society">
-<meta name="twitter:description" content="Who built the Brunel Cyber Security Society website, and what it's made with.">
+<meta name="twitter:title" content="Resources · Brunel Cyber Security Society">
+<meta name="twitter:description" content="Open-source tools built by the society, plus the free platforms we recommend for learning security.">
 <meta name="twitter:image" content="https://brunelcs.org/assets/og-image.png">
 <meta name="theme-color" content="#0B0B0D">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="/css/styles.css">
 <script>try{if(sessionStorage.getItem("booted"))document.documentElement.classList.add("booted");}catch(e){}</script>
 </head>
 <body class="wave-bg">
@@ -38,81 +38,63 @@
 <canvas id="waves" class="bg-waves" data-variant="b" aria-hidden="true"></canvas>
 
 <nav>
-  <a class="brand" href="index.html">brunel_cybersec&gt;<span class="cursor"></span></a>
+  <a class="brand" href="/index.html">brunel_cybersec&gt;<span class="cursor"></span></a>
   <button class="menu-btn" type="button" aria-expanded="false" aria-label="Open menu">[menu]</button>
   <div class="nav-links">
-    <a href="index.html#about">about</a>
-    <a href="events.html">events</a>
-    <!-- BLOG-HIDDEN: blog temporarily removed from the nav pending a committee decision. To restore, delete this comment wrapper and keep the link. <a href="blog.html">blog</a> -->
-    <a href="resources.html">resources</a>
-    <a href="security-basics.html">stay safe</a>
-    <a href="committee.html">committee</a>
-    <a href="contact.html">contact</a>
-    <a class="nav-cta" href="index.html#join">join</a>
+    <a href="/index.html#about">about</a>
+    <a href="/pages/events.html">events</a>
+    <!-- BLOG-HIDDEN: blog temporarily removed from the nav pending a committee decision. To restore, delete this comment wrapper and keep the link. <a href="/pages/blog.html">blog</a> -->
+    <a href="/pages/resources.html" aria-current="page">resources</a>
+    <a href="/pages/security-basics.html">stay safe</a>
+    <a href="/pages/committee.html">committee</a>
+    <a href="/pages/contact.html">contact</a>
+    <a class="nav-cta" href="/index.html#join">join</a>
   </div>
 </nav>
 
 <main id="main" tabindex="-1">
 <div class="page-head">
-  <h1><span class="ghost" data-text="Credits"><span>Credits</span></span></h1>
-  <p class="lede">This site is a student project, built and maintained by the society. Here's who made it and what it runs on.</p>
+  <h1><span class="ghost" data-text="Resources"><span>Resources</span></span></h1>
+  <p class="lede">Everything we build is open source: fork it, break it, send a pull request. Below that, the free platforms we actually recommend for learning.</p>
 </div>
 
 <section class="tight reveal">
   <div class="section-head">
     <span class="tag">//</span>
-    <h2>Built by</h2>
+    <h2>Built by us</h2>
   </div>
-  <div class="resource-row">
-    <span class="name">UI design (Figma)</span>
-    <p>The original homepage, committee, events and CTF page designs were created in Figma for desktop and mobile. That work established the site's visual identity: its colour palette, typography and layout.</p>
-  </div>
-  <div class="resource-row">
-    <span class="name">Original development</span>
-    <p>Built by Parmbir Singh Nandha, Mohammed Zuoriki and Abdirahman Abdikadir, using HTML, CSS and JavaScript.</p>
-  </div>
-  <div class="resource-row">
-    <span class="name">Design collaboration</span>
-    <p>The Figma designer worked with the society committee to bring the designs to life, reviewing the implementation and giving feedback throughout development.</p>
-  </div>
-  <div class="resource-row">
-    <span class="name">Maintained by</span>
-    <p>The current Brunel Cyber Security Society committee. Contact details and roles live on the <a href="committee.html">committee page</a>. Want to help shape the site? It's open source, and a first pull request makes a great intro to the team.</p>
+  <div class="repo-grid">
+    <a class="repo" href="https://github.com/brunelcybersec/ctf-writeups" target="_blank" rel="noopener">
+      <span class="name">ctf-writeups</span>
+      <p>Every challenge we solve in competition, written up with the full path, including the dead ends.</p>
+      <span class="meta"><span class="lang py">Python</span><span>MIT</span><span>view on github →</span></span>
+    </a>
+    <a class="repo" href="https://github.com/brunelcybersec/workshop-labs" target="_blank" rel="noopener">
+      <span class="name">workshop-labs</span>
+      <p>The vulnerable-by-design lab environments for our workshops, as Docker images. Practise legally, locally.</p>
+      <span class="meta"><span class="lang sh">Docker</span><span>MIT</span><span>view on github →</span></span>
+    </a>
+    <a class="repo" href="https://github.com/brunelcybersec/brunel-cyber-society" target="_blank" rel="noopener">
+      <span class="name">brunel-cyber-society</span>
+      <p>This website. Plain HTML, CSS and a canvas animation, no framework. A decent first issue if you've never contributed to open source.</p>
+      <span class="meta"><span class="lang js">JavaScript</span><span>MIT</span><span>view on github →</span></span>
+    </a>
   </div>
 </section>
 
 <section class="reveal flush-top">
   <div class="section-head">
     <span class="tag">//</span>
-    <h2>Made with</h2>
+    <h2>Learn with</h2>
   </div>
-  <div class="resource-row">
-    <span class="name">Code</span>
-    <p>Plain HTML, CSS and JavaScript. No framework, no build step, no tracking. Just the open web.</p>
-  </div>
-  <div class="resource-row">
-    <span class="name">Type</span>
-    <p>Space Grotesk for headings, Inter for body, JetBrains Mono for the terminal-flavoured bits, all from Google Fonts.</p>
-  </div>
-  <div class="resource-row">
-    <span class="name">Wave background</span>
-    <p>A custom HTML canvas animation drawn in real time, pausing itself when off screen to save battery.</p>
-  </div>
-  <div class="resource-row">
-    <span class="name">Icons</span>
-    <p>Hand-drawn inline SVGs, kept lightweight so nothing extra is loaded.</p>
-  </div>
-  <div class="resource-row">
-    <span class="name">Source</span>
-    <p>Open source on <a href="https://github.com/brunelcybersec" target="_blank" rel="noopener">GitHub</a>. Fork it, break it, send improvements.</p>
-  </div>
+  <div id="learn-list" class="learn-grid"></div>
 </section>
 
 </main>
 
 <footer>
   <div class="footer-brand">
-    <a class="footer-mark" href="index.html">brunel_cybersec&gt;</a>
+    <a class="footer-mark" href="/index.html">brunel_cybersec&gt;</a>
     <span>© 2026 Brunel Cyber Security Society</span>
   </div>
   <div class="links">
@@ -122,11 +104,13 @@
     <a href="https://www.youtube.com/@CyberTutor24" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.76-1.77C19.26 5.13 12 5.13 12 5.13s-7.26 0-8.84.4A2.5 2.5 0 0 0 1.4 7.3 26 26 0 0 0 1 12a26 26 0 0 0 .4 4.7 2.5 2.5 0 0 0 1.76 1.77c1.58.4 8.84.4 8.84.4s7.26 0 8.84-.4a2.5 2.5 0 0 0 1.76-1.77A26 26 0 0 0 23 12zM9.75 15.02V8.98L15.5 12z"/></svg>youtube</a>
     <a href="mailto:contact@brunelcs.org"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7.5l9 6 9-6"/></svg>email</a>
   </div>
-  <p class="footer-credit">Designed and built by the <a href="credits.html">Brunel Cyber Security committee</a>.</p>
+  <p class="footer-credit">Designed and built by the <a href="/pages/credits.html">Brunel Cyber Security committee</a>.</p>
 </footer>
 
-<script src="js/waves.js"></script>
-<script src="js/preloader.js"></script>
-<script src="js/site.js"></script>
+<script src="/js/data.js"></script>
+<script src="/js/render.js"></script>
+<script src="/js/waves.js"></script>
+<script src="/js/preloader.js"></script>
+<script src="/js/site.js"></script>
 </body>
 </html>
