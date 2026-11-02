@@ -22,7 +22,7 @@ The website helps visitors find:
 - **The committee** — the students running the society.
 - **Membership and contact information** — how to join, get involved or reach the team.
 
-The [blog](https://brunelcs.org/blog.html) is **temporarily hidden from the homepage and main navigation**, pending a committee decision. The page and its automated CyberTutor content sync remain intact.
+The [blog](https://brunelcs.org/pages/blog.html) is **temporarily hidden from the homepage and main navigation**, pending a committee decision. The page and its automated CyberTutor content sync remain intact.
 
 ## Society highlight: Operation Cymbal — Cold Room 2026
 
@@ -34,7 +34,7 @@ The **BrunelCS** team participated in **Operation Cymbal: Cold Room 2026 CTF** (
 | Challenges completed | **18/18** |
 | Points earned | **2,075** |
 
-These results are taken from the competition summary shared by a participant. The website's [Events & CTF page](https://brunelcs.org/events.html) is the place for society competitions and future updates.
+These results are taken from the competition summary shared by a participant. The website's [Events & CTF page](https://brunelcs.org/pages/events.html) is the place for society competitions and future updates.
 
 ## Features
 
@@ -83,25 +83,26 @@ brunel-cyber-society/
 │       └── sync-cybertutor.mjs     # Sync posts from the CyberTutor RSS feed
 ├── frontend/
 │   ├── index.html                  # Homepage
-│   ├── events.html                 # Events and CTF team
-│   ├── resources.html              # Learning resources
-│   ├── security-basics.html        # Password, MFA and phishing guidance
-│   ├── committee.html              # Committee members
-│   ├── contact.html                # Contact channels and FAQ
-│   ├── credits.html                # Design and development credits
-│   ├── blog.html                   # Blog (currently unlisted, not deleted)
 │   ├── 404.html                    # Custom error page
 │   ├── favicon.svg
 │   ├── CNAME                       # Custom domain
 │   ├── assets/                     # Images and other media
 │   ├── css/
 │   │   └── styles.css              # Shared design system and page styles
-│   └── js/
-│       ├── data.js                 # Events, committee, posts and resources
-│       ├── render.js               # Populate pages from data.js
-│       ├── site.js                 # Shared interactions and navigation
-│       ├── waves.js                # Animated wave canvas
-│       └── preloader.js            # Page loading sequence
+│   ├── js/
+│   │   ├── data.js                 # Events, committee, posts and resources
+│   │   ├── render.js               # Populate pages from data.js
+│   │   ├── site.js                 # Shared interactions and navigation
+│   │   ├── waves.js                # Animated wave canvas
+│   │   └── preloader.js            # Page loading sequence
+│   └── pages/                      # Content pages, published under /pages/
+│       ├── events.html              # Events and CTF team
+│       ├── resources.html           # Learning resources
+│       ├── security-basics.html     # Password, MFA and phishing guidance
+│       ├── committee.html           # Committee members
+│       ├── contact.html             # Contact channels and FAQ
+│       ├── credits.html             # Design and development credits
+│       └── blog.html                # Blog (currently unlisted, not deleted)
 ├── .github/
 │   └── workflows/
 │       ├── check.yml               # Run validation on PRs / via deployment
@@ -151,7 +152,7 @@ For non-technical editing instructions, see **[HOW-TO-EDIT.md](HOW-TO-EDIT.md)**
 
 The CyberTutor blog is **hidden, not removed**:
 
-- `frontend/blog.html` is still reachable directly.
+- `frontend/pages/blog.html` is still reachable directly at `/pages/blog.html`.
 - The homepage blog section and navigation links are commented out with `BLOG-HIDDEN` markers.
 - The [blog sync workflow](.github/workflows/update-blog.yml) still runs at **07:00 UTC daily**, fetching posts from the [CyberTutor RSS feed](https://mohammedzuoriki.substack.com/feed).
 - A maintainer can run the sync manually from GitHub Actions or execute `node backend/tools/sync-cybertutor.mjs` locally.
@@ -186,7 +187,7 @@ The website was designed and developed as a Brunel Cyber Security Society studen
 - **Original website development:** **Parmbir Singh Nandha, Mohammed Zuoriki and Abdirahman Abdikadir**.
 - **Ongoing maintenance:** the current Brunel Cyber Security Society committee.
 
-See the [Credits page](https://brunelcs.org/credits.html) for design and technical acknowledgements.
+See the [Credits page](https://brunelcs.org/pages/credits.html) for design and technical acknowledgements.
 
 ## Contributing and contact
 

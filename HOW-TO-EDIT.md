@@ -34,7 +34,7 @@ To add or change a photo:
 
 Tips:
 - Easiest path: rename your image to something simple and lowercase like
-  `assets/parmbir.jpg`, then write `photo: "assets/parmbir.jpg"` in data.js.
+  `assets/parmbir.jpg`, then write `photo: "/assets/parmbir.jpg"` in data.js.
 - If a photo doesn't appear, it's almost always a name mismatch — check the
   spelling, the `.jpg` vs `.png`, and the capital letters.
 - No photo yet? Leave `photo: ""`. The card shows the person's initials instead,
@@ -51,7 +51,7 @@ In `frontend/js/data.js`, find the `committee:` list. Each person is one block l
   name: "Parmbir Singh Nandha",
   role: "treasurer / co-founder",
   initials: "PN",
-  photo: "assets/Parm.JPG",
+  photo: "/assets/Parm.JPG",
   accent: "warm",
   bio: "Hey! I'm your Treasurer...",
   duties: [
@@ -62,7 +62,7 @@ In `frontend/js/data.js`, find the `committee:` list. Each person is one block l
 ```
 
 - **Change someone's details:** edit the text in the quotes.
-- **Add a photo:** put the file in `frontend/assets`, then set `photo: "assets/their-file.jpg"`.
+- **Add a photo:** put the file in `frontend/assets`, then set `photo: "/assets/their-file.jpg"`.
 - **No photo:** set `photo: ""` (shows their `initials` instead).
 - **Add a bio:** put a sentence in `bio: "..."`. Leave `bio: ""` to hide it.
 - **Duties:** each line is `"a duty",` inside the `duties: [ ]` brackets.
@@ -116,7 +116,7 @@ Add a `preview` block (note the comma after `tone: ""`):
     cap:   "FIRST SOCIAL OF THE YEAR",
     title: "Meet and Greet",
     desc:  "A longer description shown in the pop-up.",
-    img:   "assets/meetandgreet.jpg",   // or remove this line for a plain gradient
+    img:   "/assets/meetandgreet.jpg",  // or remove this line for a plain gradient
     link:  "#"                           // where 'Read more' goes
   }
 ```
@@ -179,8 +179,8 @@ In `frontend/js/data.js`, find `learn:`. Each platform card:
 ## Contact details, social links and email
 
 These are NOT in `data.js` — they're in the page files themselves, because they
-appear in the footer of **every** page. To change one everywhere, you'll edit each
-`.html` file in the `frontend` folder. Use your editor's "Find in all files" / "Replace in
+appear in the footer of **every** page. To change one everywhere, edit the `.html` files
+in `frontend/` and `frontend/pages/`. Use your editor's "Find in all files" / "Replace in
 Files" feature and search for the old value:
 
 - **Discord invite:** search for `discord.gg/anmggPyVcs` and replace the link.
@@ -189,14 +189,14 @@ Files" feature and search for the old value:
 - **GitHub (footer icon):** search for `github.com/brunelcybersec` (no hyphen).
 - **YouTube:** search for `youtube.com/@CyberTutor24` and replace with the real channel.
 
-> ⚠️ Note: `frontend/resources.html` also links to four project repos —
+> ⚠️ Note: `frontend/pages/resources.html` also links to four project repos —
 > `ctf-writeups`, `brunel-ctf-platform`, `workshop-labs`, `brunel-site` —
 > under `github.com/brunel-cybersec/...` (with a hyphen). Those repos don't
 > exist yet under either spelling; the links are placeholders for projects
 > the society hasn't created yet. Once one exists, update its link to the
 > real org, `github.com/brunelcybersec` (no hyphen) — same as the footer.
 
-The main contact page layout (the big cards) is in `frontend/contact.html`.
+The main contact page layout (the big cards) is in `frontend/pages/contact.html`.
 
 > If editing every page sounds painful, ask the developer to centralise these into
 > `data.js` too — it's a quick change.

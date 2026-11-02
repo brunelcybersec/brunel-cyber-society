@@ -127,12 +127,19 @@ if (!d) {
 
 /* ---- 3. links and assets in the HTML pages exist ---- */
 
-const pages = (await readdir(FRONTEND)).filter((f) => f.endsWith('.html'));
+const pages = [
+  ...(await readdir(FRONTEND))
+    .filter((f) => f.endsWith('.html'))
+    .map((f) => ({ file: join(FRONTEND, f), label: `frontend/${f}` })),
+  ...(await readdir(join(FRONTEND, 'pages')))
+    .filter((f) => f.endsWith('.html'))
+    .map((f) => ({ file: join(FRONTEND, 'pages', f), label: `frontend/pages/${f}` })),
+];
 for (const page of pages) {
-  const html = await readFile(join(FRONTEND, page), 'utf8');
+  const html = await readFile(page.file, 'utf8');
   for (const [, url] of html.matchAll(/\b(?:href|src)="([^"]*)"/g)) {
     if (isLocal(url) && !(await existsExact(localPath(url)))) {
-      fail(`frontend/${page}: broken link to "${url}"`);
+      fail(`${page.label}: broken link to "${url}"`);
     }
   }
 }
