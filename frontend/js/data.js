@@ -281,7 +281,7 @@ window.SITE_DATA = {
        role      : their title, e.g. "secretary".
        email    : their personal committee email address.
        initials  : 1-3 letters shown when there is no photo (or while it loads).
-       photo     : path to their picture, e.g. "/assets/parm.jpg".
+       photo     : path to their picture, e.g. "/assets/lawand.jpg".
                    Leave "" for no photo (the initials show instead).
                    The file must exist in the assets folder with EXACTLY
                    this name (capitals matter). See HOW-TO-EDIT.md.

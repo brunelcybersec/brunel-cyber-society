@@ -116,7 +116,7 @@ Add a `preview` block (note the comma after `tone: ""`):
     cap:   "FIRST SOCIAL OF THE YEAR",
     title: "Meet and Greet",
     desc:  "A longer description shown in the pop-up.",
-    img:   "/assets/meetandgreet.jpg",  // or remove this line for a plain gradient
+    img:   "/assets/meet_and_greet.jpg", // or remove this line for a plain gradient
     link:  "#"                           // where 'Read more' goes
   }
 ```
