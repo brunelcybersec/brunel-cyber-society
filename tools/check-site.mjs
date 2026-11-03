@@ -9,8 +9,10 @@
      - an event without a valid date: "YYYY-MM-DD"
      - a link or image path that doesn't exist, including wrong
        capital letters (fine on Windows, broken on GitHub Pages)
+     - a text colour token below WCAG AA contrast (check-contrast.mjs)
+     - an event time the calendar feed can't read (build-calendar.mjs)
 
-   Run it by hand:   node backend/tools/check-site.mjs
+   Run it by hand:   node tools/check-site.mjs
    No npm install needed — it only uses built-in Node (18+).
    ============================================================ */
 
@@ -19,8 +21,9 @@ import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, relative } from 'node:path';
 import vm from 'node:vm';
+import { buildCalendar } from './build-calendar.mjs';
 
-const ROOT     = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT     = join(dirname(fileURLToPath(import.meta.url)), '..');
 const FRONTEND = join(ROOT, 'frontend');
 const DATA     = join(FRONTEND, 'js', 'data.js');
 
@@ -54,6 +57,9 @@ async function existsExact(relPath) {
   return true;
 }
 
+// files deploy.yml generates just before publishing, so they're absent in a fresh checkout
+const GENERATED = new Set(['events.ics']);
+
 // a same-site path, not "https:", "mailto:", "//host" or a bare "#anchor"
 function isLocal(url) {
   return !!url && !/^[a-z][a-z0-9+.-]*:/i.test(url) && !url.startsWith('//') && !url.startsWith('#');
@@ -70,7 +76,7 @@ function localPath(url) {
 
 const scripts = [
   ...(await readdir(join(FRONTEND, 'js'))).filter((f) => f.endsWith('.js')).map((f) => join(FRONTEND, 'js', f)),
-  ...(await readdir(join(ROOT, 'backend', 'tools'))).filter((f) => f.endsWith('.mjs')).map((f) => join(ROOT, 'backend', 'tools', f)),
+  ...(await readdir(join(ROOT, 'tools'))).filter((f) => f.endsWith('.mjs')).map((f) => join(ROOT, 'tools', f)),
 ];
 for (const file of scripts) {
   try {
@@ -106,6 +112,14 @@ if (!d) {
     }
   });
 
+  // the calendar feed builds from the same events (bad start/end times fail here)
+  try { buildCalendar(d); } catch (err) { fail(`calendar feed: ${err.message}`); }
+
+  const hof = d.hallOfFame;
+  if (hof && !Array.isArray(hof.results)) fail('SITE_DATA.hallOfFame.results should be a list: results: [ ... ]');
+  if (hof && hof.members && !Array.isArray(hof.members)) fail('SITE_DATA.hallOfFame.members should be a list: members: [ ... ]');
+  if (hof && hof.ctftimeTeamId && !/^d+$/.test(String(hof.ctftimeTeamId))) fail(`hallOfFame.ctftimeTeamId should be just the number from the CTFtime URL, got ${JSON.stringify(hof.ctftimeTeamId)}`);
+
   // every same-site file data.js points at: [url, what it is]
   const refs = [];
   (d.committee || []).forEach((m) => refs.push([m.photo, `committee photo for ${m.name}`]));
@@ -138,10 +152,20 @@ const pages = [
 for (const page of pages) {
   const html = await readFile(page.file, 'utf8');
   for (const [, url] of html.matchAll(/\b(?:href|src)="([^"]*)"/g)) {
-    if (isLocal(url) && !(await existsExact(localPath(url)))) {
+    if (isLocal(url) && !GENERATED.has(localPath(url)) && !(await existsExact(localPath(url)))) {
       fail(`${page.label}: broken link to "${url}"`);
     }
   }
+}
+
+/* ---- 4. text colours meet WCAG AA in both themes ---- */
+
+try {
+  execFileSync(process.execPath, [join(ROOT, 'tools', 'check-contrast.mjs')], { stdio: 'pipe' });
+} catch (err) {
+  fail(`colour contrast:
+${String(err.stdout).trim()}
+${String(err.stderr).trim()}`);
 }
 
 /* ---- report ---- */

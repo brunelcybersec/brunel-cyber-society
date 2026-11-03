@@ -58,7 +58,7 @@ window.SITE_DATA = {
         cap:   "FIRST SOCIAL OF THE YEAR",
         title: "Meet and Greet",
         desc:  "An informal evening to meet the committee and fellow members, hear what's planned for the year, and settle in before the workshops kick off. Snacks, introductions and zero pressure.",
-        img:   "/assets/meet_and_greet.jpg"
+        img:   "/assets/events/meet-and-greet.jpg"
       }
     },
     {
@@ -71,6 +71,60 @@ window.SITE_DATA = {
       date:  "2026-10-28"
     }
   ],
+
+  /* ----------------------------------------------------------
+     CALENDAR  (events page)
+     ----------------------------------------------------------
+     The events above are also published as a calendar feed at
+     https://brunelcs.org/events.ics, rebuilt automatically on every
+     deploy, so students who subscribe see new events by themselves.
+     Nothing to do here for that.
+
+     Optional extra times on an event, so calendars show the right hours
+     instead of an all-day entry (24-hour clock, UK time):
+       start: "19:00", end: "21:00", location: "Eastern Gateway 128"
+     Without them, times are read from the 'where' text when possible
+     (e.g. "1:00pm - 5:00pm"), otherwise the event is all-day.
+
+     googleEmbed: optional. If the committee creates a public Google
+     Calendar, paste its embed link (Settings > Integrate calendar >
+     "Embed code", the https://calendar.google.com/calendar/embed?... part)
+     and it appears on the events page. Leave "" to show only the feed.
+     ---------------------------------------------------------- */
+  calendar: {
+    googleEmbed: ""
+  },
+
+  /* ----------------------------------------------------------
+     HALL OF FAME  (hall-of-fame.html)
+     ----------------------------------------------------------
+     ctftimeTeamId: the number in our CTFtime team page URL
+       (https://ctftime.org/team/12345 -> "12345"). Leave "" until the
+       team is registered on CTFtime.
+     results: one { } per competition, newest first. Only add results
+       you can back up (a scoreboard, certificate or official email).
+     members: optional spotlight. Only add people who have agreed to be
+       listed. Use [] for none.
+     ---------------------------------------------------------- */
+  hallOfFame: {
+    ctftimeTeamId: "",
+    results: [
+      {
+        event:  "Operation Cymbal: Cold Room 2026",
+        dates:  "29 Oct - 1 Nov 2026",
+        organiser: "Google Cloud Security · Hack The Box",
+        team:   "BrunelCS",
+        rank:   "321st",
+        field:  "of 1,716 teams",
+        score:  "18/18 challenges · 2,075 pts",
+        link:   "#cymbal"
+      }
+    ],
+    members: [
+      /* example (keep the slashes to leave it switched off):
+      { name: "Alex Javadi", note: "Operation Cymbal 2026: earned the team's Hack The Box certificate" }, */
+    ]
+  },
 
   /* ----------------------------------------------------------
      OUR OWN POSTS  (shown on blog.html, always listed first)
@@ -107,7 +161,7 @@ window.SITE_DATA = {
        desc : a one-line teaser. Keep it short.
      This list is AUTO-GENERATED from the CyberTutor Substack feed.
      Everything between the CYBERTUTOR markers is overwritten on sync
-     (the daily GitHub Action, or: node backend/tools/sync-cybertutor.mjs),
+     (the daily GitHub Action, or: node tools/sync-cybertutor.mjs),
      so edit posts on Substack, not here. First post = featured card.
      ---------------------------------------------------------- */
   /* CYBERTUTOR:START */
@@ -227,7 +281,7 @@ window.SITE_DATA = {
        role      : their title, e.g. "secretary".
        email    : their personal committee email address.
        initials  : 1-3 letters shown when there is no photo (or while it loads).
-       photo     : path to their picture, e.g. "/assets/parm.jpg".
+       photo     : path to their picture, e.g. "/assets/committee/parmbir.jpg".
                    Leave "" for no photo (the initials show instead).
                    The file must exist in the assets folder with EXACTLY
                    this name (capitals matter). See HOW-TO-EDIT.md.
@@ -242,7 +296,7 @@ window.SITE_DATA = {
       role: "founder / president",
       email: "m.zuoriki@brunelcs.org",
       initials: "MZ",
-      photo: "/assets/IMG_4556.jpg",
+      photo: "/assets/committee/mohammed.jpg",
       accent: "warm",
       bio: "Mohammed Zuoriki is the Founder and President of Brunel Cyber Security Society. He provides overall leadership and strategic direction for the society, oversees committee operations, represents the society at events, and serves as a principal point of contact with the Union. He is also responsible for supporting membership administration and ensuring the effective delivery of the society's activities.",
       duties: []
@@ -252,7 +306,7 @@ window.SITE_DATA = {
       role: "vice president",
       email: "a.javadi@brunelcs.org",
       initials: "AJ",
-      photo: "/assets/alex.png",
+      photo: "/assets/committee/alex.png",
       accent: "cool",
       bio: "Alex Javadi serves as Vice President of Brunel Cyber Security Society. He supports the President in the management and coordination of the society, assists with committee operations, and helps ensure that organisational responsibilities are carried out effectively. In the absence of the President and Secretary, he may also act as a point of contact between the society and the Union.",
       duties: []
@@ -262,7 +316,7 @@ window.SITE_DATA = {
       role: "secretary",
       email: "a.abdikadir@brunelcs.org",
       initials: "AA",
-      photo: "/assets/abdirahman.jpg",
+      photo: "/assets/committee/abdirahman.jpg",
       accent: "warm",
       bio: "Abdirahman Abdikadir serves as Secretary of Brunel Cyber Security Society. He is responsible for maintaining accurate records of committee meetings, documenting key decisions and actions, and supporting formal communication with the Union. He also assists the committee with administrative coordination and the effective management of society documentation.",
       duties: []
@@ -272,7 +326,7 @@ window.SITE_DATA = {
       role: "treasurer / co-founder",
       email: "p.singh@brunelcs.org",
       initials: "PN",
-      photo: "/assets/Parm.JPG",
+      photo: "/assets/committee/parmbir.jpg",
       accent: "warm",
       bio: "Parmbir Singh Nandha is a Co-Founder and Treasurer of Brunel Cyber Security Society. He oversees the society's financial administration, including budgeting, expenditure monitoring and financial planning. He also supports sponsorship activity and works with the committee to ensure that society funds and resources are managed responsibly.",
       duties: []
@@ -282,7 +336,7 @@ window.SITE_DATA = {
       role: "web officer",
       email: "l.salah@brunelcs.org",
       initials: "LS",
-      photo: "/assets/lawand.jpg",
+      photo: "/assets/committee/lawand.jpg",
       accent: "cool",
       bio: "Lawand Salah serves as Web Officer of Brunel Cyber Security Society. He is responsible for the development and maintenance of the society's website, publishing events and resources, and supporting improvements to its online presence.",
       duties: []

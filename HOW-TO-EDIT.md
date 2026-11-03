@@ -25,7 +25,9 @@ Almost everything you'll want to change lives in **one file**: `frontend/js/data
 
 To add or change a photo:
 
-1. Put the image file in the **`frontend/assets`** folder.
+1. Put the image file in the right folder inside **`frontend/assets`**:
+   `committee/` for committee photos, `events/` for event photos and videos,
+   `ctf/` for competition certificates, `brand/` for logos.
 2. In `frontend/js/data.js`, point to it with the **exact** file name.
 
 **The file name must match exactly, including capital letters.**
@@ -34,7 +36,7 @@ To add or change a photo:
 
 Tips:
 - Easiest path: rename your image to something simple and lowercase like
-  `assets/parmbir.jpg`, then write `photo: "/assets/parmbir.jpg"` in data.js.
+  `assets/committee/parmbir.jpg`, then write `photo: "/assets/committee/parmbir.jpg"` in data.js.
 - If a photo doesn't appear, it's almost always a name mismatch — check the
   spelling, the `.jpg` vs `.png`, and the capital letters.
 - No photo yet? Leave `photo: ""`. The card shows the person's initials instead,
@@ -51,7 +53,7 @@ In `frontend/js/data.js`, find the `committee:` list. Each person is one block l
   name: "Parmbir Singh Nandha",
   role: "treasurer / co-founder",
   initials: "PN",
-  photo: "/assets/Parm.JPG",
+  photo: "/assets/committee/parmbir.jpg",
   accent: "warm",
   bio: "Hey! I'm your Treasurer...",
   duties: [
@@ -62,7 +64,7 @@ In `frontend/js/data.js`, find the `committee:` list. Each person is one block l
 ```
 
 - **Change someone's details:** edit the text in the quotes.
-- **Add a photo:** put the file in `frontend/assets`, then set `photo: "/assets/their-file.jpg"`.
+- **Add a photo:** put the file in `frontend/assets/committee`, then set `photo: "/assets/committee/their-name.jpg"`.
 - **No photo:** set `photo: ""` (shows their `initials` instead).
 - **Add a bio:** put a sentence in `bio: "..."`. Leave `bio: ""` to hide it.
 - **Duties:** each line is `"a duty",` inside the `duties: [ ]` brackets.
@@ -116,7 +118,7 @@ Add a `preview` block (note the comma after `tone: ""`):
     cap:   "FIRST SOCIAL OF THE YEAR",
     title: "Meet and Greet",
     desc:  "A longer description shown in the pop-up.",
-    img:   "/assets/meetandgreet.jpg",  // or remove this line for a plain gradient
+    img:   "/assets/events/meet-and-greet.jpg",  // or remove this line for a plain gradient
     link:  "#"                           // where 'Read more' goes
   }
 ```
@@ -140,13 +142,13 @@ newest post becomes the big featured card; the rest form the grid below it.
 folder run:
 
 ```
-node backend/tools/sync-cybertutor.mjs
+node tools/sync-cybertutor.mjs
 ```
 
 > ⚠️ **Don't hand-edit the posts.** Everything between the `CYBERTUTOR:START` and
 > `CYBERTUTOR:END` markers in `frontend/js/data.js` is overwritten on every sync. To change
 > what a post says, edit it on Substack and re-sync. To show more or fewer posts,
-> change `COUNT` near the top of `backend/tools/sync-cybertutor.mjs` (currently 9).
+> change `COUNT` near the top of `tools/sync-cybertutor.mjs` (currently 9).
 
 ---
 
@@ -220,6 +222,56 @@ The wording lives in the same file, just below that line.
 
 Separately, clicking any link that leaves the site shows a short
 "leaving brunelcs.org" check with the real address. That one stays on.
+
+---
+
+## Reading Week training announcement (ZenGuide)
+
+The homepage shows the Brunel SOC team's Cyber Security Awareness Training
+notice: a short link in the hero and a full section below it.
+
+**It removes itself automatically on 30 November 2026.** Both parts carry
+`data-until="2026-11-30"` in `frontend/index.html`. Change that date (in both
+places) to extend it, or delete the `<section id="zenguide">` block and the
+`hero-alert` link to end it early.
+
+The button's link is marked `ZENGUIDE-LINK` in `frontend/index.html`. Replace
+it with the exact ZenGuide address the SOC team gives you.
+
+Any element can use `data-until="YYYY-MM-DD"` the same way, for future
+time-limited notices.
+
+---
+
+## Calendar feed (events.ics)
+
+Every event in `data.js` is also published as a calendar feed at
+**https://brunelcs.org/events.ics**, which students can subscribe to from the
+events page. It's rebuilt automatically on every deploy, so there's nothing
+extra to do when you add an event.
+
+To give an event exact hours in people's calendars, add (24-hour, UK time):
+
+```js
+  start: "19:00", end: "21:00", location: "Eastern Gateway 128",
+```
+
+Without these, the times are read from the `where` text if possible
+(e.g. `"1:00pm - 5:00pm"`), otherwise the event shows as all-day.
+
+---
+
+## Hall of Fame
+
+In `frontend/js/data.js`, find `hallOfFame:`.
+
+- **New competition result:** copy the `{ ... }` block in `results:` and
+  change the details. Newest first. Only add results you can back up with a
+  scoreboard, certificate or official email.
+- **CTFtime:** once the team is registered on ctftime.org, put the number from
+  the team page URL in `ctftimeTeamId: "12345"`. A link to it then appears.
+- **Member spotlight:** add `{ name: "...", note: "..." }` to `members:`,
+  and only for people who have agreed to be listed.
 
 ---
 

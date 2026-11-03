@@ -50,12 +50,58 @@
         btn.focus();
       }
     });
-    /* widening the window past the menu breakpoint (styles.css, 900px) while
+    /* widening the window past the menu breakpoint (styles.css, 1080px) while
        the menu is open would otherwise leave the page inert and unscrollable */
-    const mobileNav = window.matchMedia('(max-width: 900px)');
+    const mobileNav = window.matchMedia('(max-width: 1080px)');
     const onBreakpoint = function () { if (!mobileNav.matches) setMenu(false); };
     if (mobileNav.addEventListener) mobileNav.addEventListener('change', onBreakpoint);
   }
+
+  /* ----- dark / light theme toggle ----- */
+  /* head.js has already applied a saved choice before first paint; this adds
+     the button (last item in the nav, so it sits in the mobile menu too) and
+     remembers the choice. Built here rather than in each page's HTML so
+     visitors without JavaScript never see a toggle that can't work. */
+  const navList = document.querySelector('.nav-links');
+  if (navList) {
+    const root = document.documentElement;
+    const SUN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
+    const MOON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></svg>';
+    const themeMeta = document.querySelector('meta[name="theme-color"]');
+    const themeBtn = document.createElement('button');
+    themeBtn.type = 'button';
+    themeBtn.className = 'theme-btn';
+
+    /* the button names the theme it switches TO, like [menu]/[close] */
+    const paint = function () {
+      const light = root.getAttribute('data-theme') === 'light';
+      themeBtn.innerHTML = (light ? MOON : SUN) + '<span>' + (light ? 'dark' : 'light') + '</span>';
+      themeBtn.setAttribute('aria-label', light ? 'Switch to dark theme' : 'Switch to light theme');
+      if (themeMeta) themeMeta.setAttribute('content', light ? '#F5F3EF' : '#0B0B0D');
+    };
+    themeBtn.addEventListener('click', function () {
+      const light = root.getAttribute('data-theme') !== 'light';
+      if (light) root.setAttribute('data-theme', 'light');
+      else root.removeAttribute('data-theme');
+      /* storage can throw (private mode, blocked site data); the theme still
+         switches for this page view, it just isn't remembered */
+      try { localStorage.setItem('theme', light ? 'light' : 'dark'); } catch (e) {}
+      paint();
+      /* waves.js listens for this to recolour the canvas */
+      document.dispatchEvent(new CustomEvent('themechange'));
+    });
+    paint();
+    navList.appendChild(themeBtn);
+  }
+
+  /* ----- time-limited announcements ----- */
+  /* Any element with data-until="YYYY-MM-DD" is removed from that date on,
+     so a campaign banner can't outstay its campaign. Checked against the
+     visitor's own clock. */
+  document.querySelectorAll('[data-until]').forEach(function (el) {
+    const until = new Date(el.getAttribute('data-until') + 'T00:00:00');
+    if (!isNaN(until) && new Date() >= until) el.remove();
+  });
 
   /* ----- nav: compact + elevate once the page scrolls ----- */
   const navEl = document.querySelector('nav');

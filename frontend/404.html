@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://substackcdn.com; media-src 'self'; connect-src 'self'; frame-src https://calendar.google.com; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>404 · Brunel Cyber Security Society</title>
 <meta name="robots" content="noindex">
@@ -11,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/styles.css">
-<script>try{if(sessionStorage.getItem("booted"))document.documentElement.classList.add("booted");}catch(e){}</script>
+<script src="/js/head.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -32,6 +34,7 @@
   <div class="nav-links">
     <a href="/index.html#about">about</a>
     <a href="/pages/events.html">events</a>
+    <a href="/pages/hall-of-fame.html">hall of fame</a>
     <!-- BLOG-HIDDEN: blog temporarily removed from the nav pending a committee decision. To restore, delete this comment wrapper and keep the link. <a href="/pages/blog.html">blog</a> -->
     <a href="/pages/resources.html">resources</a>
     <a href="/pages/security-basics.html">stay safe</a>
