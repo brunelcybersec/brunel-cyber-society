@@ -9,14 +9,14 @@
    decorative text). Exits non-zero on failure, so check-site.mjs
    and CI catch a colour change that would hurt readability.
 
-   Run it by hand:   node tools/check-contrast.mjs
+   Run it by hand:   node backend/tools/check-contrast.mjs
    ============================================================ */
 
 import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
-const CSS = join(dirname(fileURLToPath(import.meta.url)), '..', 'frontend', 'css', 'styles.css');
+const CSS = join(dirname(fileURLToPath(import.meta.url)), '..', '..', 'frontend', 'css', 'styles.css');
 
 /* [token, minimum ratio] */
 const TEXT = [

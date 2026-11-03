@@ -6,7 +6,7 @@
 /* Two themes share one set of tokens. Dark ("terminal") is the default;
    js/head.js sets data-theme="light" on <html> before first paint when a
    visitor has picked light with the nav toggle. Contrast ratios in the
-   comments are against --bg; tools/check-contrast.mjs re-checks them.
+   comments are against --bg; backend/tools/check-contrast.mjs re-checks them.
    The *-rgb tokens are bare channels so they can be used with any alpha:
    rgba(var(--ink-rgb), 0.24). */
 :root {
@@ -92,6 +92,10 @@ body {
 
 .mono { font-family: 'JetBrains Mono', monospace; }
 a { color: inherit; text-decoration: none; }
+/* only weights 400 and 500 of Inter and JetBrains Mono are loaded, so the
+   browser's default bold (700) would be faked by smearing the 500 face */
+strong, b { font-weight: 500; }
+p { text-wrap: pretty; }   /* keeps a single word from sitting alone on a paragraph's last line */
 a:focus-visible, button:focus-visible {
   outline: 1.5px solid var(--cool);
   outline-offset: 3px;
@@ -350,6 +354,13 @@ section.tight { padding-top: 36px; }
   font-family: 'JetBrains Mono', monospace;
   font-size: 13px;
   color: var(--muted);
+}
+/* an intro paragraph between a section heading and its content
+   (.ctf-band-inner .lede, further down, restyles the ones in the CTF band) */
+.section-head + .lede {
+  color: var(--text-2);
+  max-width: 900px;
+  margin-bottom: 24px;
 }
 h2 {
   font-family: 'Space Grotesk', sans-serif;
@@ -851,7 +862,7 @@ h2 {
   border-top: 1px solid var(--line);
   text-align: left;
 }
-.whatsapp-promo h3 { font-size: 18px; margin: 5px 0 4px; }
+.whatsapp-promo h3 { font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 18px; margin: 5px 0 4px; }
 .whatsapp-promo p { margin: 0; font-size: 13.5px; line-height: 1.5; }
 .whatsapp-label {
   color: var(--muted);
@@ -861,6 +872,7 @@ h2 {
 }
 .whatsapp-promo .btn { flex-shrink: 0; }
 @media (max-width: 600px) {
+  .join-box { padding: 40px 16px; }   /* gives the join cards room to keep their titles on one line */
   .whatsapp-promo { align-items: flex-start; flex-direction: column; }
   .whatsapp-promo .btn { width: 100%; text-align: center; }
 }
@@ -1376,12 +1388,6 @@ a.bento-cell:hover .bc-icon { border-color: var(--accent); }
   border-radius: 50%;
   display: block;
   box-shadow: 0 0 0 1px rgba(var(--hi-rgb), 0.08);
-}
-/* a wordmark logo: keep it square + fully visible, not circle-cropped */
-.bc-logo.wordmark {
-  border-radius: 10px;
-  object-fit: contain;
-  background: var(--surface-2);
 }
 .bento-cell h3 {
   font-family: 'Space Grotesk', sans-serif;
@@ -2421,6 +2427,7 @@ html.has-ph-banner body { padding-bottom: 84px; }
   letter-spacing: 0.08em; text-transform: uppercase;
   color: var(--warm);
   margin-bottom: 14px;
+  text-wrap: balance;
 }
 .announce-tag .ph-dot { background: var(--warm); }
 .announce-box h2 { font-size: clamp(24px, 3.4vw, 32px); margin-bottom: 14px; }
@@ -2462,7 +2469,7 @@ html.has-ph-banner body { padding-bottom: 84px; }
 .join-cta.primary:hover, .join-cta.primary:focus-visible { background: var(--text-hi); }
 .join-cta svg { width: 30px; height: 30px; flex: none; }
 .join-cta strong { display: block; font: 500 18px/1.3 'Space Grotesk', sans-serif; }
-.join-cta small { display: block; font: 12.5px/1.5 'JetBrains Mono', monospace; color: var(--muted); margin-top: 3px; }
+.join-cta small { display: block; font: 12.5px/1.5 'JetBrains Mono', monospace; color: var(--muted); margin-top: 3px; text-wrap: balance; }
 .join-cta.primary small { color: rgba(var(--bg-rgb), 0.8); }
 .join-cta .arrow { margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 18px; transition: transform 0.2s; }
 .join-cta:hover .arrow { transform: translateX(3px); }

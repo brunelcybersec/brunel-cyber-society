@@ -22,16 +22,16 @@ python -m http.server 8000 --directory frontend   # then open http://localhost:8
 Node.js 18+ is needed only for the tools:
 
 ```bash
-node tools/check-site.mjs       # run before every pull request
-node tools/check-contrast.mjs   # if you changed colours
-node tools/build-calendar.mjs   # to preview /events.ics locally
+node backend/tools/check-site.mjs       # run before every pull request
+node backend/tools/check-contrast.mjs   # if you changed colours
+node backend/tools/build-calendar.mjs   # to preview /events.ics locally
 ```
 
 ## Making a pull request
 
 1. Fork the repo and create a branch: `git checkout -b fix-footer-typo`.
 2. Keep the change focused: one fix or feature per pull request.
-3. Run `node tools/check-site.mjs` and make sure it passes.
+3. Run `node backend/tools/check-site.mjs` and make sure it passes.
 4. Check your change in **both themes** (the toggle is in the nav) and at phone width.
 5. Open the pull request and describe what changed and why. Screenshots help.
 

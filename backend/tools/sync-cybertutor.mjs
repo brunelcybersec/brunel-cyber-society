@@ -5,7 +5,7 @@
    Pulls the latest CyberTutor posts from the Substack RSS feed
    and writes them into frontend/js/data.js, between the CYBERTUTOR markers.
 
-   Run it by hand:   node tools/sync-cybertutor.mjs
+   Run it by hand:   node backend/tools/sync-cybertutor.mjs
    ...or let the GitHub Action (.github/workflows/update-blog.yml)
    run it for you on a schedule.
 
@@ -20,7 +20,7 @@ const FEED  = 'https://mohammedzuoriki.substack.com/feed';
 const COUNT = 9;                       // how many recent posts to show
 // ES modules have no __dirname, so build the path from this file's own URL.
 // That way the script finds data.js whatever folder you run it from.
-const DATA  = join(dirname(fileURLToPath(import.meta.url)), '..', 'frontend', 'js', 'data.js');
+const DATA  = join(dirname(fileURLToPath(import.meta.url)), '..', '..', 'frontend', 'js', 'data.js');
 const MONTHS = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
 
 if (typeof fetch !== 'function') {

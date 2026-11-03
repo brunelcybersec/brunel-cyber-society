@@ -24,7 +24,7 @@ brunelcs.org is hosted on **GitHub Pages, which does not let a site set its own 
 
 ## Option B: move hosting to Cloudflare Pages or Netlify
 
-Copy [`_headers`](./_headers) into `frontend/` so it's published at the site root. Both hosts read it automatically. Point the build output directory at `frontend/` and add `node tools/build-calendar.mjs` as the build command so `/events.ics` is generated.
+Copy [`_headers`](./_headers) into `frontend/` so it's published at the site root. Both hosts read it automatically. Point the build output directory at `frontend/` and add `node backend/tools/build-calendar.mjs` as the build command so `/events.ics` is generated.
 
 ## Option C: Apache hosting
 

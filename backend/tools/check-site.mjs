@@ -9,10 +9,11 @@
      - an event without a valid date: "YYYY-MM-DD"
      - a link or image path that doesn't exist, including wrong
        capital letters (fine on Windows, broken on GitHub Pages)
+       and full https://brunelcs.org/... links like the og:image preview
      - a text colour token below WCAG AA contrast (check-contrast.mjs)
      - an event time the calendar feed can't read (build-calendar.mjs)
 
-   Run it by hand:   node tools/check-site.mjs
+   Run it by hand:   node backend/tools/check-site.mjs
    No npm install needed — it only uses built-in Node (18+).
    ============================================================ */
 
@@ -23,7 +24,7 @@ import { dirname, join, relative } from 'node:path';
 import vm from 'node:vm';
 import { buildCalendar } from './build-calendar.mjs';
 
-const ROOT     = join(dirname(fileURLToPath(import.meta.url)), '..');
+const ROOT     = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const FRONTEND = join(ROOT, 'frontend');
 const DATA     = join(FRONTEND, 'js', 'data.js');
 
@@ -76,7 +77,7 @@ function localPath(url) {
 
 const scripts = [
   ...(await readdir(join(FRONTEND, 'js'))).filter((f) => f.endsWith('.js')).map((f) => join(FRONTEND, 'js', f)),
-  ...(await readdir(join(ROOT, 'tools'))).filter((f) => f.endsWith('.mjs')).map((f) => join(ROOT, 'tools', f)),
+  ...(await readdir(join(ROOT, 'backend', 'tools'))).filter((f) => f.endsWith('.mjs')).map((f) => join(ROOT, 'backend', 'tools', f)),
 ];
 for (const file of scripts) {
   try {
@@ -141,6 +142,13 @@ if (!d) {
 
 /* ---- 3. links and assets in the HTML pages exist ---- */
 
+// Full https://brunelcs.org/... addresses (canonical links, og:image and
+// twitter:image previews) point into frontend/ too, so check them like local paths.
+const SITE = 'https://brunelcs.org';
+function sameSite(url) {
+  return url === SITE || url.startsWith(SITE + '/') ? url.slice(SITE.length) || '/' : url;
+}
+
 const pages = [
   ...(await readdir(FRONTEND))
     .filter((f) => f.endsWith('.html'))
@@ -151,9 +159,12 @@ const pages = [
 ];
 for (const page of pages) {
   const html = await readFile(page.file, 'utf8');
-  for (const [, url] of html.matchAll(/\b(?:href|src)="([^"]*)"/g)) {
+  // href/src/poster, plus <meta content="..."> when it holds one of our own URLs
+  for (const [, attr, raw] of html.matchAll(/\b(href|src|poster|content)="([^"]*)"/g)) {
+    const url = sameSite(raw);
+    if (attr === 'content' && url === raw) continue;   // other meta content is plain text
     if (isLocal(url) && !GENERATED.has(localPath(url)) && !(await existsExact(localPath(url)))) {
-      fail(`${page.label}: broken link to "${url}"`);
+      fail(`${page.label}: broken link to "${raw}"`);
     }
   }
 }
@@ -161,7 +172,7 @@ for (const page of pages) {
 /* ---- 4. text colours meet WCAG AA in both themes ---- */
 
 try {
-  execFileSync(process.execPath, [join(ROOT, 'tools', 'check-contrast.mjs')], { stdio: 'pipe' });
+  execFileSync(process.execPath, [join(ROOT, 'backend', 'tools', 'check-contrast.mjs')], { stdio: 'pipe' });
 } catch (err) {
   fail(`colour contrast:
 ${String(err.stdout).trim()}
