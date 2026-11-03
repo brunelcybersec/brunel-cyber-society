@@ -10,5 +10,5 @@ node_modules/
 # Logs
 *.log
 
-# generated on deploy by tools/build-calendar.mjs
+# generated on deploy by backend/tools/build-calendar.mjs
 frontend/events.ics

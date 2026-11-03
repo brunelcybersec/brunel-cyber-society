@@ -6,7 +6,7 @@
 /* Two themes share one set of tokens. Dark ("terminal") is the default;
    js/head.js sets data-theme="light" on <html> before first paint when a
    visitor has picked light with the nav toggle. Contrast ratios in the
-   comments are against --bg; tools/check-contrast.mjs re-checks them.
+   comments are against --bg; backend/tools/check-contrast.mjs re-checks them.
    The *-rgb tokens are bare channels so they can be used with any alpha:
    rgba(var(--ink-rgb), 0.24). */
 :root {

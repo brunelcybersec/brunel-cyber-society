@@ -12,7 +12,7 @@
      - a text colour token below WCAG AA contrast (check-contrast.mjs)
      - an event time the calendar feed can't read (build-calendar.mjs)
 
-   Run it by hand:   node tools/check-site.mjs
+   Run it by hand:   node backend/tools/check-site.mjs
    No npm install needed — it only uses built-in Node (18+).
    ============================================================ */
 
@@ -23,7 +23,7 @@ import { dirname, join, relative } from 'node:path';
 import vm from 'node:vm';
 import { buildCalendar } from './build-calendar.mjs';
 
-const ROOT     = join(dirname(fileURLToPath(import.meta.url)), '..');
+const ROOT     = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const FRONTEND = join(ROOT, 'frontend');
 const DATA     = join(FRONTEND, 'js', 'data.js');
 
@@ -76,7 +76,7 @@ function localPath(url) {
 
 const scripts = [
   ...(await readdir(join(FRONTEND, 'js'))).filter((f) => f.endsWith('.js')).map((f) => join(FRONTEND, 'js', f)),
-  ...(await readdir(join(ROOT, 'tools'))).filter((f) => f.endsWith('.mjs')).map((f) => join(ROOT, 'tools', f)),
+  ...(await readdir(join(ROOT, 'backend', 'tools'))).filter((f) => f.endsWith('.mjs')).map((f) => join(ROOT, 'backend', 'tools', f)),
 ];
 for (const file of scripts) {
   try {
@@ -161,7 +161,7 @@ for (const page of pages) {
 /* ---- 4. text colours meet WCAG AA in both themes ---- */
 
 try {
-  execFileSync(process.execPath, [join(ROOT, 'tools', 'check-contrast.mjs')], { stdio: 'pipe' });
+  execFileSync(process.execPath, [join(ROOT, 'backend', 'tools', 'check-contrast.mjs')], { stdio: 'pipe' });
 } catch (err) {
   fail(`colour contrast:
 ${String(err.stdout).trim()}

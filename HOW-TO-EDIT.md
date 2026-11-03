@@ -25,9 +25,7 @@ Almost everything you'll want to change lives in **one file**: `frontend/js/data
 
 To add or change a photo:
 
-1. Put the image file in the right folder inside **`frontend/assets`**:
-   `committee/` for committee photos, `events/` for event photos and videos,
-   `ctf/` for competition certificates, `brand/` for logos.
+1. Put the image file in the **`frontend/assets`** folder.
 2. In `frontend/js/data.js`, point to it with the **exact** file name.
 
 **The file name must match exactly, including capital letters.**
@@ -36,7 +34,7 @@ To add or change a photo:
 
 Tips:
 - Easiest path: rename your image to something simple and lowercase like
-  `assets/committee/parmbir.jpg`, then write `photo: "/assets/committee/parmbir.jpg"` in data.js.
+  `assets/parmbir.jpg`, then write `photo: "/assets/parmbir.jpg"` in data.js.
 - If a photo doesn't appear, it's almost always a name mismatch — check the
   spelling, the `.jpg` vs `.png`, and the capital letters.
 - No photo yet? Leave `photo: ""`. The card shows the person's initials instead,
@@ -53,7 +51,7 @@ In `frontend/js/data.js`, find the `committee:` list. Each person is one block l
   name: "Parmbir Singh Nandha",
   role: "treasurer / co-founder",
   initials: "PN",
-  photo: "/assets/committee/parmbir.jpg",
+  photo: "/assets/Parm.JPG",
   accent: "warm",
   bio: "Hey! I'm your Treasurer...",
   duties: [
@@ -64,7 +62,7 @@ In `frontend/js/data.js`, find the `committee:` list. Each person is one block l
 ```
 
 - **Change someone's details:** edit the text in the quotes.
-- **Add a photo:** put the file in `frontend/assets/committee`, then set `photo: "/assets/committee/their-name.jpg"`.
+- **Add a photo:** put the file in `frontend/assets`, then set `photo: "/assets/their-file.jpg"`.
 - **No photo:** set `photo: ""` (shows their `initials` instead).
 - **Add a bio:** put a sentence in `bio: "..."`. Leave `bio: ""` to hide it.
 - **Duties:** each line is `"a duty",` inside the `duties: [ ]` brackets.
@@ -118,7 +116,7 @@ Add a `preview` block (note the comma after `tone: ""`):
     cap:   "FIRST SOCIAL OF THE YEAR",
     title: "Meet and Greet",
     desc:  "A longer description shown in the pop-up.",
-    img:   "/assets/events/meet-and-greet.jpg",  // or remove this line for a plain gradient
+    img:   "/assets/meetandgreet.jpg",  // or remove this line for a plain gradient
     link:  "#"                           // where 'Read more' goes
   }
 ```
@@ -142,13 +140,13 @@ newest post becomes the big featured card; the rest form the grid below it.
 folder run:
 
 ```
-node tools/sync-cybertutor.mjs
+node backend/tools/sync-cybertutor.mjs
 ```
 
 > ⚠️ **Don't hand-edit the posts.** Everything between the `CYBERTUTOR:START` and
 > `CYBERTUTOR:END` markers in `frontend/js/data.js` is overwritten on every sync. To change
 > what a post says, edit it on Substack and re-sync. To show more or fewer posts,
-> change `COUNT` near the top of `tools/sync-cybertutor.mjs` (currently 9).
+> change `COUNT` near the top of `backend/tools/sync-cybertutor.mjs` (currently 9).
 
 ---
 

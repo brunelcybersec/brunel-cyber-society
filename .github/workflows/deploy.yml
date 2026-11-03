@@ -11,9 +11,9 @@ on:
       - 'frontend/**'
       - '.github/workflows/deploy.yml'
       - '.github/workflows/check.yml'
-      - 'tools/check-site.mjs'
-      - 'tools/build-calendar.mjs'
-      - 'tools/check-contrast.mjs'
+      - 'backend/tools/check-site.mjs'
+      - 'backend/tools/build-calendar.mjs'
+      - 'backend/tools/check-contrast.mjs'
   workflow_dispatch: {}
 
 # Least privilege: the job's token can read the repo and publish to Pages,
@@ -55,9 +55,9 @@ jobs:
       # Rebuild the subscribable calendar feed (/events.ics) from data.js,
       # so it can never drift from the events shown on the site.
       - name: Build calendar feed
-        run: node tools/build-calendar.mjs
+        run: node backend/tools/build-calendar.mjs
 
-      # Package only frontend/, so tools/, workflows and docs are never
+      # Package only frontend/, so backend/, workflows and docs are never
       # served publicly on the website.
       - uses: actions/upload-pages-artifact@v3
         with:

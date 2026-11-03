@@ -11,7 +11,7 @@
    deploy.yml runs this before publishing, so the live feed always
    matches data.js. The generated file is git-ignored.
 
-   Run it by hand (to preview locally):   node tools/build-calendar.mjs
+   Run it by hand (to preview locally):   node backend/tools/build-calendar.mjs
    No npm install needed: built-in Node (18+) only.
    ============================================================ */
 
@@ -21,7 +21,7 @@ import { dirname, join } from 'node:path';
 import { createHash } from 'node:crypto';
 import vm from 'node:vm';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const DATA = join(ROOT, 'frontend', 'js', 'data.js');
 const OUT  = join(ROOT, 'frontend', 'events.ics');
 

@@ -81,45 +81,42 @@ The original page layouts were designed in **Figma**, with an intentionally rest
 
 ```text
 brunel-cyber-society/
-├── frontend/                       # The website: everything here is published as-is
+├── backend/
+│   └── tools/
+│       ├── check-site.mjs          # Validate scripts, data, local asset paths and contrast
+│       ├── check-contrast.mjs      # WCAG contrast of colour tokens, both themes
+│       ├── build-calendar.mjs      # Generate frontend/events.ics from data.js (run on deploy)
+│       └── sync-cybertutor.mjs     # Sync posts from the CyberTutor RSS feed
+├── frontend/
 │   ├── index.html                  # Homepage
 │   ├── 404.html                    # Custom error page
 │   ├── favicon.svg
-│   ├── CNAME                       # Custom domain (brunelcs.org)
-│   ├── pages/                      # Content pages, published under /pages/
-│   │   ├── events.html             # Events, calendar subscribe and CTF team
-│   │   ├── hall-of-fame.html       # CTF results, CTFtime ranking, member spotlight
-│   │   ├── resources.html          # Learning resources
-│   │   ├── security-basics.html    # Password, MFA and phishing guidance
-│   │   ├── committee.html          # Committee members
-│   │   ├── contact.html            # Contact channels and FAQ
-│   │   ├── credits.html            # Design and development credits
-│   │   └── blog.html               # Blog (currently unlisted, not deleted)
+│   ├── CNAME                       # Custom domain
+│   ├── assets/                     # Images and other media
 │   ├── css/
-│   │   └── styles.css              # Design tokens (both themes) and all page styles
+│   │   └── styles.css              # Shared design system and page styles
 │   ├── js/
-│   │   ├── data.js                 # ← content: events, committee, hall of fame, posts
+│   │   ├── data.js                 # Events, committee, posts and resources
+│   │   ├── render.js               # Populate pages from data.js
 │   │   ├── head.js                 # Runs in <head>: saved theme + boot-screen skip
-│   │   ├── render.js               # Builds page sections from data.js
-│   │   ├── site.js                 # Navigation, theme toggle, alerts, link check
+│   │   ├── site.js                 # Shared interactions, navigation and theme toggle
 │   │   ├── waves.js                # Animated wave canvas
-│   │   └── preloader.js            # Boot-screen animation
-│   └── assets/
-│       ├── brand/                  # Logos and the social-preview image (og-image.png)
-│       ├── committee/              # Committee photos, named after the person
-│       ├── events/                 # Event photos and videos
-│       └── ctf/                    # Competition certificates and screenshots
-├── tools/                          # Node scripts for maintainers and CI (not published)
-│   ├── check-site.mjs              # Scripts, data, links, asset paths and contrast
-│   ├── check-contrast.mjs          # WCAG contrast of colour tokens, both themes
-│   ├── build-calendar.mjs          # Generates frontend/events.ics on deploy
-│   └── sync-cybertutor.mjs         # Syncs posts from the CyberTutor RSS feed
-├── deploy/
-│   └── security-headers/           # _headers / .htaccess for HSTS, CSP, X-Frame-Options
-├── .github/workflows/
-│   ├── check.yml                   # Checks on every pull request
-│   ├── deploy.yml                  # Check, build calendar, publish frontend/
-│   └── update-blog.yml             # Daily CyberTutor sync
+│   │   └── preloader.js            # Page loading sequence
+│   └── pages/                      # Content pages, published under /pages/
+│       ├── events.html              # Events, calendar subscribe and CTF team
+│       ├── hall-of-fame.html        # CTF results, CTFtime ranking, member spotlight
+│       ├── resources.html           # Learning resources
+│       ├── security-basics.html     # Password, MFA and phishing guidance
+│       ├── committee.html           # Committee members
+│       ├── contact.html             # Contact channels and FAQ
+│       ├── credits.html             # Design and development credits
+│       └── blog.html                # Blog (currently unlisted, not deleted)
+├── .github/
+│   └── workflows/
+│       ├── check.yml               # Run validation on PRs / via deployment
+│       ├── deploy.yml              # Validate and publish the frontend
+│       └── update-blog.yml         # Daily CyberTutor sync
+├── deploy/security-headers/        # _headers / .htaccess for HSTS, CSP, X-Frame-Options
 ├── CONTRIBUTING.md                 # How to open a pull request
 ├── HOW-TO-EDIT.md                  # Editing guide for committee members
 └── README.md
@@ -168,7 +165,7 @@ The CyberTutor blog is **hidden, not removed**:
 - `frontend/pages/blog.html` is still reachable directly at `/pages/blog.html`.
 - The homepage blog section and navigation links are commented out with `BLOG-HIDDEN` markers.
 - The [blog sync workflow](.github/workflows/update-blog.yml) still runs at **07:00 UTC daily**, fetching posts from the [CyberTutor RSS feed](https://mohammedzuoriki.substack.com/feed).
-- A maintainer can run the sync manually from GitHub Actions or execute `node tools/sync-cybertutor.mjs` locally.
+- A maintainer can run the sync manually from GitHub Actions or execute `node backend/tools/sync-cybertutor.mjs` locally.
 
 To restore the blog to the main site, search `frontend/` for **`BLOG-HIDDEN`** and carefully remove the corresponding HTML comment wrappers, then run the site checks. The page's code, content and sync automation do not need to be rebuilt.
 
@@ -179,7 +176,7 @@ The workflow uses a repository secret named `GH_PAT` for committing updates in a
 Before opening a pull request, run:
 
 ```bash
-node tools/check-site.mjs
+node backend/tools/check-site.mjs
 ```
 
 This checks JavaScript syntax, validates required event dates and verifies that local links and media paths exist with the correct spelling and capitalisation.
