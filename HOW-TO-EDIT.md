@@ -25,7 +25,9 @@ Almost everything you'll want to change lives in **one file**: `frontend/js/data
 
 To add or change a photo:
 
-1. Put the image file in the **`frontend/assets`** folder.
+1. Put the image file in the right folder inside **`frontend/assets`**:
+   `committee/` for committee photos, `events/` for event photos and videos,
+   `ctf/` for competition certificates, `brand/` for logos.
 2. In `frontend/js/data.js`, point to it with the **exact** file name.
 
 **The file name must match exactly, including capital letters.**
@@ -34,7 +36,7 @@ To add or change a photo:
 
 Tips:
 - Easiest path: rename your image to something simple and lowercase like
-  `assets/parmbir.jpg`, then write `photo: "/assets/parmbir.jpg"` in data.js.
+  `assets/committee/parmbir.jpg`, then write `photo: "/assets/committee/parmbir.jpg"` in data.js.
 - If a photo doesn't appear, it's almost always a name mismatch — check the
   spelling, the `.jpg` vs `.png`, and the capital letters.
 - No photo yet? Leave `photo: ""`. The card shows the person's initials instead,
@@ -51,7 +53,7 @@ In `frontend/js/data.js`, find the `committee:` list. Each person is one block l
   name: "Parmbir Singh Nandha",
   role: "treasurer / co-founder",
   initials: "PN",
-  photo: "/assets/Parm.JPG",
+  photo: "/assets/committee/parmbir.jpg",
   accent: "warm",
   bio: "Hey! I'm your Treasurer...",
   duties: [
@@ -62,7 +64,7 @@ In `frontend/js/data.js`, find the `committee:` list. Each person is one block l
 ```
 
 - **Change someone's details:** edit the text in the quotes.
-- **Add a photo:** put the file in `frontend/assets`, then set `photo: "/assets/their-file.jpg"`.
+- **Add a photo:** put the file in `frontend/assets/committee`, then set `photo: "/assets/committee/their-name.jpg"`.
 - **No photo:** set `photo: ""` (shows their `initials` instead).
 - **Add a bio:** put a sentence in `bio: "..."`. Leave `bio: ""` to hide it.
 - **Duties:** each line is `"a duty",` inside the `duties: [ ]` brackets.
@@ -116,7 +118,7 @@ Add a `preview` block (note the comma after `tone: ""`):
     cap:   "FIRST SOCIAL OF THE YEAR",
     title: "Meet and Greet",
     desc:  "A longer description shown in the pop-up.",
-    img:   "/assets/meet_and_greet.jpg", // or remove this line for a plain gradient
+    img:   "/assets/events/meet-and-greet.jpg",  // or remove this line for a plain gradient
     link:  "#"                           // where 'Read more' goes
   }
 ```
