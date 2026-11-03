@@ -93,6 +93,10 @@ brunel-cyber-society/
 │   ├── favicon.svg
 │   ├── CNAME                       # Custom domain
 │   ├── assets/                     # Images and other media
+│   │   ├── brand/                  # Logos and the social-preview image (og-image.png)
+│   │   ├── committee/              # Committee photos, named after the person
+│   │   ├── events/                 # Event photos and videos
+│   │   └── ctf/                    # Competition certificates and screenshots
 │   ├── css/
 │   │   └── styles.css              # Shared design system and page styles
 │   ├── js/
