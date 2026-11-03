@@ -167,6 +167,15 @@ window.SITE_DATA = {
   /* CYBERTUTOR:START */
   posts: [
     {
+      date:  "03 nov 2026",
+      title: "One Compromised Laptop, Billions Lost: The Binance Attack-Path Warning",
+      desc:  "Last week’s $6.3 billion Binance breach attributed by the FBI to North Korea’s TraderTraitor group shows that security depends not only on blocking threats but on limiting what compromised systems and privileged…",
+      tag:   "breach",
+      tone:  "",
+      image: "https://substackcdn.com/image/fetch/$s_!VurA!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7dd71e42-9d00-463f-94cd-58509325ccc2_1672x941.png",
+      link:  "https://mohammedzuoriki.substack.com/p/one-compromised-laptop-billions-lost"
+    },
+    {
       date:  "02 nov 2026",
       title: "Risks & Rewards: How AI Is Redefining the CISO's Role",
       desc:  "At ISC2 Strategic Congress 2026 in Denver, Nvidia’s Mark Weatherford argued that the CISO role is rapidly evolving around AI: security leaders must both help the business gain a competitive edge from AI and use it to…",
@@ -237,15 +246,6 @@ window.SITE_DATA = {
       tone:  "",
       image: "https://substackcdn.com/image/fetch/$s_!CS5-!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe647fb11-5b27-4412-ab87-d70d2fdd359d_1672x941.png",
       link:  "https://mohammedzuoriki.substack.com/p/exposed-to-php2shell-cyber-experts"
-    },
-    {
-      date:  "23 oct 2026",
-      title: "OVHcloud GitHub Compromise Tied to GlassWorm Threat Actors",
-      desc:  "GlassWorm-linked threat actors compromised an OVHcloud developer’s GitHub account—likely via a malicious VS Code extension installed on their personal MacBook—and used it to replace official release binaries in the…",
-      tag:   "breach",
-      tone:  "",
-      image: "https://substackcdn.com/image/fetch/$s_!VXPQ!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa98fca62-93df-473b-8346-dc760d5556a4_1536x1024.png",
-      link:  "https://mohammedzuoriki.substack.com/p/ovhcloud-github-compromise-tied-to"
     }
   ],
   /* CYBERTUTOR:END */
