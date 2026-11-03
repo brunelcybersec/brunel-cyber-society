@@ -381,6 +381,56 @@
     if (e.key === 'Escape' && row) document.activeElement.blur();   /* the row, or a link inside its card */
   });
 
+  /* events page: optional Google Calendar embed (data.js calendar.googleEmbed).
+     Only a calendar.google.com/calendar/embed URL is accepted, which is also
+     the only frame the Content-Security-Policy (frame-src) allows. */
+  const calEmbed = document.getElementById('cal-embed');
+  const embedUrl = d.calendar && String(d.calendar.googleEmbed || '').trim();
+  if (calEmbed && embedUrl) {
+    if (/^https:\/\/calendar\.google\.com\/calendar\/embed\?/.test(embedUrl)) {
+      const frame = document.createElement('iframe');
+      frame.src = embedUrl;
+      frame.title = 'Brunel Cyber Security Society events calendar';
+      frame.loading = 'lazy';
+      frame.referrerPolicy = 'strict-origin-when-cross-origin';
+      calEmbed.appendChild(frame);
+      calEmbed.hidden = false;
+    } else {
+      console.warn('data.js calendar.googleEmbed should start with https://calendar.google.com/calendar/embed?');
+    }
+  }
+
+  /* hall of fame page */
+  const hof = d.hallOfFame || {};
+  renderList('hof-results', hof.results, function (r) {
+    return (
+      '<tr>' +
+        '<td><a href="' + attrUrl(r.link || '#') + '"' + linkAttrs(r.link) + '>' + esc(r.event) + '</a>' +
+          (r.organiser ? '<br><span class="mono hof-sub">' + esc(r.organiser) + '</span>' : '') + '</td>' +
+        '<td class="num">' + esc(r.dates) + '</td>' +
+        '<td>' + esc(r.team) + '</td>' +
+        '<td class="num"><strong>' + esc(r.rank) + '</strong> ' + esc(r.field) + '</td>' +
+        '<td class="num">' + esc(r.score) + '</td>' +
+      '</tr>'
+    );
+  });
+  renderList('hof-members', hof.members, function (m) {
+    return '<div class="hof-card"><h3>' + esc(m.name) + '</h3><p>' + esc(m.note) + '</p></div>';
+  });
+  /* the empty-state notes stay visible only while their list is empty */
+  [['hof-members', 'hof-members-empty']].forEach(function (pair) {
+    const list = document.getElementById(pair[0]), empty = document.getElementById(pair[1]);
+    if (list && empty && list.children.length) empty.hidden = true;
+  });
+  const ctftime = document.getElementById('hof-ctftime');
+  if (ctftime && /^\d+$/.test(String(hof.ctftimeTeamId || ''))) {
+    const url = 'https://ctftime.org/team/' + hof.ctftimeTeamId;
+    ctftime.classList.remove('hof-empty');
+    ctftime.innerHTML =
+      '<p>Our live CTFtime rating, every event we have played and how we placed, straight from the scoreboard.</p>' +
+      '<a class="btn solid" href="' + attrUrl(url) + '" target="_blank" rel="noopener">View BrunelCS on CTFtime &#8599;<span class="sr-only"> (opens in a new tab)</span></a>';
+  }
+
   /* homepage stat: count the committee from data.js so it never drifts */
   const committeeStat = document.getElementById('stat-committee');
   if (committeeStat && d.committee && d.committee.length) committeeStat.textContent = String(d.committee.length);

@@ -3,6 +3,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://substackcdn.com; media-src 'self'; connect-src 'self'; frame-src https://calendar.google.com; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blog · Brunel Cyber Security Society</title>
 <meta name="description" content="CyberTutor — the Brunel Cyber Security Society newsletter. Near-daily writeups on the latest breaches, vulnerabilities and security research.">
@@ -12,17 +14,17 @@
 <meta property="og:description" content="CyberTutor — the Brunel Cyber Security Society newsletter. Near-daily writeups on the latest breaches, vulnerabilities and security research.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://brunelcs.org/pages/blog.html">
-<meta property="og:image" content="https://brunelcs.org/assets/og-image.png">
+<meta property="og:image" content="https://brunelcs.org/assets/brand/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Blog · Brunel Cyber Security Society">
 <meta name="twitter:description" content="CyberTutor — the Brunel Cyber Security Society newsletter. Near-daily writeups on the latest breaches, vulnerabilities and security research.">
-<meta name="twitter:image" content="https://brunelcs.org/assets/og-image.png">
+<meta name="twitter:image" content="https://brunelcs.org/assets/brand/og-image.png">
 <meta name="theme-color" content="#0B0B0D">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/styles.css">
-<script>try{if(sessionStorage.getItem("booted"))document.documentElement.classList.add("booted");}catch(e){}</script>
+<script src="/js/head.js"></script>
 </head>
 <body class="wave-bg">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -44,6 +46,7 @@
   <div class="nav-links">
     <a href="/index.html#about">about</a>
     <a href="/pages/events.html">events</a>
+    <a href="/pages/hall-of-fame.html">hall of fame</a>
     <!-- BLOG-HIDDEN: blog temporarily removed from the nav pending a committee decision. To restore, delete this comment wrapper and keep the link. <a href="/pages/blog.html" aria-current="page">blog</a> -->
     <a href="/pages/resources.html">resources</a>
     <a href="/pages/security-basics.html">stay safe</a>
@@ -93,6 +96,10 @@
     <a href="https://github.com/brunelcybersec" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.09.68-.22.68-.49 0-.24-.01-.88-.01-1.73-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.27 2.75 1.05a9.4 9.4 0 0 1 5 0c1.91-1.32 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.59.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>github</a>
     <a href="https://www.youtube.com/@CyberTutor24" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.76-1.77C19.26 5.13 12 5.13 12 5.13s-7.26 0-8.84.4A2.5 2.5 0 0 0 1.4 7.3 26 26 0 0 0 1 12a26 26 0 0 0 .4 4.7 2.5 2.5 0 0 0 1.76 1.77c1.58.4 8.84.4 8.84.4s7.26 0 8.84-.4a2.5 2.5 0 0 0 1.76-1.77A26 26 0 0 0 23 12zM9.75 15.02V8.98L15.5 12z"/></svg>youtube</a>
     <a href="mailto:contact@brunelcs.org"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7.5l9 6 9-6"/></svg>email</a>
+  </div>
+  <div class="contrib" role="note" aria-label="Contribute to this site">
+    <span><span class="prompt" aria-hidden="true">$</span> <code>git clone brunelcybersec/brunel-cyber-society</code> &mdash; this site is open source, and pull requests from freshers are welcome.</span>
+    <a href="https://github.com/brunelcybersec/brunel-cyber-society/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="8" r="2.5"/><path d="M6 8.5v7M18 10.5c0 4-6 3-10.5 6"/></svg>Contribute to this site<span class="sr-only"> (CONTRIBUTING.md on GitHub, opens in a new tab)</span></a>
   </div>
   <p class="footer-credit">Designed and built by the <a href="/pages/credits.html">Brunel Cyber Security committee</a>.</p>
 </footer>

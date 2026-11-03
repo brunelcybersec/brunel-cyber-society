@@ -1,0 +1,22 @@
+# Security headers for Netlify or Cloudflare Pages.
+# Copy this file into frontend/ (so it is published at the site root) if the
+# site moves to one of those hosts. GitHub Pages ignores it.
+# See deploy/security-headers/README.md before enabling.
+#
+# Keep the CSP in step with the <meta http-equiv="Content-Security-Policy">
+# in every page; the header adds frame-ancestors, which <meta> cannot set.
+
+/*
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://substackcdn.com; media-src 'self'; connect-src 'self'; frame-src https://calendar.google.com; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin
+
+/events.ics
+  Content-Type: text/calendar; charset=utf-8
+  Cache-Control: public, max-age=3600
+  Cross-Origin-Resource-Policy: cross-origin

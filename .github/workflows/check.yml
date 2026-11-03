@@ -1,6 +1,6 @@
 name: Check site
 
-# Fast sanity checks (backend/tools/check-site.mjs): every script parses,
+# Fast sanity checks (tools/check-site.mjs): every script parses,
 # data.js loads with valid event dates, and every same-site link and image
 # exists with the exact capitalisation GitHub Pages needs.
 # Runs on every pull request, and deploy.yml calls it before each deploy,
@@ -26,4 +26,4 @@ jobs:
           node-version: '22'
 
       - name: Run site checks
-        run: node backend/tools/check-site.mjs
+        run: node tools/check-site.mjs

@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://substackcdn.com; media-src 'self'; connect-src 'self'; frame-src https://calendar.google.com; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>What's on · Brunel Cyber Security Society</title>
 <meta name="description" content="Workshops, CTF competitions and guest talks throughout the academic year. Everything is free for members.">
@@ -11,17 +13,17 @@
 <meta property="og:description" content="Workshops, CTF competitions and guest talks throughout the academic year. Everything is free for members.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://brunelcs.org/pages/events.html">
-<meta property="og:image" content="https://brunelcs.org/assets/og-image.png">
+<meta property="og:image" content="https://brunelcs.org/assets/brand/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="What's on · Brunel Cyber Security Society">
 <meta name="twitter:description" content="Workshops, CTF competitions and guest talks throughout the academic year. Everything is free for members.">
-<meta name="twitter:image" content="https://brunelcs.org/assets/og-image.png">
+<meta name="twitter:image" content="https://brunelcs.org/assets/brand/og-image.png">
 <meta name="theme-color" content="#0B0B0D">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/styles.css">
-<script>try{if(sessionStorage.getItem("booted"))document.documentElement.classList.add("booted");}catch(e){}</script>
+<script src="/js/head.js"></script>
 </head>
 <body class="wave-bg">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -43,6 +45,7 @@
   <div class="nav-links">
     <a href="/index.html#about">about</a>
     <a href="/pages/events.html" aria-current="page">events</a>
+    <a href="/pages/hall-of-fame.html">hall of fame</a>
     <!-- BLOG-HIDDEN: blog temporarily removed from the nav pending a committee decision. To restore, delete this comment wrapper and keep the link. <a href="/pages/blog.html">blog</a> -->
     <a href="/pages/resources.html">resources</a>
     <a href="/pages/security-basics.html">stay safe</a>
@@ -59,6 +62,19 @@
 </div>
 
 <section class="tight reveal">
+  <div class="cal-sub" id="subscribe">
+    <div>
+      <h2>Never miss an event</h2>
+      <p>Subscribe once and every new workshop, CTF and social appears in your own calendar automatically, with dates updated as plans change.</p>
+    </div>
+    <div class="cta-row">
+      <a class="btn solid" href="webcal://brunelcs.org/events.ics">Subscribe (Apple / Outlook)</a>
+      <a class="btn ghost-btn" href="https://calendar.google.com/calendar/r?cid=webcal%3A%2F%2Fbrunelcs.org%2Fevents.ics" target="_blank" rel="noopener">Add to Google Calendar<span class="sr-only"> (opens in a new tab)</span></a>
+      <a class="btn ghost-btn" href="/events.ics" download="brunel-cybersec-events.ics">Download .ics</a>
+    </div>
+    <p class="cal-feed"><span>// or paste this feed into any calendar app:</span> <code>https://brunelcs.org/events.ics</code></p>
+  </div>
+  <div class="cal-embed" id="cal-embed" hidden></div>
   <div id="upcoming-events"></div>
 </section>
 
@@ -78,58 +94,35 @@
   <p class="lede">A few moments from our Freshers stall on Tuesday 22 September 2026.</p>
   <div class="freshers-gallery">
     <div class="video-card">
-      <video controls playsinline preload="metadata" muted poster="assets/freshers.png">
-        <source src="/assets/freshers-whatsapp-1.mp4" type="video/mp4">
+      <video controls playsinline preload="metadata" muted poster="/assets/events/freshers-video-1-poster.png">
+        <source src="/assets/events/freshers-video-1.mp4" type="video/mp4">
       </video>
-      <a class="video-open mono" href="/assets/freshers-whatsapp-1.mp4" target="_blank" rel="noopener">Open video directly &rarr;</a>
+      <a class="video-open mono" href="/assets/events/freshers-video-1.mp4" target="_blank" rel="noopener">Open video directly &rarr;</a>
     </div>
     <div class="video-card">
-      <video controls playsinline preload="metadata" muted poster="assets/freshers-display.jpg">
-        <source src="/assets/freshers-whatsapp-2.mp4" type="video/mp4">
+      <video controls playsinline preload="metadata" muted poster="/assets/events/freshers-display.jpg">
+        <source src="/assets/events/freshers-video-2.mp4" type="video/mp4">
       </video>
-      <a class="video-open mono" href="/assets/freshers-whatsapp-2.mp4" target="_blank" rel="noopener">Open video directly &rarr;</a>
+      <a class="video-open mono" href="/assets/events/freshers-video-2.mp4" target="_blank" rel="noopener">Open video directly &rarr;</a>
     </div>
-    <img src="/assets/freshers-activity.jpg" alt="Students visiting the Brunel Cyber Security Society Freshers stall" loading="lazy">
-    <img src="/assets/freshers-display.jpg" alt="Brunel Cyber Security Society display board and laptops at Freshers" loading="lazy">
-    <img src="/assets/freshers-crowd.jpg" alt="Students gathered around the Brunel Cyber Security Society Freshers stall" loading="lazy">
+    <img src="/assets/events/freshers-activity.jpg" alt="Students visiting the Brunel Cyber Security Society Freshers stall" loading="lazy">
+    <img src="/assets/events/freshers-display.jpg" alt="Brunel Cyber Security Society display board and laptops at Freshers" loading="lazy">
+    <img src="/assets/events/freshers-crowd.jpg" alt="Students gathered around the Brunel Cyber Security Society Freshers stall" loading="lazy">
   </div>
 </section>
 
-<section class="ach reveal" id="ctf-achievements" aria-labelledby="ach-heading">
+<section class="tight reveal" id="ctf-achievements" aria-labelledby="ach-heading">
   <div class="section-head">
     <span class="tag">02</span>
     <h2 id="ach-heading">CTF Achievements</h2>
   </div>
-
-  <article class="ach-item" aria-labelledby="ach-cymbal">
-    <p class="ach-meta mono">29 Oct &ndash; 1 Nov 2026 &middot; team BrunelCS</p>
-    <h3 id="ach-cymbal">Operation Cymbal: Cold Room 2026</h3>
-    <p class="ach-lede">BrunelCS represented the Brunel Cyber Security Society in Operation Cymbal: Cold Room 2026, a cybersecurity competition involving Google Cloud Security, Hack The Box and the Google Cloud Security Community.</p>
-
-    <!-- team results: the only place on the site these numbers are spelled out -->
-    <div class="stats ach-stats">
-      <div class="stat"><div class="num">321st</div><div class="label">team ranking</div><div class="sub">out of 1,716 teams</div></div>
-      <div class="stat"><div class="num">18/18</div><div class="label">challenges completed</div><div class="sub">every challenge solved</div></div>
-      <div class="stat"><div class="num">2,075</div><div class="label">total points</div></div>
+  <div class="more-cta">
+    <div class="more-cta-text">
+      <p class="ach-meta mono">latest &middot; operation cymbal: cold room 2026</p>
+      <p>BrunelCS placed 321st out of 1,716 teams and solved all 18 challenges. Every result, plus our CTFtime ranking, now lives in the Hall of Fame.</p>
     </div>
-
-    <p class="ach-lede">The competition provided hands-on experience with Google SecOps, security investigations and collaborative problem-solving. Team members included Alex Javadi and Sanat Wagh.</p>
-
-    <div class="ach-media">
-      <figure>
-        <a href="/assets/cymbal-certificate.png" target="_blank" rel="noopener">
-          <img src="/assets/cymbal-certificate.webp" width="1280" height="908" loading="lazy" decoding="async"
-               alt="Hack The Box certificate of participation for Operation Cymbal: Cold Room 2026 CTF, run with Google Cloud Security and the Google Cloud Security Community. It shows username Alex Javadi, team name BrunelCS, team ranking 321st, 18 of 18 challenges solved, 2,075 total points, 1,716 total teams, and CTF dates 29/10/2026 to 01/11/2026.">
-        </a>
-        <figcaption class="mono">Alex Javadi's Hack The Box certificate, showing the BrunelCS team result &middot; <a href="/assets/cymbal-certificate.png" target="_blank" rel="noopener">view full size<span class="sr-only"> (opens in a new tab)</span></a></figcaption>
-      </figure>
-      <figure>
-        <img src="/assets/cymbal-secops.webp" width="640" height="854" loading="lazy" decoding="async"
-             alt="A laptop screen showing a Google SecOps SIEM search for an IP address during the competition, listing email, login and alert events from the CTF's fictional Cymbal Investments scenario.">
-        <figcaption class="mono">A Google SecOps search during the competition</figcaption>
-      </figure>
-    </div>
-  </article>
+    <a class="btn ghost-btn" href="/pages/hall-of-fame.html">Hall of Fame &rarr;</a>
+  </div>
 </section>
 
 <div class="ctf-band reveal">
@@ -138,7 +131,7 @@
       <span class="tag">//</span>
       <h2>Join the CTF team</h2>
     </div>
-    <p class="lede">Our CTF team, BrunelCS, is already competing &mdash; most recently in Operation Cymbal: Cold Room 2026 (see above). New players are welcome at every level: no experience required, just curiosity and a willingness to learn. Join the Discord to hear about the next competition.</p>
+    <p class="lede">Our CTF team, BrunelCS, is already competing &mdash; most recently in Operation Cymbal: Cold Room 2026 (see the <a href="/pages/hall-of-fame.html">Hall of Fame</a>). New players are welcome at every level: no experience required, just curiosity and a willingness to learn. Join the Discord to hear about the next competition.</p>
     <div class="stats">
       <div class="stat"><div class="num">Open</div><div class="label">to all levels</div><div class="sub">zero experience needed</div></div>
       <div class="stat"><div class="num">Free</div><div class="label">for members</div><div class="sub">represent Brunel</div></div>
@@ -165,6 +158,10 @@
     <a href="https://github.com/brunelcybersec" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.09.68-.22.68-.49 0-.24-.01-.88-.01-1.73-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.27 2.75 1.05a9.4 9.4 0 0 1 5 0c1.91-1.32 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.59.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>github</a>
     <a href="https://www.youtube.com/@CyberTutor24" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.76-1.77C19.26 5.13 12 5.13 12 5.13s-7.26 0-8.84.4A2.5 2.5 0 0 0 1.4 7.3 26 26 0 0 0 1 12a26 26 0 0 0 .4 4.7 2.5 2.5 0 0 0 1.76 1.77c1.58.4 8.84.4 8.84.4s7.26 0 8.84-.4a2.5 2.5 0 0 0 1.76-1.77A26 26 0 0 0 23 12zM9.75 15.02V8.98L15.5 12z"/></svg>youtube</a>
     <a href="mailto:contact@brunelcs.org"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7.5l9 6 9-6"/></svg>email</a>
+  </div>
+  <div class="contrib" role="note" aria-label="Contribute to this site">
+    <span><span class="prompt" aria-hidden="true">$</span> <code>git clone brunelcybersec/brunel-cyber-society</code> &mdash; this site is open source, and pull requests from freshers are welcome.</span>
+    <a href="https://github.com/brunelcybersec/brunel-cyber-society/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="8" r="2.5"/><path d="M6 8.5v7M18 10.5c0 4-6 3-10.5 6"/></svg>Contribute to this site<span class="sr-only"> (CONTRIBUTING.md on GitHub, opens in a new tab)</span></a>
   </div>
   <p class="footer-credit">Designed and built by the <a href="/pages/credits.html">Brunel Cyber Security committee</a>.</p>
 </footer>

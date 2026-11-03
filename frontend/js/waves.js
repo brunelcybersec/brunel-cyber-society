@@ -16,13 +16,24 @@
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   if (!ctx) return;   /* very old browser / context lost — bail quietly */
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* prefers-reduced-motion is watched live, not read once: a visitor who
+     turns on "reduce motion" mid-visit gets a still frame straight away */
+  const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let reduceMotion = motionQuery.matches;
 
-  /* stroke colours for the three chromatic-aberration layers, hoisted so
-     they aren't reallocated for every row on every frame */
-  const WARM = 'rgba(224, 138, 109, 0.5)';
-  const COOL = 'rgba(111, 201, 216, 0.5)';
-  const WHITE = 'rgba(233, 230, 227, 0.9)';
+  /* stroke colours for the three chromatic-aberration layers. They come from
+     the --wave-* tokens in styles.css so the canvas follows the dark/light
+     theme; read once here and again on 'themechange' (site.js), never per frame. */
+  let WARM, COOL, WHITE, DOT;
+  function readColours() {
+    const cs = getComputedStyle(document.documentElement);
+    const get = function (name, fallback) { return cs.getPropertyValue(name).trim() || fallback; };
+    WARM = get('--wave-warm', 'rgba(224, 138, 109, 0.5)');
+    COOL = get('--wave-cool', 'rgba(111, 201, 216, 0.5)');
+    WHITE = get('--wave-ink', 'rgba(233, 230, 227, 0.9)');
+    DOT = get('--wave-dot', 'rgba(233, 230, 227, 0.10)');
+  }
+  readColours();
 
   /* a page can request a different look with data-variant="b" on the canvas */
   const VARIANT = canvas.dataset.variant || 'a';
@@ -48,7 +59,7 @@
     grid.height = h * dpr;
     const g = grid.getContext('2d');
     g.setTransform(dpr, 0, 0, dpr, 0, 0);
-    g.fillStyle = 'rgba(233, 230, 227, 0.10)';
+    g.fillStyle = DOT;
     for (let gx = 30; gx < w; gx += 90) {
       for (let gy = 30; gy < h; gy += 90) {
         g.fillRect(gx, gy, 1.5, 1.5);
@@ -197,19 +208,30 @@
 
   resize();        /* sizes the canvas and paints one static frame */
 
-  if (!reduceMotion) {
+  /* start() refuses to run while reduceMotion is true, so these listeners
+     are safe to attach unconditionally */
+  if ('IntersectionObserver' in window) {
     /* pause the loop whenever the hero scrolls out of view */
-    if ('IntersectionObserver' in window) {
-      const io = new IntersectionObserver(function (entries) {
-        inView = entries[0].isIntersecting;
-        if (inView) start(); else stop();
-      }, { threshold: 0 });
-      io.observe(canvas);
-    }
-    /* pause when the tab is hidden, resume when it returns */
-    document.addEventListener('visibilitychange', function () {
-      if (document.hidden) stop(); else start();
-    });
-    start();
+    const io = new IntersectionObserver(function (entries) {
+      inView = entries[0].isIntersecting;
+      if (inView) start(); else stop();
+    }, { threshold: 0 });
+    io.observe(canvas);
   }
+  /* pause when the tab is hidden, resume when it returns */
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) stop(); else start();
+  });
+  const onMotionPref = function () {
+    reduceMotion = motionQuery.matches;
+    if (reduceMotion) { stop(); render(); } else start();
+  };
+  if (motionQuery.addEventListener) motionQuery.addEventListener('change', onMotionPref);
+  /* theme switched: new colours, rebuild the dot grid, repaint at once */
+  document.addEventListener('themechange', function () {
+    readColours();
+    buildGrid();
+    render();
+  });
+  start();
 })();
