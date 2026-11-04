@@ -167,6 +167,15 @@ window.SITE_DATA = {
   /* CYBERTUTOR:START */
   posts: [
     {
+      date:  "04 nov 2026",
+      title: "LLMjacking Emerges as Thriving Cybercriminal Enterprise",
+      desc:  "Cybercriminals are increasingly monetizing stolen access to commercial large language models through “LLMjacking,” an illicit underground business in which attackers exploit exposed endpoints, stolen cloud identity…",
+      tag:   "news",
+      tone:  "",
+      image: "https://substackcdn.com/image/fetch/$s_!yHb3!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F35aa9544-e3f4-4a95-9e69-52ad7e8beefe_1672x941.png",
+      link:  "https://mohammedzuoriki.substack.com/p/llmjacking-emerges-as-thriving-cybercriminal"
+    },
+    {
       date:  "03 nov 2026",
       title: "One Compromised Laptop, Billions Lost: The Binance Attack-Path Warning",
       desc:  "Last week’s $6.3 billion Binance breach attributed by the FBI to North Korea’s TraderTraitor group shows that security depends not only on blocking threats but on limiting what compromised systems and privileged…",
@@ -237,15 +246,6 @@ window.SITE_DATA = {
       tone:  "cool",
       image: "https://substackcdn.com/image/fetch/$s_!UB_K!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1cf5bdfd-fca8-44ac-9de1-609dabe49212_1672x941.png",
       link:  "https://mohammedzuoriki.substack.com/p/ai-agents-as-insider-threats-inside"
-    },
-    {
-      date:  "24 oct 2026",
-      title: "Exposed to PHP2Shell? Cyber Experts Weigh in With Advice",
-      desc:  "Organizations are struggling to patch the newly disclosed “PHP2Shell” vulnerabilities (CVE-2026-109618 and CVE-2026-109619) as quickly as attackers are exploiting them: threat activity surged from thousands of…",
-      tag:   "breach",
-      tone:  "",
-      image: "https://substackcdn.com/image/fetch/$s_!CS5-!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe647fb11-5b27-4412-ab87-d70d2fdd359d_1672x941.png",
-      link:  "https://mohammedzuoriki.substack.com/p/exposed-to-php2shell-cyber-experts"
     }
   ],
   /* CYBERTUTOR:END */
