@@ -167,6 +167,15 @@ window.SITE_DATA = {
   /* CYBERTUTOR:START */
   posts: [
     {
+      date:  "05 nov 2026",
+      title: "Google, Partners Disrupt 1.3 Million-Device-Strong XCPE Botnet",
+      desc:  "Google and industry partners disrupted the XCPE botnet, which allegedly was built by Android device maker Videostrong and embedded a backdoor in more than 1.3 million Android-based set-top boxes and other IoT devices…",
+      tag:   "malware",
+      tone:  "warm",
+      image: "https://substackcdn.com/image/fetch/$s_!zNMK!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fed932a1f-9021-4d21-97fa-2f7252873ae2_1672x941.png",
+      link:  "https://mohammedzuoriki.substack.com/p/google-partners-disrupt-13-million"
+    },
+    {
       date:  "04 nov 2026",
       title: "LLMjacking Emerges as Thriving Cybercriminal Enterprise",
       desc:  "Cybercriminals are increasingly monetizing stolen access to commercial large language models through “LLMjacking,” an illicit underground business in which attackers exploit exposed endpoints, stolen cloud identity…",
@@ -237,15 +246,6 @@ window.SITE_DATA = {
       tone:  "",
       image: "https://substackcdn.com/image/fetch/$s_!c8kL!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff78f6ae9-64d2-4889-b5c4-cc2b9f52acb7_1672x941.png",
       link:  "https://mohammedzuoriki.substack.com/p/gheist-weaponizes-github-tokens-to"
-    },
-    {
-      date:  "26 oct 2026",
-      title: "AI Agents as Insider Threats: Inside Microsoft's Bet on a Unified Security Stack",
-      desc:  "Microsoft has expanded Project Perception to treat AI agents as potential “agentic insiders”—privileged employees that can be manipulated, compromised, or act unpredictably—by discovering agents across an…",
-      tag:   "ai",
-      tone:  "cool",
-      image: "https://substackcdn.com/image/fetch/$s_!UB_K!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1cf5bdfd-fca8-44ac-9de1-609dabe49212_1672x941.png",
-      link:  "https://mohammedzuoriki.substack.com/p/ai-agents-as-insider-threats-inside"
     }
   ],
   /* CYBERTUTOR:END */
