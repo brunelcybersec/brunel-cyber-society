@@ -167,6 +167,15 @@ window.SITE_DATA = {
   /* CYBERTUTOR:START */
   posts: [
     {
+      date:  "06 nov 2026",
+      title: "US Government Email Systems Open to Abuse Thanks to Typos",
+      desc:  "A study of more than 25,000 government-related domains found that simple DNS errors—such as typos, expired domains, or records pointing to domains later purchased by attackers—can expose public agencies to email…",
+      tag:   "policy",
+      tone:  "",
+      image: "https://substackcdn.com/image/fetch/$s_!V0W4!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1e9b265d-f88f-4f20-b339-5625296d4549_1672x941.png",
+      link:  "https://mohammedzuoriki.substack.com/p/us-government-email-systems-open"
+    },
+    {
       date:  "05 nov 2026",
       title: "Google, Partners Disrupt 1.3 Million-Device-Strong XCPE Botnet",
       desc:  "Google and industry partners disrupted the XCPE botnet, which allegedly was built by Android device maker Videostrong and embedded a backdoor in more than 1.3 million Android-based set-top boxes and other IoT devices…",
@@ -237,15 +246,6 @@ window.SITE_DATA = {
       tone:  "cool",
       image: "https://substackcdn.com/image/fetch/$s_!tmkr!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffcfa65fd-7f48-4411-81d1-d2ee6b13027c_1536x1024.png",
       link:  "https://mohammedzuoriki.substack.com/p/attacker-relentlessly-scans-for-credentials"
-    },
-    {
-      date:  "27 oct 2026",
-      title: "'Gheist' Weaponizes GitHub Tokens to Steal Cloud Secrets",
-      desc:  "The “Gheist” campaign is an active attack that uses stolen GitHub tokens—largely obtained through infostealer malware and earlier supply-chain breaches—to plant malicious GitHub Actions workflows in over 13,500…",
-      tag:   "breach",
-      tone:  "",
-      image: "https://substackcdn.com/image/fetch/$s_!c8kL!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff78f6ae9-64d2-4889-b5c4-cc2b9f52acb7_1672x941.png",
-      link:  "https://mohammedzuoriki.substack.com/p/gheist-weaponizes-github-tokens-to"
     }
   ],
   /* CYBERTUTOR:END */
