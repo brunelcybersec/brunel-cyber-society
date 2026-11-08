@@ -167,6 +167,24 @@ window.SITE_DATA = {
   /* CYBERTUTOR:START */
   posts: [
     {
+      date:  "08 nov 2026",
+      title: "What We Missed: Knicks Phishing Test Goes Out of Bounds",
+      desc:  "Madison Square Garden Sports, owner of the New York Knicks, drew criticism after sending employees a phishing simulation that offered free championship rings just before the team’s banner-raising ceremony; employees…",
+      tag:   "phishing",
+      tone:  "cool",
+      image: "https://substackcdn.com/image/fetch/$s_!HhFN!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd0abe7e1-6219-4f3d-bc2b-06c0f8a76cea_1200x630.jpeg",
+      link:  "https://mohammedzuoriki.substack.com/p/what-we-missed-knicks-phishing-test"
+    },
+    {
+      date:  "07 nov 2026",
+      title: "UK Wades Into Tech Sovereignty Amid AI Policy Changes",
+      desc:  "The UK is investing about $800 million to bolster cyber defences and AI security as it confronts faster, AI-enhanced attacks, while also pursuing digital sovereignty by funding homegrown technology and reducing…",
+      tag:   "ai",
+      tone:  "cool",
+      image: "https://substackcdn.com/image/fetch/$s_!tvA9!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4b88735c-bf49-4285-9377-182106ea55e1_1672x941.png",
+      link:  "https://mohammedzuoriki.substack.com/p/uk-wades-into-tech-sovereignty-amid"
+    },
+    {
       date:  "06 nov 2026",
       title: "US Government Email Systems Open to Abuse Thanks to Typos",
       desc:  "A study of more than 25,000 government-related domains found that simple DNS errors—such as typos, expired domains, or records pointing to domains later purchased by attackers—can expose public agencies to email…",
@@ -228,24 +246,6 @@ window.SITE_DATA = {
       tone:  "",
       image: "https://substackcdn.com/image/fetch/$s_!9AxX!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F59ca36fc-20d1-4a06-809b-9e64796ddb84_1672x941.png",
       link:  "https://mohammedzuoriki.substack.com/p/undead-software-projects-continue"
-    },
-    {
-      date:  "29 oct 2026",
-      title: "Shadowy AI Relay Disables OpenAI Codex, Claude Code Sandboxes",
-      desc:  "An unauthorized AI relay service, first identified by Symantec, has been installing genuine OpenAI Codex and Anthropic Claude Code command-line tools on systems at roughly a dozen organizations mainly in mainland…",
-      tag:   "ai",
-      tone:  "cool",
-      image: "https://substackcdn.com/image/fetch/$s_!wLuB!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5163c9a3-4fe4-4eab-9c3b-16d39bf7916b_1536x1024.png",
-      link:  "https://mohammedzuoriki.substack.com/p/shadowy-ai-relay-disables-openai"
-    },
-    {
-      date:  "28 oct 2026",
-      title: "Attacker Relentlessly Scans for Credentials by Impersonating AI Bots",
-      desc:  "A threat actor has been impersonating more than 30 AI bots—including agents attributed to OpenAI, Anthropic, Perplexity, and Meta—to scan organizations for exposed passwords, API keys, cloud credentials, and private…",
-      tag:   "phishing",
-      tone:  "cool",
-      image: "https://substackcdn.com/image/fetch/$s_!tmkr!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffcfa65fd-7f48-4411-81d1-d2ee6b13027c_1536x1024.png",
-      link:  "https://mohammedzuoriki.substack.com/p/attacker-relentlessly-scans-for-credentials"
     }
   ],
   /* CYBERTUTOR:END */
