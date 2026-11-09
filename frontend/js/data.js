@@ -167,6 +167,15 @@ window.SITE_DATA = {
   /* CYBERTUTOR:START */
   posts: [
     {
+      date:  "09 nov 2026",
+      title: "AI Gave Your Incident Archive a Second Job",
+      desc:  "Security incident records—such as closure notes, rule text, false-positive dispositions, and reasons for suppressing alerts—have traditionally existed to document an organization’s decisions and preserve…",
+      tag:   "ai",
+      tone:  "cool",
+      image: "https://substackcdn.com/image/fetch/$s_!45yw!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbf9160d6-5328-46bd-b933-0d7c3b1695cc_1672x941.png",
+      link:  "https://mohammedzuoriki.substack.com/p/ai-gave-your-incident-archive-a-second"
+    },
+    {
       date:  "08 nov 2026",
       title: "What We Missed: Knicks Phishing Test Goes Out of Bounds",
       desc:  "Madison Square Garden Sports, owner of the New York Knicks, drew criticism after sending employees a phishing simulation that offered free championship rings just before the team’s banner-raising ceremony; employees…",
@@ -237,15 +246,6 @@ window.SITE_DATA = {
       tone:  "",
       image: "https://substackcdn.com/image/fetch/$s_!f3AA!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb186883f-d3ec-4d64-8ab3-b238e00b80db_1672x941.png",
       link:  "https://mohammedzuoriki.substack.com/p/ghostaction-hacking-wave-fizzles"
-    },
-    {
-      date:  "30 oct 2026",
-      title: "Undead Software Projects Continue to Raise Security Risks",
-      desc:  "A modified version of the abandoned 2014 BitTorrent client Time4Popcorn left persistent updaters running on more than 2.5 million Windows machines and an estimated 300,000 Macs, checking domains that had lapsed and…",
-      tag:   "news",
-      tone:  "",
-      image: "https://substackcdn.com/image/fetch/$s_!9AxX!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F59ca36fc-20d1-4a06-809b-9e64796ddb84_1672x941.png",
-      link:  "https://mohammedzuoriki.substack.com/p/undead-software-projects-continue"
     }
   ],
   /* CYBERTUTOR:END */
