@@ -167,6 +167,15 @@ window.SITE_DATA = {
   /* CYBERTUTOR:START */
   posts: [
     {
+      date:  "10 nov 2026",
+      title: "Attackers Crash Claude's 'Office Party' Flaw to Run Malicious Code on Linux",
+      desc:  "AIR Security researchers have disclosed an unpatched vulnerability, dubbed “Office Party,” in Anthropic Claude’s official DOCX, PPTX, and XLSX document-processing skills that can let an attacker execute malicious…",
+      tag:   "vuln",
+      tone:  "warm",
+      image: "https://substackcdn.com/image/fetch/$s_!obpf!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe4c2b6e7-c736-43dd-8c0d-1859b697c404_1672x941.png",
+      link:  "https://mohammedzuoriki.substack.com/p/attackers-crash-claudes-office-party"
+    },
+    {
       date:  "09 nov 2026",
       title: "AI Gave Your Incident Archive a Second Job",
       desc:  "Security incident records—such as closure notes, rule text, false-positive dispositions, and reasons for suppressing alerts—have traditionally existed to document an organization’s decisions and preserve…",
@@ -237,15 +246,6 @@ window.SITE_DATA = {
       tone:  "cool",
       image: "https://substackcdn.com/image/fetch/$s_!_Yhb!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F22d1a093-f446-41ae-bc78-c7ab840dd18e_1440x810.png",
       link:  "https://mohammedzuoriki.substack.com/p/risks-and-rewards-how-ai-is-redefining"
-    },
-    {
-      date:  "01 nov 2026",
-      title: "GhostAction Hacking Wave Fizzles, but Attackers Lurk on in GitHub",
-      desc:  "Read more",
-      tag:   "news",
-      tone:  "",
-      image: "https://substackcdn.com/image/fetch/$s_!f3AA!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb186883f-d3ec-4d64-8ab3-b238e00b80db_1672x941.png",
-      link:  "https://mohammedzuoriki.substack.com/p/ghostaction-hacking-wave-fizzles"
     }
   ],
   /* CYBERTUTOR:END */
