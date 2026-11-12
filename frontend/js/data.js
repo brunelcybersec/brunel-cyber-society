@@ -341,6 +341,16 @@ window.SITE_DATA = {
       bio: "Lawand Salah serves as Web Officer of Brunel Cyber Security Society. He is responsible for the development and maintenance of the society's website, publishing events and resources, and supporting improvements to its online presence.",
       duties: []
     },
+    {
+      name: "Foysal Islam",
+      role: "event officer",
+      email: "f.islam@brunelcs.org",
+      initials: "FI",
+      photo: "/assets/committee/foysal.jpeg", //TODO: replace with Foysal's photo when available
+      accent: "warm",
+      bio: "Foysal Islam serves as Event Officer of Brunel Cyber Security Society. He is responsible for planning and organising the society's events and workshops, coordinating with the committee, and helping promote activities to members throughout the year.",
+      duties: []
+    },
   ]
 
 };
