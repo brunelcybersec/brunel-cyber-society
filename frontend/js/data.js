@@ -167,6 +167,24 @@ window.SITE_DATA = {
   /* CYBERTUTOR:START */
   posts: [
     {
+      date:  "12 nov 2026",
+      title: "Japan Pushes Emergency Funding for Cybersecurity as AI-Assisted Breaches Rise",
+      desc:  "Japan has announced a ¥10 billion ($63 million) emergency cybersecurity package to counter a sharp rise in cyberattacks and data breaches, funding government-industry response teams, stronger cyber investigations,…",
+      tag:   "breach",
+      tone:  "",
+      image: "https://substackcdn.com/image/fetch/$s_!Xlmg!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbb4aac76-c111-42c4-9aea-de8c7db14fa8_1536x1024.png",
+      link:  "https://mohammedzuoriki.substack.com/p/japan-pushes-emergency-funding-for"
+    },
+    {
+      date:  "11 nov 2026",
+      title: "Attackers Say 'Hello' to a Different Scale of Cloud Attack",
+      desc:  "Researchers at Era Security discovered “Greeter,” a sophisticated, multistage attack campaign targeting exposed and unpatched Flowise AI-agent servers through the critical code-injection flaw CVE-2024-58351, which…",
+      tag:   "news",
+      tone:  "",
+      image: "https://substackcdn.com/image/fetch/$s_!9IFO!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fdbdcefaf-9062-4448-af4b-c0429d214fa8_1672x941.png",
+      link:  "https://mohammedzuoriki.substack.com/p/attackers-say-hello-to-a-different"
+    },
+    {
       date:  "10 nov 2026",
       title: "Attackers Crash Claude's 'Office Party' Flaw to Run Malicious Code on Linux",
       desc:  "AIR Security researchers have disclosed an unpatched vulnerability, dubbed “Office Party,” in Anthropic Claude’s official DOCX, PPTX, and XLSX document-processing skills that can let an attacker execute malicious…",
@@ -228,24 +246,6 @@ window.SITE_DATA = {
       tone:  "",
       image: "https://substackcdn.com/image/fetch/$s_!yHb3!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F35aa9544-e3f4-4a95-9e69-52ad7e8beefe_1672x941.png",
       link:  "https://mohammedzuoriki.substack.com/p/llmjacking-emerges-as-thriving-cybercriminal"
-    },
-    {
-      date:  "03 nov 2026",
-      title: "One Compromised Laptop, Billions Lost: The Binance Attack-Path Warning",
-      desc:  "Last week’s $6.3 billion Binance breach attributed by the FBI to North Korea’s TraderTraitor group shows that security depends not only on blocking threats but on limiting what compromised systems and privileged…",
-      tag:   "breach",
-      tone:  "",
-      image: "https://substackcdn.com/image/fetch/$s_!VurA!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7dd71e42-9d00-463f-94cd-58509325ccc2_1672x941.png",
-      link:  "https://mohammedzuoriki.substack.com/p/one-compromised-laptop-billions-lost"
-    },
-    {
-      date:  "02 nov 2026",
-      title: "Risks & Rewards: How AI Is Redefining the CISO's Role",
-      desc:  "At ISC2 Strategic Congress 2026 in Denver, Nvidia’s Mark Weatherford argued that the CISO role is rapidly evolving around AI: security leaders must both help the business gain a competitive edge from AI and use it to…",
-      tag:   "ai",
-      tone:  "cool",
-      image: "https://substackcdn.com/image/fetch/$s_!_Yhb!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F22d1a093-f446-41ae-bc78-c7ab840dd18e_1440x810.png",
-      link:  "https://mohammedzuoriki.substack.com/p/risks-and-rewards-how-ai-is-redefining"
     }
   ],
   /* CYBERTUTOR:END */
