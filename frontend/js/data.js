@@ -167,6 +167,15 @@ window.SITE_DATA = {
   /* CYBERTUTOR:START */
   posts: [
     {
+      date:  "13 nov 2026",
+      title: "Cyber Experts Weigh In: How to Fight Artex & AntiFox",
+      desc:  "Artex and its active variant AntiFox are AI-driven, agentic penetration-testing frameworks that have moved from open-source tools into real criminal use, enabling attackers to automate vulnerability discovery,…",
+      tag:   "news",
+      tone:  "",
+      image: "https://substackcdn.com/image/fetch/$s_!qZVQ!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F60663ccb-2ca5-4d7b-af9f-bfad5efcd5da_1672x941.png",
+      link:  "https://mohammedzuoriki.substack.com/p/cyber-experts-weigh-in-how-to-fight"
+    },
+    {
       date:  "12 nov 2026",
       title: "Japan Pushes Emergency Funding for Cybersecurity as AI-Assisted Breaches Rise",
       desc:  "Japan has announced a ¥10 billion ($63 million) emergency cybersecurity package to counter a sharp rise in cyberattacks and data breaches, funding government-industry response teams, stronger cyber investigations,…",
@@ -237,15 +246,6 @@ window.SITE_DATA = {
       tone:  "warm",
       image: "https://substackcdn.com/image/fetch/$s_!zNMK!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fed932a1f-9021-4d21-97fa-2f7252873ae2_1672x941.png",
       link:  "https://mohammedzuoriki.substack.com/p/google-partners-disrupt-13-million"
-    },
-    {
-      date:  "04 nov 2026",
-      title: "LLMjacking Emerges as Thriving Cybercriminal Enterprise",
-      desc:  "Cybercriminals are increasingly monetizing stolen access to commercial large language models through “LLMjacking,” an illicit underground business in which attackers exploit exposed endpoints, stolen cloud identity…",
-      tag:   "news",
-      tone:  "",
-      image: "https://substackcdn.com/image/fetch/$s_!yHb3!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F35aa9544-e3f4-4a95-9e69-52ad7e8beefe_1672x941.png",
-      link:  "https://mohammedzuoriki.substack.com/p/llmjacking-emerges-as-thriving-cybercriminal"
     }
   ],
   /* CYBERTUTOR:END */
