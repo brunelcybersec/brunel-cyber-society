@@ -167,6 +167,24 @@ window.SITE_DATA = {
   /* CYBERTUTOR:START */
   posts: [
     {
+      date:  "15 nov 2026",
+      title: "Extortion Group Luna Moth Flits Into Law Firms a Second Time",
+      desc:  "The extortion group Luna Moth (also known as Silent Ransom Group) is re-targeting law firms that likely did not pay an earlier ransom demand, using a new “vishing” campaign that relies on social engineering rather…",
+      tag:   "policy",
+      tone:  "",
+      image: "https://substackcdn.com/image/fetch/$s_!NfCc!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1dea5159-dcb0-4c68-a1c5-842d9740af65_1672x941.png",
+      link:  "https://mohammedzuoriki.substack.com/p/extortion-group-luna-moth-flits-into"
+    },
+    {
+      date:  "14 nov 2026",
+      title: "Attackers in Binance Breach Targeted Known Weakness, Missing Controls",
+      desc:  "On 29 October, attackers linked by the FBI to North Korea’s TraderTraitor stole roughly $6.34 billion in cryptocurrency from at least 11 Binance wallets by compromising three developers through a malicious Homebrew…",
+      tag:   "breach",
+      tone:  "",
+      image: "https://substackcdn.com/image/fetch/$s_!NtSz!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F054dce5e-aeb2-47b3-9006-9c567c0b7c58_1672x941.png",
+      link:  "https://mohammedzuoriki.substack.com/p/attackers-in-binance-breach-targeted"
+    },
+    {
       date:  "13 nov 2026",
       title: "Cyber Experts Weigh In: How to Fight Artex & AntiFox",
       desc:  "Artex and its active variant AntiFox are AI-driven, agentic penetration-testing frameworks that have moved from open-source tools into real criminal use, enabling attackers to automate vulnerability discovery,…",
@@ -228,24 +246,6 @@ window.SITE_DATA = {
       tone:  "cool",
       image: "https://substackcdn.com/image/fetch/$s_!tvA9!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4b88735c-bf49-4285-9377-182106ea55e1_1672x941.png",
       link:  "https://mohammedzuoriki.substack.com/p/uk-wades-into-tech-sovereignty-amid"
-    },
-    {
-      date:  "06 nov 2026",
-      title: "US Government Email Systems Open to Abuse Thanks to Typos",
-      desc:  "A study of more than 25,000 government-related domains found that simple DNS errors—such as typos, expired domains, or records pointing to domains later purchased by attackers—can expose public agencies to email…",
-      tag:   "policy",
-      tone:  "",
-      image: "https://substackcdn.com/image/fetch/$s_!V0W4!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1e9b265d-f88f-4f20-b339-5625296d4549_1672x941.png",
-      link:  "https://mohammedzuoriki.substack.com/p/us-government-email-systems-open"
-    },
-    {
-      date:  "05 nov 2026",
-      title: "Google, Partners Disrupt 1.3 Million-Device-Strong XCPE Botnet",
-      desc:  "Google and industry partners disrupted the XCPE botnet, which allegedly was built by Android device maker Videostrong and embedded a backdoor in more than 1.3 million Android-based set-top boxes and other IoT devices…",
-      tag:   "malware",
-      tone:  "warm",
-      image: "https://substackcdn.com/image/fetch/$s_!zNMK!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fed932a1f-9021-4d21-97fa-2f7252873ae2_1672x941.png",
-      link:  "https://mohammedzuoriki.substack.com/p/google-partners-disrupt-13-million"
     }
   ],
   /* CYBERTUTOR:END */
