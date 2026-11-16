@@ -167,6 +167,15 @@ window.SITE_DATA = {
   /* CYBERTUTOR:START */
   posts: [
     {
+      date:  "16 nov 2026",
+      title: "Why Europe's Freezer Hacks Spread So Far, So Fast",
+      desc:  "The recent cyberattacks on European supermarket refrigeration systems show how a shared weakness in operational technology can rapidly spread disruption across an entire supply chain: attackers reportedly exploited…",
+      tag:   "news",
+      tone:  "",
+      image: "https://substackcdn.com/image/fetch/$s_!ExCO!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe6d0d3f0-2b27-4a02-a639-aceddce70183_1672x941.png",
+      link:  "https://mohammedzuoriki.substack.com/p/why-europes-freezer-hacks-spread"
+    },
+    {
       date:  "15 nov 2026",
       title: "Extortion Group Luna Moth Flits Into Law Firms a Second Time",
       desc:  "The extortion group Luna Moth (also known as Silent Ransom Group) is re-targeting law firms that likely did not pay an earlier ransom demand, using a new “vishing” campaign that relies on social engineering rather…",
@@ -237,15 +246,6 @@ window.SITE_DATA = {
       tone:  "cool",
       image: "https://substackcdn.com/image/fetch/$s_!HhFN!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd0abe7e1-6219-4f3d-bc2b-06c0f8a76cea_1200x630.jpeg",
       link:  "https://mohammedzuoriki.substack.com/p/what-we-missed-knicks-phishing-test"
-    },
-    {
-      date:  "07 nov 2026",
-      title: "UK Wades Into Tech Sovereignty Amid AI Policy Changes",
-      desc:  "The UK is investing about $800 million to bolster cyber defences and AI security as it confronts faster, AI-enhanced attacks, while also pursuing digital sovereignty by funding homegrown technology and reducing…",
-      tag:   "ai",
-      tone:  "cool",
-      image: "https://substackcdn.com/image/fetch/$s_!tvA9!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4b88735c-bf49-4285-9377-182106ea55e1_1672x941.png",
-      link:  "https://mohammedzuoriki.substack.com/p/uk-wades-into-tech-sovereignty-amid"
     }
   ],
   /* CYBERTUTOR:END */
