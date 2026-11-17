@@ -167,6 +167,15 @@ window.SITE_DATA = {
   /* CYBERTUTOR:START */
   posts: [
     {
+      date:  "17 nov 2026",
+      title: "Google Project Zero Slashes Bug Disclosure Deadlines, Splitting Experts",
+      desc:  "Google’s Project Zero is sharply shortening its vulnerability-disclosure deadlines—from its current 90-day fix period plus 30-day rollout buffer to 90 days immediately, 60 days from February 2027, and just 30 days…",
+      tag:   "vuln",
+      tone:  "warm",
+      image: "https://substackcdn.com/image/fetch/$s_!Mhy8!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F03681ecf-e542-448e-b6d3-f45e4fc09727_1672x941.png",
+      link:  "https://mohammedzuoriki.substack.com/p/google-project-zero-slashes-bug-disclosure"
+    },
+    {
       date:  "16 nov 2026",
       title: "Why Europe's Freezer Hacks Spread So Far, So Fast",
       desc:  "The recent cyberattacks on European supermarket refrigeration systems show how a shared weakness in operational technology can rapidly spread disruption across an entire supply chain: attackers reportedly exploited…",
@@ -237,15 +246,6 @@ window.SITE_DATA = {
       tone:  "cool",
       image: "https://substackcdn.com/image/fetch/$s_!45yw!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbf9160d6-5328-46bd-b933-0d7c3b1695cc_1672x941.png",
       link:  "https://mohammedzuoriki.substack.com/p/ai-gave-your-incident-archive-a-second"
-    },
-    {
-      date:  "08 nov 2026",
-      title: "What We Missed: Knicks Phishing Test Goes Out of Bounds",
-      desc:  "Madison Square Garden Sports, owner of the New York Knicks, drew criticism after sending employees a phishing simulation that offered free championship rings just before the team’s banner-raising ceremony; employees…",
-      tag:   "phishing",
-      tone:  "cool",
-      image: "https://substackcdn.com/image/fetch/$s_!HhFN!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd0abe7e1-6219-4f3d-bc2b-06c0f8a76cea_1200x630.jpeg",
-      link:  "https://mohammedzuoriki.substack.com/p/what-we-missed-knicks-phishing-test"
     }
   ],
   /* CYBERTUTOR:END */
