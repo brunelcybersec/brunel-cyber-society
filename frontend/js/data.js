@@ -167,6 +167,15 @@ window.SITE_DATA = {
   /* CYBERTUTOR:START */
   posts: [
     {
+      date:  "18 nov 2026",
+      title: "Optimizely Malware Attacks Highlight Third-Party Vendor Risks",
+      desc:  "Attackers exploited a vulnerability in Optimizely’s Web Experimentation platform to inject malicious JavaScript dubbed “Hydra-Cart” into 188 scripts used by at least 178 organisations, including Zoom, CNN,…",
+      tag:   "malware",
+      tone:  "warm",
+      image: "https://substackcdn.com/image/fetch/$s_!mzEz!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Feaec2edb-3cc1-47a6-95bb-d8b62f222c73_1672x941.png",
+      link:  "https://mohammedzuoriki.substack.com/p/optimizely-malware-attacks-highlight"
+    },
+    {
       date:  "17 nov 2026",
       title: "Google Project Zero Slashes Bug Disclosure Deadlines, Splitting Experts",
       desc:  "Google’s Project Zero is sharply shortening its vulnerability-disclosure deadlines—from its current 90-day fix period plus 30-day rollout buffer to 90 days immediately, 60 days from February 2027, and just 30 days…",
@@ -237,15 +246,6 @@ window.SITE_DATA = {
       tone:  "warm",
       image: "https://substackcdn.com/image/fetch/$s_!obpf!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe4c2b6e7-c736-43dd-8c0d-1859b697c404_1672x941.png",
       link:  "https://mohammedzuoriki.substack.com/p/attackers-crash-claudes-office-party"
-    },
-    {
-      date:  "09 nov 2026",
-      title: "AI Gave Your Incident Archive a Second Job",
-      desc:  "Security incident records—such as closure notes, rule text, false-positive dispositions, and reasons for suppressing alerts—have traditionally existed to document an organization’s decisions and preserve…",
-      tag:   "ai",
-      tone:  "cool",
-      image: "https://substackcdn.com/image/fetch/$s_!45yw!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbf9160d6-5328-46bd-b933-0d7c3b1695cc_1672x941.png",
-      link:  "https://mohammedzuoriki.substack.com/p/ai-gave-your-incident-archive-a-second"
     }
   ],
   /* CYBERTUTOR:END */
