@@ -167,6 +167,15 @@ window.SITE_DATA = {
   /* CYBERTUTOR:START */
   posts: [
     {
+      date:  "19 nov 2026",
+      title: "Java4Shell Flaw Threatens Global Enterprises, Java Application Ecosystem",
+      desc:  "A newly disclosed, critical vulnerability in OpenJDK—dubbed Java4Shell (CVE-2026-114938, CVSS 9.2)—can let unauthenticated attackers achieve remote code execution or leak sensitive memory through a bug in OpenJDK’s…",
+      tag:   "vuln",
+      tone:  "warm",
+      image: "https://substackcdn.com/image/fetch/$s_!w2M6!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F005defaf-dca8-4842-8201-47487b40b188_1672x941.png",
+      link:  "https://mohammedzuoriki.substack.com/p/java4shell-flaw-threatens-global"
+    },
+    {
       date:  "18 nov 2026",
       title: "Optimizely Malware Attacks Highlight Third-Party Vendor Risks",
       desc:  "Attackers exploited a vulnerability in Optimizely’s Web Experimentation platform to inject malicious JavaScript dubbed “Hydra-Cart” into 188 scripts used by at least 178 organisations, including Zoom, CNN,…",
@@ -237,15 +246,6 @@ window.SITE_DATA = {
       tone:  "",
       image: "https://substackcdn.com/image/fetch/$s_!9IFO!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fdbdcefaf-9062-4448-af4b-c0429d214fa8_1672x941.png",
       link:  "https://mohammedzuoriki.substack.com/p/attackers-say-hello-to-a-different"
-    },
-    {
-      date:  "10 nov 2026",
-      title: "Attackers Crash Claude's 'Office Party' Flaw to Run Malicious Code on Linux",
-      desc:  "AIR Security researchers have disclosed an unpatched vulnerability, dubbed “Office Party,” in Anthropic Claude’s official DOCX, PPTX, and XLSX document-processing skills that can let an attacker execute malicious…",
-      tag:   "vuln",
-      tone:  "warm",
-      image: "https://substackcdn.com/image/fetch/$s_!obpf!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe4c2b6e7-c736-43dd-8c0d-1859b697c404_1672x941.png",
-      link:  "https://mohammedzuoriki.substack.com/p/attackers-crash-claudes-office-party"
     }
   ],
   /* CYBERTUTOR:END */
