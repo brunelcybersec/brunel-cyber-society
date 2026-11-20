@@ -167,6 +167,15 @@ window.SITE_DATA = {
   /* CYBERTUTOR:START */
   posts: [
     {
+      date:  "20 nov 2026",
+      title: "Critical PHP Flaws Allow Code Execution, But Don't Panic 'PHP2Shell'-Style",
+      desc:  "The PHP team’s 19 November security update patches vulnerabilities across all supported PHP versions, including seven critical flaws (CVSS 9.2), but experts say the real-world risk is more nuanced than last month’s…",
+      tag:   "vuln",
+      tone:  "warm",
+      image: "https://substackcdn.com/image/fetch/$s_!_9GN!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F33ccd684-12de-496a-b078-0d9915b3dc4c_1672x941.png",
+      link:  "https://mohammedzuoriki.substack.com/p/critical-php-flaws-allow-code-execution"
+    },
+    {
       date:  "19 nov 2026",
       title: "Java4Shell Flaw Threatens Global Enterprises, Java Application Ecosystem",
       desc:  "A newly disclosed, critical vulnerability in OpenJDK—dubbed Java4Shell (CVE-2026-114938, CVSS 9.2)—can let unauthenticated attackers achieve remote code execution or leak sensitive memory through a bug in OpenJDK’s…",
@@ -237,15 +246,6 @@ window.SITE_DATA = {
       tone:  "",
       image: "https://substackcdn.com/image/fetch/$s_!Xlmg!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbb4aac76-c111-42c4-9aea-de8c7db14fa8_1536x1024.png",
       link:  "https://mohammedzuoriki.substack.com/p/japan-pushes-emergency-funding-for"
-    },
-    {
-      date:  "11 nov 2026",
-      title: "Attackers Say 'Hello' to a Different Scale of Cloud Attack",
-      desc:  "Researchers at Era Security discovered “Greeter,” a sophisticated, multistage attack campaign targeting exposed and unpatched Flowise AI-agent servers through the critical code-injection flaw CVE-2024-58351, which…",
-      tag:   "news",
-      tone:  "",
-      image: "https://substackcdn.com/image/fetch/$s_!9IFO!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fdbdcefaf-9062-4448-af4b-c0429d214fa8_1672x941.png",
-      link:  "https://mohammedzuoriki.substack.com/p/attackers-say-hello-to-a-different"
     }
   ],
   /* CYBERTUTOR:END */
