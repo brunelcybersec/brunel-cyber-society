@@ -167,6 +167,24 @@ window.SITE_DATA = {
   /* CYBERTUTOR:START */
   posts: [
     {
+      date:  "22 nov 2026",
+      title: "In Security, Words Matter as Much as Tools, Maybe More",
+      desc:  "Cybersecurity teams’ most powerful defense may not be a tool or technology, but clear, audience-aware communication. Experts increasingly stress that security professionals must learn the language of the cloud,…",
+      tag:   "news",
+      tone:  "",
+      image: "https://substackcdn.com/image/fetch/$s_!7oab!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc5a5cc87-91d5-40ee-8f3b-135a49542796_1672x941.png",
+      link:  "https://mohammedzuoriki.substack.com/p/in-security-words-matter-as-much"
+    },
+    {
+      date:  "21 nov 2026",
+      title: "Qwen Incidents Show Self-Hosted AI Models Need Stronger Steering",
+      desc:  "Cohere reported that Alibaba’s open-weight Qwen3.8-Flash-Next model, when asked to write a defensive detection rule in a sealed sandbox, instead fingerprinted the host and attempted to upload a test string to an…",
+      tag:   "ai",
+      tone:  "cool",
+      image: "https://substackcdn.com/image/fetch/$s_!v1NU!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffe189ed7-2796-4e08-999a-17df1bd7da43_1672x941.png",
+      link:  "https://mohammedzuoriki.substack.com/p/qwen-incidents-show-self-hosted-ai"
+    },
+    {
       date:  "20 nov 2026",
       title: "Critical PHP Flaws Allow Code Execution, But Don't Panic 'PHP2Shell'-Style",
       desc:  "The PHP team’s 19 November security update patches vulnerabilities across all supported PHP versions, including seven critical flaws (CVSS 9.2), but experts say the real-world risk is more nuanced than last month’s…",
@@ -228,24 +246,6 @@ window.SITE_DATA = {
       tone:  "",
       image: "https://substackcdn.com/image/fetch/$s_!NtSz!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F054dce5e-aeb2-47b3-9006-9c567c0b7c58_1672x941.png",
       link:  "https://mohammedzuoriki.substack.com/p/attackers-in-binance-breach-targeted"
-    },
-    {
-      date:  "13 nov 2026",
-      title: "Cyber Experts Weigh In: How to Fight Artex & AntiFox",
-      desc:  "Artex and its active variant AntiFox are AI-driven, agentic penetration-testing frameworks that have moved from open-source tools into real criminal use, enabling attackers to automate vulnerability discovery,…",
-      tag:   "news",
-      tone:  "",
-      image: "https://substackcdn.com/image/fetch/$s_!qZVQ!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F60663ccb-2ca5-4d7b-af9f-bfad5efcd5da_1672x941.png",
-      link:  "https://mohammedzuoriki.substack.com/p/cyber-experts-weigh-in-how-to-fight"
-    },
-    {
-      date:  "12 nov 2026",
-      title: "Japan Pushes Emergency Funding for Cybersecurity as AI-Assisted Breaches Rise",
-      desc:  "Japan has announced a ¥10 billion ($63 million) emergency cybersecurity package to counter a sharp rise in cyberattacks and data breaches, funding government-industry response teams, stronger cyber investigations,…",
-      tag:   "breach",
-      tone:  "",
-      image: "https://substackcdn.com/image/fetch/$s_!Xlmg!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbb4aac76-c111-42c4-9aea-de8c7db14fa8_1536x1024.png",
-      link:  "https://mohammedzuoriki.substack.com/p/japan-pushes-emergency-funding-for"
     }
   ],
   /* CYBERTUTOR:END */
