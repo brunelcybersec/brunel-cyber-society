@@ -167,6 +167,15 @@ window.SITE_DATA = {
   /* CYBERTUTOR:START */
   posts: [
     {
+      date:  "23 nov 2026",
+      title: "What We Missed: Nvidia CEO Scandal Rocks AI Industry",
+      desc:  "AI companies are increasingly attractive targets for both nation-state espionage and conventional cyber threats, as illustrated by reports that Nvidia CEO Jensen Huang was targeted through an alleged “honey trap”…",
+      tag:   "ai",
+      tone:  "cool",
+      image: "https://substackcdn.com/image/fetch/$s_!v5ij!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff553da2b-ca3d-4636-94b1-304b37045707_1672x941.png",
+      link:  "https://mohammedzuoriki.substack.com/p/what-we-missed-nvidia-ceo-scandal"
+    },
+    {
       date:  "22 nov 2026",
       title: "In Security, Words Matter as Much as Tools, Maybe More",
       desc:  "Cybersecurity teams’ most powerful defense may not be a tool or technology, but clear, audience-aware communication. Experts increasingly stress that security professionals must learn the language of the cloud,…",
@@ -237,15 +246,6 @@ window.SITE_DATA = {
       tone:  "",
       image: "https://substackcdn.com/image/fetch/$s_!NfCc!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1dea5159-dcb0-4c68-a1c5-842d9740af65_1672x941.png",
       link:  "https://mohammedzuoriki.substack.com/p/extortion-group-luna-moth-flits-into"
-    },
-    {
-      date:  "14 nov 2026",
-      title: "Attackers in Binance Breach Targeted Known Weakness, Missing Controls",
-      desc:  "On 29 October, attackers linked by the FBI to North Korea’s TraderTraitor stole roughly $6.34 billion in cryptocurrency from at least 11 Binance wallets by compromising three developers through a malicious Homebrew…",
-      tag:   "breach",
-      tone:  "",
-      image: "https://substackcdn.com/image/fetch/$s_!NtSz!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F054dce5e-aeb2-47b3-9006-9c567c0b7c58_1672x941.png",
-      link:  "https://mohammedzuoriki.substack.com/p/attackers-in-binance-breach-targeted"
     }
   ],
   /* CYBERTUTOR:END */
