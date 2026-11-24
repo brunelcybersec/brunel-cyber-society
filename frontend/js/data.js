@@ -167,6 +167,15 @@ window.SITE_DATA = {
   /* CYBERTUTOR:START */
   posts: [
     {
+      date:  "24 nov 2026",
+      title: "US Cyber Director Pick Signals Shift Toward Expertise",
+      desc:  "President Trump has appointed Kirsten Davies, the Defense Department’s chief information officer, as acting US National Cyber Director, replacing Sean Cairncross amid recent major public- and private-sector outages.…",
+      tag:   "news",
+      tone:  "",
+      image: "https://substackcdn.com/image/fetch/$s_!W6V_!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F98d34e3d-ce1d-4442-a855-dc90e6686764_1672x941.png",
+      link:  "https://mohammedzuoriki.substack.com/p/us-cyber-director-pick-signals-shift"
+    },
+    {
       date:  "23 nov 2026",
       title: "What We Missed: Nvidia CEO Scandal Rocks AI Industry",
       desc:  "AI companies are increasingly attractive targets for both nation-state espionage and conventional cyber threats, as illustrated by reports that Nvidia CEO Jensen Huang was targeted through an alleged “honey trap”…",
@@ -237,15 +246,6 @@ window.SITE_DATA = {
       tone:  "",
       image: "https://substackcdn.com/image/fetch/$s_!ExCO!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe6d0d3f0-2b27-4a02-a639-aceddce70183_1672x941.png",
       link:  "https://mohammedzuoriki.substack.com/p/why-europes-freezer-hacks-spread"
-    },
-    {
-      date:  "15 nov 2026",
-      title: "Extortion Group Luna Moth Flits Into Law Firms a Second Time",
-      desc:  "The extortion group Luna Moth (also known as Silent Ransom Group) is re-targeting law firms that likely did not pay an earlier ransom demand, using a new “vishing” campaign that relies on social engineering rather…",
-      tag:   "policy",
-      tone:  "",
-      image: "https://substackcdn.com/image/fetch/$s_!NfCc!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1dea5159-dcb0-4c68-a1c5-842d9740af65_1672x941.png",
-      link:  "https://mohammedzuoriki.substack.com/p/extortion-group-luna-moth-flits-into"
     }
   ],
   /* CYBERTUTOR:END */
