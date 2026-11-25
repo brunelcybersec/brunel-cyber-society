@@ -167,6 +167,15 @@ window.SITE_DATA = {
   /* CYBERTUTOR:START */
   posts: [
     {
+      date:  "25 nov 2026",
+      title: "Webworm APT Slithers Into Networks With Customized SoftEther VPN",
+      desc:  "Webworm, a China-aligned cyber-espionage group that primarily targets government organisations in Europe, has reportedly developed a stealthier way to maintain long-term access to compromised networks by modifying…",
+      tag:   "malware",
+      tone:  "warm",
+      image: "https://substackcdn.com/image/fetch/$s_!PG85!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff2e3727f-c2ac-452c-919e-c9b885063ab3_1672x941.png",
+      link:  "https://mohammedzuoriki.substack.com/p/webworm-apt-slithers-into-networks"
+    },
+    {
       date:  "24 nov 2026",
       title: "US Cyber Director Pick Signals Shift Toward Expertise",
       desc:  "President Trump has appointed Kirsten Davies, the Defense Department’s chief information officer, as acting US National Cyber Director, replacing Sean Cairncross amid recent major public- and private-sector outages.…",
@@ -237,15 +246,6 @@ window.SITE_DATA = {
       tone:  "warm",
       image: "https://substackcdn.com/image/fetch/$s_!Mhy8!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F03681ecf-e542-448e-b6d3-f45e4fc09727_1672x941.png",
       link:  "https://mohammedzuoriki.substack.com/p/google-project-zero-slashes-bug-disclosure"
-    },
-    {
-      date:  "16 nov 2026",
-      title: "Why Europe's Freezer Hacks Spread So Far, So Fast",
-      desc:  "The recent cyberattacks on European supermarket refrigeration systems show how a shared weakness in operational technology can rapidly spread disruption across an entire supply chain: attackers reportedly exploited…",
-      tag:   "news",
-      tone:  "",
-      image: "https://substackcdn.com/image/fetch/$s_!ExCO!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe6d0d3f0-2b27-4a02-a639-aceddce70183_1672x941.png",
-      link:  "https://mohammedzuoriki.substack.com/p/why-europes-freezer-hacks-spread"
     }
   ],
   /* CYBERTUTOR:END */
