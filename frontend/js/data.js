@@ -167,6 +167,15 @@ window.SITE_DATA = {
   /* CYBERTUTOR:START */
   posts: [
     {
+      date:  "27 nov 2026",
+      title: "Attackers Target .NET Developers With Poisoned Job Assessments",
+      desc:  "A coordinated supply-chain campaign is targeting Windows .NET developers through fake take-home coding assessments that embed malicious NuGet packages, mostly disguised as WinUI 3 and WPF button controls. Socket…",
+      tag:   "news",
+      tone:  "",
+      image: "https://substackcdn.com/image/fetch/$s_!I45L!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6eb4581b-bceb-4524-a6ac-89fc10be7354_1904x1064.png",
+      link:  "https://mohammedzuoriki.substack.com/p/attackers-target-net-developers-with"
+    },
+    {
       date:  "25 nov 2026",
       title: "Webworm APT Slithers Into Networks With Customized SoftEther VPN",
       desc:  "Webworm, a China-aligned cyber-espionage group that primarily targets government organisations in Europe, has reportedly developed a stealthier way to maintain long-term access to compromised networks by modifying…",
@@ -237,15 +246,6 @@ window.SITE_DATA = {
       tone:  "warm",
       image: "https://substackcdn.com/image/fetch/$s_!mzEz!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Feaec2edb-3cc1-47a6-95bb-d8b62f222c73_1672x941.png",
       link:  "https://mohammedzuoriki.substack.com/p/optimizely-malware-attacks-highlight"
-    },
-    {
-      date:  "17 nov 2026",
-      title: "Google Project Zero Slashes Bug Disclosure Deadlines, Splitting Experts",
-      desc:  "Google’s Project Zero is sharply shortening its vulnerability-disclosure deadlines—from its current 90-day fix period plus 30-day rollout buffer to 90 days immediately, 60 days from February 2027, and just 30 days…",
-      tag:   "vuln",
-      tone:  "warm",
-      image: "https://substackcdn.com/image/fetch/$s_!Mhy8!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F03681ecf-e542-448e-b6d3-f45e4fc09727_1672x941.png",
-      link:  "https://mohammedzuoriki.substack.com/p/google-project-zero-slashes-bug-disclosure"
     }
   ],
   /* CYBERTUTOR:END */
