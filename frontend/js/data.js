@@ -167,6 +167,15 @@ window.SITE_DATA = {
   /* CYBERTUTOR:START */
   posts: [
     {
+      date:  "28 nov 2026",
+      title: "As Test Takers Turn to AI, Exam Security Plays Catch-Up",
+      desc:  "Certifications remain a key way for employers to validate IT skills and keep pace with industry and compliance requirements, but AI is increasingly undermining confidence in whether exam results reflect genuine…",
+      tag:   "ai",
+      tone:  "cool",
+      image: "https://substackcdn.com/image/fetch/$s_!GTPB!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F91fd8359-3856-49fd-833e-1b6dd6a1c81f_1672x941.png",
+      link:  "https://mohammedzuoriki.substack.com/p/as-test-takers-turn-to-ai-exam-security"
+    },
+    {
       date:  "27 nov 2026",
       title: "Attackers Target .NET Developers With Poisoned Job Assessments",
       desc:  "A coordinated supply-chain campaign is targeting Windows .NET developers through fake take-home coding assessments that embed malicious NuGet packages, mostly disguised as WinUI 3 and WPF button controls. Socket…",
@@ -237,15 +246,6 @@ window.SITE_DATA = {
       tone:  "warm",
       image: "https://substackcdn.com/image/fetch/$s_!w2M6!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F005defaf-dca8-4842-8201-47487b40b188_1672x941.png",
       link:  "https://mohammedzuoriki.substack.com/p/java4shell-flaw-threatens-global"
-    },
-    {
-      date:  "18 nov 2026",
-      title: "Optimizely Malware Attacks Highlight Third-Party Vendor Risks",
-      desc:  "Attackers exploited a vulnerability in Optimizely’s Web Experimentation platform to inject malicious JavaScript dubbed “Hydra-Cart” into 188 scripts used by at least 178 organisations, including Zoom, CNN,…",
-      tag:   "malware",
-      tone:  "warm",
-      image: "https://substackcdn.com/image/fetch/$s_!mzEz!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Feaec2edb-3cc1-47a6-95bb-d8b62f222c73_1672x941.png",
-      link:  "https://mohammedzuoriki.substack.com/p/optimizely-malware-attacks-highlight"
     }
   ],
   /* CYBERTUTOR:END */
